@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use Fundprint, please cite the methodology version you relied on."
+title: "Fundprint Methodology"
+abstract: >-
+  The authoritative, versioned methodology behind Fundprint, a free public
+  dataset tracing private-equity and other institutional-financial ownership of
+  US applied behavior analysis (ABA) and autism therapy clinics. Defines the
+  units of analysis, the resolution and validation pipeline, the confidence
+  methods and floors, and the provenance and audit requirements that decide what
+  gets published.
+type: dataset
+version: "2026.06-floors-v0"
+date-released: "2026-06-16"
+url: "https://whofundsmytherapist.com"
+repository-code: "https://github.com/fundprint/fundprint-methodology"
+license: CC-BY-4.0
+contact:
+  - email: atharva.doke737@gmail.com
+    name: "Fundprint"
+authors:
+  - name: "Fundprint"
+keywords:
+  - private equity
+  - autism therapy
+  - ABA therapy
+  - clinic ownership
+  - healthcare private equity
+  - public records
+  - ownership transparency
