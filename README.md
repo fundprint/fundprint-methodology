@@ -44,7 +44,7 @@ first, before any data is validated against them.
 If you reference Fundprint's method or dataset, please cite the methodology
 version you relied on. See [CITATION.cff](./CITATION.cff), or use:
 
-> Fundprint (2026). *Fundprint Methodology*, version 2026.06-floors-v0.
+> Doke, A. (2026). *Fundprint Methodology*, version 2026.06-floors-v0.
 > https://github.com/fundprint/fundprint-methodology
 
 For a specific dataset release, also name its `dataset_version` (for example,

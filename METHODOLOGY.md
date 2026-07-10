@@ -242,13 +242,16 @@ Before any scaling step (a jump in clinic count, a new state, or a new
 
 ### Quarantine
 
-Quarantine is the explicit "we do not know yet" state. A claim is quarantined
-when sources contradict each other and the resolver cannot pick a winner, when a
-model extraction raised a flag, when a human reviewer labeled a row unclear, or
-when an external party has challenged the claim and the challenge is unresolved.
-Quarantined claims never appear in public exports. The quarantine rate is itself
-a monitored metric: a rising rate signals that a source changed shape or that
-resolution needs work.
+Quarantine is the explicit "held out of publication" state. A claim is
+quarantined when sources contradict each other and the resolver cannot pick a
+winner, when a model extraction raised a flag, when a human reviewer labeled a
+row unclear, when an external party has challenged the claim and the challenge
+is unresolved, or when a correctly-identified claim is out of scope for the
+dataset (for example, an owner we track whose named entity does not operate ABA
+or autism clinics). Quarantined claims never appear in public exports, and each
+quarantine is an append-only decision that records its reason. The quarantine
+rate is itself a monitored metric: a rising rate signals that a source changed
+shape or that resolution needs work.
 
 ---
 
@@ -296,9 +299,14 @@ boundaries are known.
   dataset. This keeps the release fully deterministic and reproducible.
 - **Name-prefix matching can over-capture.** A brand-name prefix match can link
   a registry record that shares a leading name with an owner brand but is not
-  actually part of it. Conversely, a spelling variant or an abbreviated legal
-  name can cause a real clinic to be missed. Both directions of error are
-  possible, and the confidence floor plus the hand-validation gate are the
+  actually part of it. It can also capture a correctly-identified owner that is
+  out of scope: an early release attached six Geode Health records (a KKR-backed
+  outpatient mental-health provider, not an ABA or autism provider) to KKR
+  through a name match. Those records were identified and held out of
+  publication as out of scope, and the linker is guarded against re-capturing
+  them. Conversely, a spelling variant or an abbreviated legal name can cause a
+  real clinic to be missed. Both directions of error are possible, and the
+  confidence floor, the out-of-scope holds, and the hand-validation gate are the
   controls against them.
 - **Ownership is a moving target.** Deals close and unwind continually. The
   dataset reflects what public sources documented as of its snapshot date. A
@@ -317,10 +325,10 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 489
+- **Clinics tracked:** 483
 - **Current owners with tracked clinics:** 7, plus one former owner shown for
   history only
-- **States covered:** 30
+- **States covered:** 29
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
   an `exact_match` against a named primary source. No `llm_inferred` claims are
@@ -332,7 +340,7 @@ Current owners, by owner type and tracked clinic count:
 |--------------------------------|-----------------|-----------------|
 | Charlesbank                    | private equity  | 180             |
 | Arsenal Capital Partners       | private equity  | 137             |
-| KKR                            | private equity  | 64              |
+| KKR                            | private equity  | 58              |
 | Ontario Teachers' Pension Plan | pension fund    | 46              |
 | Moran Capital Partners         | family office   | 39              |
 | Thomas H. Lee Partners         | private equity  | 20              |

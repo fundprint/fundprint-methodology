@@ -16,9 +16,12 @@ repository-code: "https://github.com/fundprint/fundprint-methodology"
 license: CC-BY-4.0
 contact:
   - email: atharva.doke737@gmail.com
-    name: "Fundprint"
+    given-names: Atharva
+    family-names: Doke
 authors:
-  - name: "Fundprint"
+  - given-names: Atharva
+    family-names: Doke
+    email: atharva.doke737@gmail.com
 keywords:
   - private equity
   - autism therapy
