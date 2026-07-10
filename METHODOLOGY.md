@@ -333,8 +333,8 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 634
-- **Current owners with tracked clinics:** 11, plus one former owner shown for
+- **Clinics tracked:** 649
+- **Current owners with tracked clinics:** 12, plus one former owner shown for
   history only
 - **States covered:** 35
 - **Method breakdown:** every published clinic-to-owner link in this release is
@@ -354,6 +354,7 @@ Current owners, by owner type and tracked clinic count:
 | Tenex Capital Management       | private equity  | 21              |
 | Cane Investment Partners       | other           | 20              |
 | Thomas H. Lee Partners         | private equity  | 20              |
+| General Atlantic               | private equity  | 15              |
 | Nautic Partners                | private equity  | 14              |
 | Gryphon Investors              | private equity  | 11              |
 | GTCR                           | private equity  | 2               |
