@@ -333,8 +333,8 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 623
-- **Current owners with tracked clinics:** 10, plus one former owner shown for
+- **Clinics tracked:** 634
+- **Current owners with tracked clinics:** 11, plus one former owner shown for
   history only
 - **States covered:** 35
 - **Method breakdown:** every published clinic-to-owner link in this release is
@@ -355,7 +355,16 @@ Current owners, by owner type and tracked clinic count:
 | Cane Investment Partners       | other           | 20              |
 | Thomas H. Lee Partners         | private equity  | 20              |
 | Nautic Partners                | private equity  | 14              |
+| Gryphon Investors              | private equity  | 11              |
 | GTCR                           | private equity  | 2               |
+
+Gryphon Investors appears through LEARN Behavioral, which runs as a federation
+of separately named ABA brands (for example Autism Spectrum Therapies, Trellis
+Services, and the Behavior Analysis Center for Autism). Each brand is counted
+under its own name and attributed to Gryphon through LEARN. Brands whose names
+collide with unrelated organizations in the provider registry are deliberately
+left out rather than risk over-counting, so this figure understates LEARN's true
+footprint.
 
 Blackstone appears as a former owner (Center for Autism and Related Disorders,
 lost in the 2023 bankruptcy) with a current tracked-clinic count of zero, shown
