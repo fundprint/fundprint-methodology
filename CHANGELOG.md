@@ -44,3 +44,10 @@ Notes on the first release produced under this version (`2026.07-beta`):
 - The release is fully deterministic. Clinic-to-owner links are high-confidence
   name matches (`fuzzy_high`); owner-to-parent links are `exact_match` against
   named primary sources. No `llm_inferred` claims are present.
+- The owner set grew over the release as more chains were sourced and verified.
+  The current-release figures in Section 10 track the live dataset. This release
+  is the first to exercise every owner-type label: `private_equity`,
+  `pension_fund`, `family_office`, and `other`. The `other` label is used for a
+  private investment firm that provides expansion capital but is not a
+  traditional buyout fund, pension, or family office, keeping the owner-type
+  claim honest rather than folding it into "PE."

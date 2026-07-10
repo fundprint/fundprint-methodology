@@ -333,10 +333,10 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 587
-- **Current owners with tracked clinics:** 7, plus one former owner shown for
+- **Clinics tracked:** 623
+- **Current owners with tracked clinics:** 10, plus one former owner shown for
   history only
-- **States covered:** 29
+- **States covered:** 35
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
   an `exact_match` against a named primary source. No `llm_inferred` claims are
@@ -352,7 +352,10 @@ Current owners, by owner type and tracked clinic count:
 | Ontario Teachers' Pension Plan | pension fund    | 46              |
 | Moran Capital Partners         | family office   | 39              |
 | Tenex Capital Management       | private equity  | 21              |
+| Cane Investment Partners       | other           | 20              |
 | Thomas H. Lee Partners         | private equity  | 20              |
+| Nautic Partners                | private equity  | 14              |
+| GTCR                           | private equity  | 2               |
 
 Blackstone appears as a former owner (Center for Autism and Related Disorders,
 lost in the 2023 bankruptcy) with a current tracked-clinic count of zero, shown
