@@ -44,6 +44,13 @@ Notes on the first release produced under this version (`2026.07-beta`):
 - The release is fully deterministic. Clinic-to-owner links are high-confidence
   name matches (`fuzzy_high`); owner-to-parent links are `exact_match` against
   named primary sources. No `llm_inferred` claims are present.
+- Clinic existence is drawn from two sources: the NPPES provider registry
+  (primary) and, as a supplement, tracked owners' own public location directories
+  (`owner_location_directory`). The directory source exists because NPPES
+  enumerates only the NPIs a chain registers and so undercounts chains that run
+  many centers under a few NPIs. Directory centers are self-reported, are
+  de-duplicated against NPPES by owner, city, and state, and are read from
+  machine-readable schema.org data rather than scraped from rendered pages.
 - The owner set grew over the release as more chains were sourced and verified.
   The current-release figures in Section 10 track the live dataset. This release
   is the first to exercise every owner-type label: `private_equity`,

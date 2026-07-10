@@ -258,15 +258,30 @@ shape or that resolution needs work.
 ## 8. Provenance and audit
 
 **Every published claim traces to a captured public source.** For clinic
-existence, that is a public provider-registry record, drawn from NPPES (the CMS
-National Plan and Provider Enumeration System), which lists provider
-organizations with a National Provider Identifier, name, and location. Clinics
-are gathered two ways: a broad pull by provider taxonomy, and a targeted pull by
-organization name for each tracked brand. The brand-targeted pull matters
-because a single taxonomy query is capped by the registry, so it cannot surface
-every location of a large chain; querying each tracked brand by name gives it
-its own record budget and captures locations the broad pull misses. For an
-ownership link, the source is a captured primary source: an acquisition
+existence, that is a public provider record, drawn from two sources.
+
+The primary source is NPPES (the CMS National Plan and Provider Enumeration
+System), which lists provider organizations with a National Provider Identifier,
+name, and location. Clinics are gathered from it two ways: a broad pull by
+provider taxonomy, and a targeted pull by organization name for each tracked
+brand. The brand-targeted pull matters because a single taxonomy query is capped
+by the registry, so it cannot surface every location of a large chain; querying
+each tracked brand by name gives it its own record budget and captures locations
+the broad pull misses.
+
+The second source is a tracked owner's own public location directory. NPPES
+enumerates only the provider organizations a chain registers with an NPI, so it
+structurally undercounts a chain that operates many centers under a few NPIs. For
+owners that publish a machine-readable directory, Fundprint reads each center's
+address from the page's schema.org data and stages it under the honest source
+type `owner_location_directory`. These records are self-reported by the owner, so
+they are treated as a supplement, not a replacement: each directory center is
+de-duplicated against the NPPES clinics for the same owner by city and state, so
+a physical center listed in both sources is counted once, and a center whose name
+does not brand-match a tracked owner is left unlinked. In this release, 79 of the
+728 clinics come from owner directories and the rest from NPPES.
+
+For an ownership link, the source is a captured primary source: an acquisition
 announcement or a reputable trade-press report that explicitly states the
 ownership.
 
@@ -333,10 +348,14 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 649
+- **Clinics tracked:** 728
 - **Current owners with tracked clinics:** 12, plus one former owner shown for
   history only
-- **States covered:** 35
+- **States covered:** 36
+- **Clinic-existence sources:** 649 clinics come from the NPPES provider registry
+  and 79 from owners' own public location directories (see section 8). The
+  directory clinics are de-duplicated against the registry by owner, city, and
+  state so the same physical center is not counted twice.
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
   an `exact_match` against a named primary source. No `llm_inferred` claims are
@@ -346,9 +365,9 @@ Current owners, by owner type and tracked clinic count:
 
 | Parent firm                    | Owner type      | Clinics tracked |
 |--------------------------------|-----------------|-----------------|
+| KKR                            | private equity  | 217             |
 | Charlesbank                    | private equity  | 184             |
 | Arsenal Capital Partners       | private equity  | 139             |
-| KKR                            | private equity  | 138             |
 | Ontario Teachers' Pension Plan | pension fund    | 46              |
 | Moran Capital Partners         | family office   | 39              |
 | Tenex Capital Management       | private equity  | 21              |
