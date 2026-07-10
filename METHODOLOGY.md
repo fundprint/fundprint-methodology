@@ -258,9 +258,17 @@ shape or that resolution needs work.
 ## 8. Provenance and audit
 
 **Every published claim traces to a captured public source.** For clinic
-existence, that is a public provider-registry record. For an ownership link, it
-is a captured primary source: an acquisition announcement or a reputable
-trade-press report that explicitly states the ownership.
+existence, that is a public provider-registry record, drawn from NPPES (the CMS
+National Plan and Provider Enumeration System), which lists provider
+organizations with a National Provider Identifier, name, and location. Clinics
+are gathered two ways: a broad pull by provider taxonomy, and a targeted pull by
+organization name for each tracked brand. The brand-targeted pull matters
+because a single taxonomy query is capped by the registry, so it cannot surface
+every location of a large chain; querying each tracked brand by name gives it
+its own record budget and captures locations the broad pull misses. For an
+ownership link, the source is a captured primary source: an acquisition
+announcement or a reputable trade-press report that explicitly states the
+ownership.
 
 When a source is ingested, Fundprint fetches and stores the exact document as a
 content-hashed snapshot, then links it to the claim. The claim records which
@@ -325,7 +333,7 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 483
+- **Clinics tracked:** 570
 - **Current owners with tracked clinics:** 7, plus one former owner shown for
   history only
 - **States covered:** 29
@@ -338,13 +346,13 @@ Current owners, by owner type and tracked clinic count:
 
 | Parent firm                    | Owner type      | Clinics tracked |
 |--------------------------------|-----------------|-----------------|
-| Charlesbank                    | private equity  | 180             |
-| Arsenal Capital Partners       | private equity  | 137             |
-| KKR                            | private equity  | 58              |
+| Charlesbank                    | private equity  | 184             |
+| Arsenal Capital Partners       | private equity  | 139             |
+| KKR                            | private equity  | 138             |
 | Ontario Teachers' Pension Plan | pension fund    | 46              |
 | Moran Capital Partners         | family office   | 39              |
 | Thomas H. Lee Partners         | private equity  | 20              |
-| Tenex Capital Management       | private equity  | 3               |
+| Tenex Capital Management       | private equity  | 4               |
 
 Blackstone appears as a former owner (Center for Autism and Related Disorders,
 lost in the 2023 bankruptcy) with a current tracked-clinic count of zero, shown
