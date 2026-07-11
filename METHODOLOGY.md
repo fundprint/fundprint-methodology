@@ -348,14 +348,15 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 728
+- **Clinics tracked:** 795
 - **Current owners with tracked clinics:** 12, plus one former owner shown for
   history only
-- **States covered:** 36
+- **States covered:** 37
 - **Clinic-existence sources:** 649 clinics come from the NPPES provider registry
-  and 79 from owners' own public location directories (see section 8). The
+  and 146 from owners' own public location directories (see section 8). The
   directory clinics are de-duplicated against the registry by owner, city, and
-  state so the same physical center is not counted twice.
+  state (and street address where the directory provides it) so the same physical
+  center is not counted twice.
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
   an `exact_match` against a named primary source. No `llm_inferred` claims are
@@ -368,12 +369,12 @@ Current owners, by owner type and tracked clinic count:
 | KKR                            | private equity  | 217             |
 | Charlesbank                    | private equity  | 184             |
 | Arsenal Capital Partners       | private equity  | 139             |
+| General Atlantic               | private equity  | 82              |
 | Ontario Teachers' Pension Plan | pension fund    | 46              |
 | Moran Capital Partners         | family office   | 39              |
 | Tenex Capital Management       | private equity  | 21              |
 | Cane Investment Partners       | other           | 20              |
 | Thomas H. Lee Partners         | private equity  | 20              |
-| General Atlantic               | private equity  | 15              |
 | Nautic Partners                | private equity  | 14              |
 | Gryphon Investors              | private equity  | 11              |
 | GTCR                           | private equity  | 2               |
