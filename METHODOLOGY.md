@@ -273,13 +273,20 @@ The second source is a tracked owner's own public location directory. NPPES
 enumerates only the provider organizations a chain registers with an NPI, so it
 structurally undercounts a chain that operates many centers under a few NPIs. For
 owners that publish a machine-readable directory, Fundprint reads each center's
-address from the page's schema.org data and stages it under the honest source
-type `owner_location_directory`. These records are self-reported by the owner, so
-they are treated as a supplement, not a replacement: each directory center is
-de-duplicated against the NPPES clinics for the same owner by city and state, so
-a physical center listed in both sources is counted once, and a center whose name
-does not brand-match a tracked owner is left unlinked. In this release, 79 of the
-728 clinics come from owner directories and the rest from NPPES.
+address from the page's structured data (a schema.org `MedicalBusiness` block, or
+the site's semantic per-field address markup) and stages it under the honest
+source type `owner_location_directory`. This is a read of published structured
+data, not brittle scraping of rendered prose. These records are self-reported by
+the owner, so they are treated as a supplement, not a replacement: each directory
+center is de-duplicated against the NPPES clinics for the same owner by city and
+state (and street address where the directory gives one), so a physical center
+listed in both sources is counted once. Centers are attributed one of two ways:
+where the directory mixes several tracked brands and each center's name carries
+its brand, the deterministic name matcher links it; where every center belongs to
+one known owner but the pages are generically named, they are attributed to that
+owner directly. A center that matches no tracked owner is left unlinked. In this
+release, 255 of the 904 clinics come from owner directories and the rest from
+NPPES.
 
 For an ownership link, the source is a captured primary source: an acquisition
 announcement or a reputable trade-press report that explicitly states the
@@ -348,12 +355,12 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 795
+- **Clinics tracked:** 904
 - **Current owners with tracked clinics:** 12, plus one former owner shown for
   history only
-- **States covered:** 37
+- **States covered:** 39
 - **Clinic-existence sources:** 649 clinics come from the NPPES provider registry
-  and 146 from owners' own public location directories (see section 8). The
+  and 255 from owners' own public location directories (see section 8). The
   directory clinics are de-duplicated against the registry by owner, city, and
   state (and street address where the directory provides it) so the same physical
   center is not counted twice.
@@ -369,13 +376,13 @@ Current owners, by owner type and tracked clinic count:
 | KKR                            | private equity  | 217             |
 | Charlesbank                    | private equity  | 184             |
 | Arsenal Capital Partners       | private equity  | 139             |
+| Nautic Partners                | private equity  | 123             |
 | General Atlantic               | private equity  | 82              |
 | Ontario Teachers' Pension Plan | pension fund    | 46              |
 | Moran Capital Partners         | family office   | 39              |
 | Tenex Capital Management       | private equity  | 21              |
 | Cane Investment Partners       | other           | 20              |
 | Thomas H. Lee Partners         | private equity  | 20              |
-| Nautic Partners                | private equity  | 14              |
 | Gryphon Investors              | private equity  | 11              |
 | GTCR                           | private equity  | 2               |
 
