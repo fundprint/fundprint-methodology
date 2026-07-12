@@ -23,10 +23,18 @@ to confidence floors, so the methodology version is unchanged.
   clinics to 71 and Charlesbank from second-largest owner to fifth. KKR remains
   first. No clinic was removed from the record; 181 duplicate rows were marked
   superseded and the underlying registrations remain published as claims.
-- **Two residual counting limits are now disclosed** (section 9): eleven
-  addresses where one owner's merged brands are both registered at one site, and
-  seven where two chains under different parent firms claim the same address,
-  which indicates a stale registry record rather than a shared center.
+- **Ghost clinics are now addressed and measured** (section 9). The provider
+  registry reports existence-ever, not existence-now: nothing deactivates an NPI
+  when a clinic closes, and every registry-sourced clinic in the dataset reports
+  an active status, including records last certified in 2008. Fundprint now
+  records how long each registration has gone untouched, and discloses that 89 of
+  462 registry-sourced clinics (19%) rest on a record not updated in six or more
+  years. Seven clinics whose registration was provably dead, because a chain under
+  a different parent firm now registers at the same street address with a two-to-
+  seven year staleness gap, were quarantined out of publication. Tracked clinics
+  fall from 723 to 716.
+- **One residual counting limit is disclosed** (section 9): eleven addresses
+  where one owner's merged brands are both registered at a single site.
 
 ## 2026.06-floors-v0
 

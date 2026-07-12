@@ -361,14 +361,34 @@ boundaries are known.
   one center, which is a stronger claim than the registry supports on its own, so
   Fundprint discloses the count rather than making it silently. KKR's tracked
   count is therefore an upper bound by up to eleven.
-- **The provider registry carries stale addresses.** Seven addresses in the
-  current release are claimed by two chains under different parent firms, most
-  of them Action Behavior Centers and Hopebridge locations in Colorado. Two
-  competing chains do not operate from one suite; at least one registration is
-  out of date. Because a wrong merge here would attribute a clinic to the wrong
-  parent firm, these are left as separate records and flagged rather than
-  resolved by rule. They are a known upper-bound error of at most seven clinics,
-  split across two owners.
+- **The provider registry reports existence-ever, not existence-now.** This is
+  the most important limit on the registry-sourced half of the dataset. NPPES is
+  a register of identifiers, not an inventory of open businesses: when a clinic
+  closes, nothing compels anyone to deactivate its NPI, and the record goes on
+  reporting an active status indefinitely. Every registry-sourced clinic in this
+  release reports status `A`, including records last certified in 2008. A closed
+  clinic and an open one are therefore indistinguishable in the registry, and
+  some number of "ghost" clinics, centers that have closed but whose registration
+  lives on, are certainly present.
+
+  The only signal the registry offers is how long a record has gone untouched.
+  Fundprint now records that date for every registry-sourced clinic. **89 of the
+  462 registry-sourced clinics in this release (19%) rest on a registration that
+  has not been updated or re-certified in six or more years.** That is not a
+  count of ghosts, but it is the pool they are drawn from, and it is published
+  rather than hidden. Clinics sourced from an owner's own location directory
+  (254 of 716) do not have this problem: a directory lists the centers an owner
+  says are open today.
+
+  Ghosts become provable in one situation: when a chain under a *different*
+  parent firm registers at the same street address. Two competing chains do not
+  operate from one suite, so the one that left is the one whose registration is
+  years staler. Seven such clinics were identified in this release, with staleness
+  gaps of two to seven years (for example, a Hopebridge record at a Fort Collins,
+  Colorado suite last touched in 2020, where an Action Behavior Centers record was
+  touched in December 2025), and each was quarantined out of publication. That
+  detector only fires when a competitor Fundprint also tracks happens to move in,
+  so seven is a floor on the phenomenon, not a measure of it.
 - **Ownership is a moving target.** Deals close and unwind continually. The
   dataset reflects what public sources documented as of its snapshot date. A
   divestiture the week after a snapshot will not be reflected until the next
@@ -386,15 +406,21 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 723
+- **Clinics tracked:** 716
 - **Current owners with tracked clinics:** 12, plus one former owner shown for
   history only
 - **States covered:** 39
-- **Clinic-existence sources:** 469 clinics come from the NPPES provider registry
+- **Clinic-existence sources:** 462 clinics come from the NPPES provider registry
   and 254 from owners' own public location directories (see section 8). Clinics
   from both sources are de-duplicated on the same key, owner plus street address
   plus ZIP, so a center listed in both sources is counted once and several NPIs
   at one address are counted once.
+- **Registry freshness:** 89 of the 462 registry-sourced clinics (19%) rest on a
+  registration not updated in six or more years. The registry never marks a
+  closed clinic closed, so this is the honest measure of how much of the dataset
+  could be stale. Seven clinics whose registration was provably dead (the address
+  is now registered to a chain under a different parent firm, with a two-to-seven
+  year staleness gap) were quarantined out of this release. See section 9.
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
   an `exact_match` against a named primary source. No `llm_inferred` claims are
@@ -404,16 +430,16 @@ Current owners, by owner type and tracked clinic count:
 
 | Parent firm                    | Owner type      | Clinics tracked |
 |--------------------------------|-----------------|-----------------|
-| KKR                            | private equity  | 207             |
+| KKR                            | private equity  | 206             |
 | Nautic Partners                | private equity  | 118             |
-| Arsenal Capital Partners       | private equity  | 105             |
+| Arsenal Capital Partners       | private equity  | 101             |
 | General Atlantic               | private equity  | 82              |
 | Charlesbank                    | private equity  | 71              |
 | Ontario Teachers' Pension Plan | pension fund    | 44              |
 | Moran Capital Partners         | family office   | 31              |
 | Tenex Capital Management       | private equity  | 19              |
 | Thomas H. Lee Partners         | private equity  | 18              |
-| Cane Investment Partners       | other           | 17              |
+| Cane Investment Partners       | other           | 15              |
 | Gryphon Investors              | private equity  | 9               |
 | GTCR                           | private equity  | 2               |
 
