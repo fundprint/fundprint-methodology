@@ -347,6 +347,43 @@ answerable from this record without reconstruction.
 
 ---
 
+## 8b. The denominator, and market share
+
+A count invites a fair question: out of how many? Fundprint answers it from the
+same federal bulk registry the clinics come from, so it can state a share rather
+than only a total.
+
+**The universe.** An organization counts as an ABA provider if it is a live
+(non-deactivated) organization NPI and either carries a behavior-analysis taxonomy
+or bears the name of a tracked ABA brand. The second clause matters: not every
+real ABA chain registers under the ABA taxonomy, and omitting them would drop
+tracked clinics out of the denominator and inflate the share.
+
+**The one rule that makes the share honest.** The numerator and the denominator
+are computed in a single pass over that one universe, with one address key. The
+numerator is therefore a strict subset of the denominator and cannot count
+anything the denominator does not. This has a consequence that is stated rather
+than buried: clinics Fundprint reads from an owner's own location directory are
+excluded from **both** sides, because the registry cannot see them. The published
+clinic count is larger than this numerator and the two are not interchangeable.
+
+**What the market looks like.** The registry holds 17,555 ABA provider
+organizations operating 23,179 locations. 20,136 of those locations (87%) belong
+to independents and very small practices. There are only 283 ABA chains in the
+country with five or more locations, running 3,043 clinics between them.
+
+**The two shares.** Of those chain-run clinics, 625 (**20.5%**) are held by a
+private-equity firm, pension fund or family office Fundprint can name and source.
+Measured against every ABA location in the country, including the independents,
+the same holdings are 2.9% (2.5% for private equity alone).
+
+Both numbers are true and both are published. The second describes a fragmented
+profession. The first describes what has happened to the part of it that
+consolidated, and it is the one that answers the question the dataset exists to
+ask. Quoting either without the other would mislead.
+
+---
+
 ## 9. Limitations and known gaps
 
 Fundprint states its limits plainly, because a number is only useful if its
