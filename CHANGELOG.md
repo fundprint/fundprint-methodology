@@ -7,6 +7,27 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## Unreleased
+
+Correction to the clinic definition and the counts that follow from it. No change
+to confidence floors, so the methodology version is unchanged.
+
+- **A clinic is now explicitly a physical service location, not a billing
+  registration** (section 2). A chain may hold several NPIs at one address, and
+  Action Behavior Centers holds six at a single Broomfield, Colorado suite. The
+  clinic linker previously de-duplicated registry records by NPI, which cannot
+  see this, so one center was published as many clinics. Sites are now identified
+  by owner, street address, and ZIP.
+- **Tracked clinics fall from 904 to 723** as a result. The error was uneven
+  across owners, so the ranking changes: Action Behavior Centers drops from 184
+  clinics to 71 and Charlesbank from second-largest owner to fifth. KKR remains
+  first. No clinic was removed from the record; 181 duplicate rows were marked
+  superseded and the underlying registrations remain published as claims.
+- **Two residual counting limits are now disclosed** (section 9): eleven
+  addresses where one owner's merged brands are both registered at one site, and
+  seven where two chains under different parent firms claim the same address,
+  which indicates a stale registry record rather than a shared center.
+
 ## 2026.06-floors-v0
 
 The initial published methodology. Governs dataset release `2026.07-beta` and

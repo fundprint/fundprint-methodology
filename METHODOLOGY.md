@@ -66,6 +66,16 @@ firm`, with a confidence score and a public source for each hop.
 analysis or related autism intervention. Identified through public provider
 registries.
 
+A clinic is a **physical service location, not a billing registration**. This
+distinction is load-bearing. A chain may hold several National Provider
+Identifiers at one address, sometimes under more than one legal-entity name:
+Action Behavior Centers registers six NPIs at a single Broomfield, Colorado
+suite. Each is a real registration, but they are one clinic. Fundprint therefore
+counts distinct physical sites, identifying a site by its owner, street address
+(including suite), and ZIP. Counting NPI enumerations instead would inflate any
+chain that registers many identifiers per center, and would do so unevenly across
+owners, making the clinic counts non-comparable between firms.
+
 **Private equity (PE).** A firm that acquires companies primarily using pooled
 investment capital with the intent of a later sale or recapitalization. This is
 Fundprint's primary frame.
@@ -278,14 +288,17 @@ the site's semantic per-field address markup) and stages it under the honest
 source type `owner_location_directory`. This is a read of published structured
 data, not brittle scraping of rendered prose. These records are self-reported by
 the owner, so they are treated as a supplement, not a replacement: each directory
-center is de-duplicated against the NPPES clinics for the same owner by city and
-state (and street address where the directory gives one), so a physical center
-listed in both sources is counted once. Centers are attributed one of two ways:
-where the directory mixes several tracked brands and each center's name carries
-its brand, the deterministic name matcher links it; where every center belongs to
-one known owner but the pages are generically named, they are attributed to that
-owner directly. A center that matches no tracked owner is left unlinked. In this
-release, 255 of the 904 clinics come from owner directories and the rest from
+center is de-duplicated against the NPPES clinics for the same owner by street
+address and ZIP (falling back to city and state where a directory page gives no
+street), so a physical center listed in both sources is counted once. The same
+key de-duplicates registry records against each other, which is what keeps
+several NPIs at one address from being counted as several clinics (see the clinic
+definition in section 2). Centers are attributed one of two ways: where the
+directory mixes several tracked brands and each center's name carries its brand,
+the deterministic name matcher links it; where every center belongs to one known
+owner but the pages are generically named, they are attributed to that owner
+directly. A center that matches no tracked owner is left unlinked. In this
+release, 254 of the 723 clinics come from owner directories and the rest from
 NPPES.
 
 For an ownership link, the source is a captured primary source: an acquisition
@@ -338,6 +351,24 @@ boundaries are known.
   real clinic to be missed. Both directions of error are possible, and the
   confidence floor, the out-of-scope holds, and the hand-validation gate are the
   controls against them.
+- **A center listed under two of one owner's brands may still be counted
+  twice.** Site de-duplication is scoped to a single owner brand. Where a parent
+  firm has merged brands but the provider registry still carries both
+  registrations at one address, the center appears once per brand. Eleven
+  addresses in the current release are affected, all under KKR, where BlueSprig,
+  Florida Autism Center, and Trumpet Behavioral Health share a street address.
+  Merging across brands asserts that two separately registered legal entities are
+  one center, which is a stronger claim than the registry supports on its own, so
+  Fundprint discloses the count rather than making it silently. KKR's tracked
+  count is therefore an upper bound by up to eleven.
+- **The provider registry carries stale addresses.** Seven addresses in the
+  current release are claimed by two chains under different parent firms, most
+  of them Action Behavior Centers and Hopebridge locations in Colorado. Two
+  competing chains do not operate from one suite; at least one registration is
+  out of date. Because a wrong merge here would attribute a clinic to the wrong
+  parent firm, these are left as separate records and flagged rather than
+  resolved by rule. They are a known upper-bound error of at most seven clinics,
+  split across two owners.
 - **Ownership is a moving target.** Deals close and unwind continually. The
   dataset reflects what public sources documented as of its snapshot date. A
   divestiture the week after a snapshot will not be reflected until the next
@@ -355,15 +386,15 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 904
+- **Clinics tracked:** 723
 - **Current owners with tracked clinics:** 12, plus one former owner shown for
   history only
 - **States covered:** 39
-- **Clinic-existence sources:** 649 clinics come from the NPPES provider registry
-  and 255 from owners' own public location directories (see section 8). The
-  directory clinics are de-duplicated against the registry by owner, city, and
-  state (and street address where the directory provides it) so the same physical
-  center is not counted twice.
+- **Clinic-existence sources:** 469 clinics come from the NPPES provider registry
+  and 254 from owners' own public location directories (see section 8). Clinics
+  from both sources are de-duplicated on the same key, owner plus street address
+  plus ZIP, so a center listed in both sources is counted once and several NPIs
+  at one address are counted once.
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
   an `exact_match` against a named primary source. No `llm_inferred` claims are
@@ -373,17 +404,17 @@ Current owners, by owner type and tracked clinic count:
 
 | Parent firm                    | Owner type      | Clinics tracked |
 |--------------------------------|-----------------|-----------------|
-| KKR                            | private equity  | 217             |
-| Charlesbank                    | private equity  | 184             |
-| Arsenal Capital Partners       | private equity  | 139             |
-| Nautic Partners                | private equity  | 123             |
+| KKR                            | private equity  | 207             |
+| Nautic Partners                | private equity  | 118             |
+| Arsenal Capital Partners       | private equity  | 105             |
 | General Atlantic               | private equity  | 82              |
-| Ontario Teachers' Pension Plan | pension fund    | 46              |
-| Moran Capital Partners         | family office   | 39              |
-| Tenex Capital Management       | private equity  | 21              |
-| Cane Investment Partners       | other           | 20              |
-| Thomas H. Lee Partners         | private equity  | 20              |
-| Gryphon Investors              | private equity  | 11              |
+| Charlesbank                    | private equity  | 71              |
+| Ontario Teachers' Pension Plan | pension fund    | 44              |
+| Moran Capital Partners         | family office   | 31              |
+| Tenex Capital Management       | private equity  | 19              |
+| Thomas H. Lee Partners         | private equity  | 18              |
+| Cane Investment Partners       | other           | 17              |
+| Gryphon Investors              | private equity  | 9               |
 | GTCR                           | private equity  | 2               |
 
 Gryphon Investors appears through LEARN Behavioral, which runs as a federation
