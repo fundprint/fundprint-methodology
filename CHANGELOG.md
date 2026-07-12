@@ -33,6 +33,15 @@ to confidence floors, so the methodology version is unchanged.
   a different parent firm now registers at the same street address with a two-to-
   seven year staleness gap, were quarantined out of publication. Tracked clinics
   fall from 723 to 716.
+- **Non-clinic locations are no longer published as clinics** (section 2). Two
+  kinds were: in-home providers, which operate no centers at all (Key Autism
+  Services registers one office suite per state across fourteen states; Butterfly
+  Effects registers at apartments), and two corporate headquarters registered as
+  practice locations. In-home owners now contribute zero clinics, but their
+  ownership stays published with an explicit label, because the ownership is true
+  and sourced and deleting it would understate private-equity presence in ABA.
+  Tracked clinics fall from 716 to 668, and the owner list drops to 10 with
+  clinics plus two in-home owners and one former owner.
 - **One residual counting limit is disclosed** (section 9): eleven addresses
   where one owner's merged brands are both registered at a single site.
 

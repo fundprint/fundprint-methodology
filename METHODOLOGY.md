@@ -66,15 +66,37 @@ firm`, with a confidence score and a public source for each hop.
 analysis or related autism intervention. Identified through public provider
 registries.
 
-A clinic is a **physical service location, not a billing registration**. This
-distinction is load-bearing. A chain may hold several National Provider
-Identifiers at one address, sometimes under more than one legal-entity name:
-Action Behavior Centers registers six NPIs at a single Broomfield, Colorado
-suite. Each is a real registration, but they are one clinic. Fundprint therefore
-counts distinct physical sites, identifying a site by its owner, street address
-(including suite), and ZIP. Counting NPI enumerations instead would inflate any
-chain that registers many identifiers per center, and would do so unevenly across
-owners, making the clinic counts non-comparable between firms.
+A clinic is a **physical service location, not a billing registration, and not
+an office**. This distinction is load-bearing, and it cuts two ways.
+
+Not every ABA provider operates centers. Some deliver therapy in the client's
+home or community. They still hold National Provider Identifiers, and they
+register those somewhere, so the registry hands back an address that looks like a
+clinic and is not one: Key Autism Services registers exactly one NPI per state
+across fourteen states, every one an office suite; Butterfly Effects registers at
+apartments. **An in-home provider contributes no clinics.** Its ownership is
+still recorded and published, with a clinic count of zero and an explicit label,
+because the ownership is a true and sourced fact and deleting it would understate
+private-equity presence in ABA.
+
+Nor is a clinic the same thing as a registration. A chain may hold several
+National Provider Identifiers at one address, sometimes under more than one
+legal-entity name: Action Behavior Centers registers six NPIs at a single
+Broomfield, Colorado suite. Each is a real registration, but they are one clinic.
+Fundprint therefore counts distinct physical sites, identifying a site by its
+owner, street address (including suite), and ZIP. Counting NPI enumerations
+instead would inflate any chain that registers many identifiers per center, and
+would do so unevenly across owners, making clinic counts non-comparable between
+firms.
+
+Nor is every address a chain registers a clinic at all. A corporate headquarters
+or billing office may be registered as the practice location. Fundprint excludes
+such an address only on direct evidence, never on a heuristic: both exclusions in
+this release are head offices that the owner's own public directory of centers
+omits. A tempting rule, "many NPIs at one address means head office," was tested
+against the data and rejected as false, precisely because Action Behavior Centers
+registers three to four NPIs at every one of its 35 Colorado centers. Applying
+that rule would have deleted dozens of real clinics.
 
 **Private equity (PE).** A firm that acquires companies primarily using pooled
 investment capital with the intent of a later sale or recapitalization. This is
@@ -406,16 +428,17 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 716
-- **Current owners with tracked clinics:** 12, plus one former owner shown for
-  history only
-- **States covered:** 39
-- **Clinic-existence sources:** 462 clinics come from the NPPES provider registry
+- **Clinics tracked:** 668
+- **Current owners with tracked clinics:** 10, plus one former owner and two
+  in-home owners (which operate no centers), all shown with a clinic count of
+  zero and an explicit label
+- **States covered:** 34
+- **Clinic-existence sources:** 414 clinics come from the NPPES provider registry
   and 254 from owners' own public location directories (see section 8). Clinics
   from both sources are de-duplicated on the same key, owner plus street address
   plus ZIP, so a center listed in both sources is counted once and several NPIs
   at one address are counted once.
-- **Registry freshness:** 89 of the 462 registry-sourced clinics (19%) rest on a
+- **Registry freshness:** 89 of the 414 registry-sourced clinics (21%) rest on a
   registration not updated in six or more years. The registry never marks a
   closed clinic closed, so this is the honest measure of how much of the dataset
   could be stale. Seven clinics whose registration was provably dead (the address
@@ -431,17 +454,22 @@ Current owners, by owner type and tracked clinic count:
 | Parent firm                    | Owner type      | Clinics tracked |
 |--------------------------------|-----------------|-----------------|
 | KKR                            | private equity  | 206             |
-| Nautic Partners                | private equity  | 118             |
+| Nautic Partners                | private equity  | 117             |
 | Arsenal Capital Partners       | private equity  | 101             |
-| General Atlantic               | private equity  | 82              |
+| General Atlantic               | private equity  | 81              |
 | Charlesbank                    | private equity  | 71              |
 | Ontario Teachers' Pension Plan | pension fund    | 44              |
-| Moran Capital Partners         | family office   | 31              |
 | Tenex Capital Management       | private equity  | 19              |
 | Thomas H. Lee Partners         | private equity  | 18              |
-| Cane Investment Partners       | other           | 15              |
 | Gryphon Investors              | private equity  | 9               |
 | GTCR                           | private equity  | 2               |
+| Moran Capital Partners         | family office   | 0 (in-home)     |
+| Cane Investment Partners       | other           | 0 (in-home)     |
+
+Moran Capital Partners (Butterfly Effects) and Cane Investment Partners (Key
+Autism Services) own providers that deliver therapy in the client's home and
+operate no centers. Their clinic count is zero because they have no clinics, not
+because none were found. The ownership is documented and published.
 
 Gryphon Investors appears through LEARN Behavioral, which runs as a federation
 of separately named ABA brands (for example Autism Spectrum Therapies, Trellis
