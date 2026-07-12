@@ -428,12 +428,12 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 668
+- **Clinics tracked:** 967
 - **Current owners with tracked clinics:** 10, plus one former owner and two
   in-home owners (which operate no centers), all shown with a clinic count of
   zero and an explicit label
 - **States covered:** 34
-- **Clinic-existence sources:** 414 clinics come from the NPPES provider registry
+- **Clinic-existence sources:** 713 clinics come from the NPPES provider registry
   and 254 from owners' own public location directories (see section 8). Clinics
   from both sources are de-duplicated on the same key, owner plus street address
   plus ZIP, so a center listed in both sources is counted once and several NPIs
@@ -453,13 +453,13 @@ Current owners, by owner type and tracked clinic count:
 
 | Parent firm                    | Owner type      | Clinics tracked |
 |--------------------------------|-----------------|-----------------|
-| KKR                            | private equity  | 206             |
-| Nautic Partners                | private equity  | 117             |
-| Arsenal Capital Partners       | private equity  | 101             |
+| KKR                            | private equity  | 258             |
+| Charlesbank                    | private equity  | 212             |
+| Arsenal Capital Partners       | private equity  | 142             |
+| Nautic Partners                | private equity  | 135             |
+| Ontario Teachers' Pension Plan | pension fund    | 90              |
 | General Atlantic               | private equity  | 81              |
-| Charlesbank                    | private equity  | 71              |
-| Ontario Teachers' Pension Plan | pension fund    | 44              |
-| Tenex Capital Management       | private equity  | 19              |
+| Tenex Capital Management       | private equity  | 20              |
 | Thomas H. Lee Partners         | private equity  | 18              |
 | Gryphon Investors              | private equity  | 9               |
 | GTCR                           | private equity  | 2               |

@@ -9,6 +9,33 @@ The version format is `YYYY.MM-<label>`.
 
 ## Unreleased
 
+### The registry ceiling was an artifact of the API
+
+Fundprint previously sourced clinics from the NPPES *API*, which caps any query
+at 1,200 records and returns only an NPI's **primary** practice location. A chain
+operating fifty centers under a handful of NPIs therefore appeared as a handful
+of clinics, and this was believed to be a hard ceiling on coverage. It was not.
+
+CMS publishes the whole registry monthly, free and without a data-use agreement,
+including a **Practice Location Reference File** listing every non-primary
+practice location for every NPI. That is where a chain's other centers actually
+live. Ingesting it takes tracked clinics from 668 to **967**, with the gains
+concentrated exactly where the API was blindest: Action Behavior Centers 71 to
+212, Hopebridge 101 to 142, Acorn Health 44 to 90.
+
+The bulk file also carries NPI deactivation dates the API does not expose, so a
+dead registration is skipped rather than published as a clinic (2,408 were
+skipped on the first run).
+
+One guard was required and is worth recording. `owner_entity` holds every company
+scraped from a private-equity firm's portfolio page, not only the autism ones:
+KKR's portfolio yields MyEyeDr., Heartland Dental and Del Taco. Against the
+taxonomy-filtered API those names never matched anything. Against the full
+registry they match thousands of optometry and dental locations, and a first pass
+attributed roughly 5,000 non-ABA locations to PE firms as "clinics". Only owners
+explicitly flagged as ABA providers may now capture a clinic.
+
+
 Correction to the clinic definition and the counts that follow from it. No change
 to confidence floors, so the methodology version is unchanged.
 
