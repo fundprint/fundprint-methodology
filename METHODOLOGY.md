@@ -367,15 +367,15 @@ than buried: clinics Fundprint reads from an owner's own location directory are
 excluded from **both** sides, because the registry cannot see them. The published
 clinic count is larger than this numerator and the two are not interchangeable.
 
-**What the market looks like.** The registry holds 17,555 ABA provider
-organizations operating 23,179 locations. 20,136 of those locations (87%) belong
-to independents and very small practices. There are only 283 ABA chains in the
-country with five or more locations, running 3,043 clinics between them.
+**What the market looks like.** The registry holds 17,567 ABA provider
+organizations operating 23,209 locations. 20,145 of those locations (87%) belong
+to independents and very small practices. There are only 285 ABA chains in the
+country with five or more locations, running 3,064 clinics between them.
 
-**The two shares.** Of those chain-run clinics, 625 (**20.5%**) are held by a
+**The two shares.** Of those chain-run clinics, 715 (**23.3%**) are held by a
 private-equity firm, pension fund or family office Fundprint can name and source.
 Measured against every ABA location in the country, including the independents,
-the same holdings are 2.9% (2.5% for private equity alone).
+the same holdings are 3.3% (2.9% for private equity alone).
 
 Both numbers are true and both are published. The second describes a fragmented
 profession. The first describes what has happened to the part of it that
@@ -465,13 +465,13 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 967
+- **Clinics tracked:** 1,211
 - **Current owners with tracked clinics:** 10, plus one former owner and two
   in-home owners (which operate no centers), all shown with a clinic count of
   zero and an explicit label
-- **States covered:** 34
-- **Clinic-existence sources:** 713 clinics come from the NPPES provider registry
-  and 254 from owners' own public location directories (see section 8). Clinics
+- **States covered:** 39
+- **Clinic-existence sources:** 807 clinics come from the NPPES provider registry
+  and 404 from owners' own public location directories and rosters (see section 8). Clinics
   from both sources are de-duplicated on the same key, owner plus street address
   plus ZIP, so a center listed in both sources is counted once and several NPIs
   at one address are counted once.
