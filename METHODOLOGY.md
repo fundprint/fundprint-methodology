@@ -360,8 +360,8 @@ directory mixes several tracked brands and each center's name carries its brand,
 the deterministic name matcher links it; where every center belongs to one known
 owner but the pages are generically named, they are attributed to that owner
 directly. A center that matches no tracked owner is left unlinked. In this
-release, 652 of the 1,535 clinics come from owner directories and rosters, and
-the remaining 883 from NPPES.
+release, 652 of the 1,559 clinics come from owner directories and rosters, and
+the remaining 907 from NPPES.
 
 For an ownership link, the source is a captured primary source: an acquisition
 announcement or a reputable trade-press report that explicitly states the
@@ -411,9 +411,12 @@ the number of sites held by each owner, and separately summing the number of sit
 in each chain. Because one address can carry two brands or two legal entities, both
 sums counted some addresses more than once, on both sides of the ratio. The
 numerator was not a subset of the denominator but a multiset that could in
-principle exceed it. Counting distinct sites moved the headline share from 28.4%
-to **27.4%**, and moved the national ABA site count from 23,213 to 21,170. A rule
-that is stated but not implemented is not a rule.
+principle exceed it. In the release where the fix landed, counting distinct sites
+moved the headline share from 28.4% to 27.4% and cut the national ABA site count
+from 23,213 to 21,170. Both figures have moved again since, as owners were added
+and the universe was recomputed; section 10 carries the current values, and the
+point here is the rule, not the release. A rule that is stated but not
+implemented is not a rule.
 
 This has a further consequence that is stated rather than buried: clinics
 Fundprint reads from an owner's own location directory are excluded from **both**
@@ -421,9 +424,9 @@ sides, because the registry cannot see them. The published clinic count is large
 than this numerator and the two are not interchangeable.
 
 **What the market looks like.** The registry holds 17,567 ABA provider
-organizations operating 21,170 distinct locations. 18,249 of those locations (86%)
+organizations operating 21,172 distinct locations. 18,249 of those locations (86%)
 belong to independents and very small practices. There are only 286 ABA chains in
-the country with five or more locations, running 2,921 clinics between them.
+the country with five or more locations, running 2,923 clinics between them.
 
 **The two shares.** Of those chain-run clinics, 822 (**28.1%**) are held by a
 financial owner Fundprint can name and source. Private equity on its own holds
@@ -491,7 +494,7 @@ boundaries are known.
   rather than hidden. The proportion has fallen (it was 19% a release ago) because
   the bulk registry's practice-location file surfaces many recently re-certified
   secondary sites, not because any stale record became fresh. Clinics sourced from
-  an owner's own location directory (652 of 1,535) do not have this problem: a
+  an owner's own location directory (652 of 1,559) do not have this problem: a
   directory lists the centers an owner says are open today.
 
   Ghosts become provable in one situation: when a chain under a *different*
@@ -549,8 +552,8 @@ context.
   could be stale. Seven clinics whose registration was provably dead (the address
   is now registered to a chain under a different parent firm, with a two-to-seven
   year staleness gap) were quarantined out of this release. See section 9.
-- **Market share:** 822 of the country's 2,921 chain-run ABA clinics (**28.1%**),
-  and 4.3% of all 21,170 ABA sites. Private equity alone holds 23.2% of chain-run
+- **Market share:** 822 of the country's 2,923 chain-run ABA clinics (**28.1%**),
+  and 4.3% of all 21,172 ABA sites. Private equity alone holds 23.2% of chain-run
   clinics. See section 8b, and do not quote one of these without the others.
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
