@@ -1,6 +1,6 @@
 # Fundprint Methodology
 
-**Methodology version:** `2026.07-directory-v1`
+**Methodology version:** `2026.07-directory-v2`
 **Applies to dataset version:** `2026.07-beta` and later, until superseded.
 **Maintained at:** https://github.com/fundprint/fundprint-methodology
 **Public dashboard:** https://whofundsmytherapist.com
@@ -566,16 +566,30 @@ boundaries are known.
   stage described in Section 4 is part of the designed pipeline but was not
   exercised for this release. There are no `llm_inferred` claims in the current
   dataset. This keeps the release fully deterministic and reproducible.
-- **Name-prefix matching can over-capture.** A brand-name prefix match can link
-  a registry record that shares a leading name with an owner brand but is not
-  actually part of it. It can also capture a correctly-identified owner that is
-  out of scope: an early release attached six Geode Health records (a KKR-backed
-  outpatient mental-health provider, not an ABA or autism provider) to KKR
-  through a name match. Those records were identified and held out of
-  publication as out of scope, and the linker is guarded against re-capturing
-  them. Conversely, a spelling variant or an abbreviated legal name can cause a
-  real clinic to be missed. Both directions of error are possible, and the
-  confidence floor, the out-of-scope holds, and the hand-validation gate are the
+- **Name-prefix matching can over-capture, and it demonstrably did.** A brand-name
+  prefix match can link a registry record that shares a leading name with an owner
+  brand but is not actually part of it. This is not hypothetical. Normalising
+  "Hope Bridge" yields `hopebridge`, which is a leading substring of `HOPE BRIDGE
+  COUNSELING LLC`, `HOPE BRIDGE LIVING LLC`, `HOPE BRIDGE CARE LLC` and `HOPE
+  BRIDGE HEALTH SERVICES LLC`; "Acorn Health" is a leading substring of `ACORN
+  HEALTHCARE SERVICES INCORPORATED` and `ACORN HEALTH SOLUTIONS`. These are
+  unrelated businesses, and until this release they were published as
+  private-equity-owned clinics. They were removed by reading the two chains' own
+  directories, which list neither.
+
+  The general lesson is that the matcher cannot police itself: the string is all it
+  has, and two companies can share one. What catches this class of error is an
+  independent statement of what the owner operates, which is exactly what an owner's
+  directory is. Where a tracked owner publishes no complete directory, this risk is
+  live and undetected, and that is stated rather than glossed.
+
+  The same match can also capture a correctly-identified owner that is out of scope:
+  an early release attached six Geode Health records (a KKR-backed outpatient
+  mental-health provider, not an ABA or autism provider) to KKR. Those were held out
+  of publication and the linker is guarded against re-capturing them. Conversely, a
+  spelling variant or an abbreviated legal name can cause a real clinic to be
+  missed. Both directions of error are possible, and the confidence floor, the
+  out-of-scope holds, the owner directories and the hand-validation gate are the
   controls against them.
 - **Site de-duplication now spans a parent firm's brands, and this limitation is
   retired.** Previous releases scoped de-duplication to a single owner brand and
@@ -595,15 +609,23 @@ boundaries are known.
   lives on, are certainly present.
 
   The only signal the registry offers is how long a record has gone untouched.
-  Fundprint now records that date for every registry-sourced clinic. **88 of the
-  883 registry-sourced clinics in this release (10%) rest on a registration that
-  has not been updated or re-certified in six or more years.** That is not a
-  count of ghosts, but it is the pool they are drawn from, and it is published
-  rather than hidden. The proportion has fallen (it was 19% a release ago) because
-  the bulk registry's practice-location file surfaces many recently re-certified
-  secondary sites, not because any stale record became fresh. Clinics sourced from
-  an owner's own location directory (927 of 1,721) do not have this problem: a
-  directory lists the centers an owner says are open today.
+  Fundprint records that date for every registry-sourced clinic. **Of the 355
+  registry-sourced clinics whose registration can be looked up by NPI, 62 (17%)
+  rest on a record that has not been updated or re-certified in six or more
+  years.** That is not a count of ghosts, but it is the pool they are drawn from,
+  and it is published rather than hidden.
+
+  The exposure is now much smaller than it was, and for a better reason than
+  before. **1,045 of the 1,705 clinics are attested by an owner's own current
+  directory**, and those cannot be ghosts by construction: a directory lists the
+  centers an owner says are open today. Only the 660 registry-only clinics carry
+  the risk at all. Better still, where an owner publishes a complete directory the
+  problem is no longer merely *disclosed* but *removed*: the directory decides what
+  the owner operates, and every registration it does not list is quarantined. That
+  is how 34 closed Action Behavior Centers registrations in Colorado, and
+  Hopebridge's entire registered presence in Colorado and Arkansas, left this
+  release. The residual ghost pool is therefore roughly 110 clinics, not a third of
+  the dataset.
 
   Ghosts become provable in one situation: when a chain under a *different*
   parent firm registers at the same street address. Two competing chains do not
@@ -618,14 +640,24 @@ boundaries are known.
   dataset will not guess.** Some chains deliver much of their care in homes and
   schools, register a single organization NPI, and publish "service area" pages
   rather than centers: a page per city, carrying a city name and no street
-  address. Autism Learning Partners, one of the largest ABA providers in the
-  country and a tracked FFL Partners holding, publishes 199 such pages and
-  appears here with **one** clinic. That number is not a mistake and it is not
-  the company's size. It is what the public record establishes about its physical
-  locations. Counting service areas as clinics would inflate the dataset with
-  places that are not clinics, so Fundprint publishes the ownership (which is
-  sourced) and leaves the count where the evidence leaves it. This is the sharpest
-  illustration of the rule stated in Section 1: coverage, not census.
+  address. Key Autism Services publishes 195 such pages. A service area is not a
+  place, so it is not counted, and the ownership is published with a clinic count
+  of zero and an explicit label rather than filled in with guesses.
+
+  **A previous release applied that rule to Autism Learning Partners and got it
+  wrong, and the correction is worth stating plainly because the failure is easy to
+  repeat.** ALP was recorded here as publishing 199 address-less service-area pages
+  and appearing with **one** clinic, and that was described as correct rather than
+  as a gap. It was not correct. Its 199 state and county pages are indeed indexes
+  with no street address, but the 59 pages *beneath* them are individual centers,
+  each publishing its own address in machine-readable form. ALP now stands at
+  **45**. Six of its leaf pages genuinely are city-only and remain excluded.
+
+  The rule survives; the reasoning that was applied to it did not. "This directory
+  publishes no addresses" is a claim about the page that was actually opened, and
+  the page to open is the last one in the tree, not the index that links to it. A
+  count left low out of caution is still a wrong count, and caution is not a reason
+  to stop looking.
 - **Ownership is a moving target.** Deals close and unwind continually. The
   dataset reflects what public sources documented as of its snapshot date. A
   divestiture the week after a snapshot will not be reflected until the next

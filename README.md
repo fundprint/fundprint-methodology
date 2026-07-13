@@ -8,7 +8,7 @@ applied behavior analysis (ABA) and autism therapy clinics.
 - **This repo defines:** what counts as a clinic, an owner, and a PE-backed
   relation; how claims are scored; the confidence floors and validation gates
   that decide what gets published.
-- **Current methodology version:** `2026.07-directory-v1`
+- **Current methodology version:** `2026.07-directory-v2`
 
 If you want to understand how a number on the dashboard was produced, or whether
 you can trust it, this is the repository that answers that.
@@ -23,7 +23,7 @@ never folded into the private-equity figure.
 Measured against the federal provider registry, which lists 17,567 ABA providers
 running 21,083 locations: Fundprint can name the owner of 753 of those locations
 (3.6%), of which 628 (3.0%) are private-equity held. That national figure is small
-because the profession is overwhelmingly independent, with 15,133 providers running
+because the profession is overwhelmingly independent, with 15,141 providers running
 a single location. Concentration is local, and there it is much higher: private
 equity holds 16.5% of Minnesota's ABA locations and 12.3% of New Mexico's.
 
@@ -71,7 +71,7 @@ first, before any data is validated against them.
 If you reference Fundprint's method or dataset, please cite the methodology
 version you relied on. See [CITATION.cff](./CITATION.cff), or use:
 
-> Doke, A. (2026). *Fundprint Methodology*, version 2026.07-directory-v1.
+> Doke, A. (2026). *Fundprint Methodology*, version 2026.07-directory-v2.
 > https://github.com/fundprint/fundprint-methodology
 
 For a specific dataset release, also name its `dataset_version` (for example,
