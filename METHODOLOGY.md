@@ -1,6 +1,6 @@
 # Fundprint Methodology
 
-**Methodology version:** `2026.06-floors-v0`
+**Methodology version:** `2026.07-sites-v1`
 **Applies to dataset version:** `2026.07-beta` and later, until superseded.
 **Maintained at:** https://github.com/fundprint/fundprint-methodology
 **Public dashboard:** https://whofundsmytherapist.com
@@ -84,10 +84,28 @@ National Provider Identifiers at one address, sometimes under more than one
 legal-entity name: Action Behavior Centers registers six NPIs at a single
 Broomfield, Colorado suite. Each is a real registration, but they are one clinic.
 Fundprint therefore counts distinct physical sites, identifying a site by its
-owner, street address (including suite), and ZIP. Counting NPI enumerations
-instead would inflate any chain that registers many identifiers per center, and
-would do so unevenly across owners, making clinic counts non-comparable between
-firms.
+street address (including suite) and ZIP. Counting NPI enumerations instead would
+inflate any chain that registers many identifiers per center, and would do so
+unevenly across owners, making clinic counts non-comparable between firms.
+
+**One site is one clinic even when a parent firm's two brands are registered at
+it.** A firm that buys two chains and merges them leaves both registrations
+standing at the same suite. KKR registers BlueSprig and Florida Autism Center at
+2437 SE 17th Street, Suite 102 in Ocala, Florida; LEARN registers Total Spectrum
+and Wisconsin Early Autism Project at the same six Wisconsin streets; Zenyth
+registers Helping Hands Family and Mission Autism Clinics at the same five suites.
+These are not co-locations. One suite does not hold two competing centers, and
+these are not competitors: they are the same owner, and the abandoned brand's
+record is typically years staler than the surviving one. They are counted once.
+
+An earlier version of this document disclosed this as a residual counting limit
+instead of correcting it, reasoning that merging two separately registered legal
+entities into one center was a stronger claim than the registry supported. That
+was backwards, and the reasoning is recorded here because it is a trap worth
+naming: declining to merge is not the neutral option. It asserts that two centers
+exist at one suite, which is the claim the evidence actually contradicts. When a
+choice is between two claims, "publish less" is the one that counts fewer clinics,
+not the one that requires less thought.
 
 Nor is every address a chain registers a clinic at all. A corporate headquarters
 or billing office may be registered as the practice location. Fundprint excludes
@@ -320,8 +338,8 @@ directory mixes several tracked brands and each center's name carries its brand,
 the deterministic name matcher links it; where every center belongs to one known
 owner but the pages are generically named, they are attributed to that owner
 directly. A center that matches no tracked owner is left unlinked. In this
-release, 254 of the 723 clinics come from owner directories and the rest from
-NPPES.
+release, 652 of the 1,535 clinics come from owner directories and rosters, and
+the remaining 883 from NPPES.
 
 For an ownership link, the source is a captured primary source: an acquisition
 announcement or a reputable trade-press report that explicitly states the
@@ -360,22 +378,38 @@ real ABA chain registers under the ABA taxonomy, and omitting them would drop
 tracked clinics out of the denominator and inflate the share.
 
 **The one rule that makes the share honest.** The numerator and the denominator
-are computed in a single pass over that one universe, with one address key. The
-numerator is therefore a strict subset of the denominator and cannot count
-anything the denominator does not. This has a consequence that is stated rather
-than buried: clinics Fundprint reads from an owner's own location directory are
-excluded from **both** sides, because the registry cannot see them. The published
-clinic count is larger than this numerator and the two are not interchangeable.
+are computed in a single pass over that one universe, with one address key, and
+every figure is a count of **distinct sites**: a union, never a sum of per-group
+sizes. The numerator is therefore a strict subset of the denominator and cannot
+count anything the denominator does not.
+
+That the two sentences above must both be true is not a pedantic point, and this
+release is where they became true. The share was previously computed by summing
+the number of sites held by each owner, and separately summing the number of sites
+in each chain. Because one address can carry two brands or two legal entities, both
+sums counted some addresses more than once, on both sides of the ratio. The
+numerator was not a subset of the denominator but a multiset that could in
+principle exceed it. Counting distinct sites moved the headline share from 28.4%
+to **27.4%**, and moved the national ABA site count from 23,213 to 21,170. A rule
+that is stated but not implemented is not a rule.
+
+This has a further consequence that is stated rather than buried: clinics
+Fundprint reads from an owner's own location directory are excluded from **both**
+sides, because the registry cannot see them. The published clinic count is larger
+than this numerator and the two are not interchangeable.
 
 **What the market looks like.** The registry holds 17,567 ABA provider
-organizations operating 23,213 locations. 20,143 of those locations (87%) belong
-to independents and very small practices. There are only 286 ABA chains in the
-country with five or more locations, running 3,070 clinics between them.
+organizations operating 21,170 distinct locations. 18,249 of those locations (86%)
+belong to independents and very small practices. There are only 286 ABA chains in
+the country with five or more locations, running 2,921 clinics between them.
 
-**The two shares.** Of those chain-run clinics, 872 (**28.4%**) are held by a
+**The two shares.** Of those chain-run clinics, 799 (**27.4%**) are held by a
 private-equity firm, pension fund or family office Fundprint can name and source.
-Measured against every ABA location in the country, including the independents,
-the same holdings are 3.9% (3.3% for private equity alone).
+Private equity on its own holds 23.2% of them; the remainder is a pension fund and
+a family office, which is why a headline that says "private equity" must be built
+on the 23.2% and not on the 27.4%. Measured against every ABA location in the
+country, including the independents, the same holdings are 4.2% (3.6% for private
+equity alone).
 
 Both numbers are true and both are published. The second describes a fragmented
 profession. The first describes what has happened to the part of it that
@@ -410,16 +444,13 @@ boundaries are known.
   real clinic to be missed. Both directions of error are possible, and the
   confidence floor, the out-of-scope holds, and the hand-validation gate are the
   controls against them.
-- **A center listed under two of one owner's brands may still be counted
-  twice.** Site de-duplication is scoped to a single owner brand. Where a parent
-  firm has merged brands but the provider registry still carries both
-  registrations at one address, the center appears once per brand. Eleven
-  addresses in the current release are affected, all under KKR, where BlueSprig,
-  Florida Autism Center, and Trumpet Behavioral Health share a street address.
-  Merging across brands asserts that two separately registered legal entities are
-  one center, which is a stronger claim than the registry supports on its own, so
-  Fundprint discloses the count rather than making it silently. KKR's tracked
-  count is therefore an upper bound by up to eleven.
+- **Site de-duplication now spans a parent firm's brands, and this limitation is
+  retired.** Previous releases scoped de-duplication to a single owner brand and
+  disclosed the resulting over-count instead of fixing it. Twenty-three addresses
+  were affected (twelve under KKR, six under Gryphon's LEARN, five under Zenyth).
+  They are now counted once each; see the clinic definition in section 2. The
+  disclosure is kept here, struck through rather than deleted, because a reader
+  comparing releases is entitled to know why a firm's count fell.
 - **The provider registry reports existence-ever, not existence-now.** This is
   the most important limit on the registry-sourced half of the dataset. NPPES is
   a register of identifiers, not an inventory of open businesses: when a clinic
@@ -431,13 +462,15 @@ boundaries are known.
   lives on, are certainly present.
 
   The only signal the registry offers is how long a record has gone untouched.
-  Fundprint now records that date for every registry-sourced clinic. **89 of the
-  462 registry-sourced clinics in this release (19%) rest on a registration that
+  Fundprint now records that date for every registry-sourced clinic. **88 of the
+  883 registry-sourced clinics in this release (10%) rest on a registration that
   has not been updated or re-certified in six or more years.** That is not a
   count of ghosts, but it is the pool they are drawn from, and it is published
-  rather than hidden. Clinics sourced from an owner's own location directory
-  (254 of 716) do not have this problem: a directory lists the centers an owner
-  says are open today.
+  rather than hidden. The proportion has fallen (it was 19% a release ago) because
+  the bulk registry's practice-location file surfaces many recently re-certified
+  secondary sites, not because any stale record became fresh. Clinics sourced from
+  an owner's own location directory (652 of 1,535) do not have this problem: a
+  directory lists the centers an owner says are open today.
 
   Ghosts become provable in one situation: when a chain under a *different*
   parent firm registers at the same street address. Two competing chains do not
@@ -477,22 +510,26 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 1,558
-- **Current owners with tracked clinics:** 10, plus one former owner and two
+- **Clinics tracked:** 1,535
+- **Current owners with tracked clinics:** 18, plus one former owner and two
   in-home owners (which operate no centers), all shown with a clinic count of
   zero and an explicit label
 - **States covered:** 43
-- **Clinic-existence sources:** 947 clinics come from the NPPES provider registry
-  and 611 from owners' own public location directories and rosters (see section 8). Clinics
-  from both sources are de-duplicated on the same key, owner plus street address
-  plus ZIP, so a center listed in both sources is counted once and several NPIs
+- **Clinic-existence sources:** 883 clinics come from the NPPES provider registry
+  and 652 from owners' own public location directories and rosters (see section
+  8). Clinics from both sources are de-duplicated on the same key, street address
+  plus ZIP within a parent firm, so a center listed in both sources is counted
+  once, several NPIs at one address are counted once, and two of one firm's brands
   at one address are counted once.
-- **Registry freshness:** 89 of the 414 registry-sourced clinics (21%) rest on a
+- **Registry freshness:** 88 of the 883 registry-sourced clinics (10%) rest on a
   registration not updated in six or more years. The registry never marks a
   closed clinic closed, so this is the honest measure of how much of the dataset
   could be stale. Seven clinics whose registration was provably dead (the address
   is now registered to a chain under a different parent firm, with a two-to-seven
   year staleness gap) were quarantined out of this release. See section 9.
+- **Market share:** 799 of the country's 2,921 chain-run ABA clinics (**27.4%**),
+  and 4.2% of all 21,170 ABA sites. See section 8b, and do not quote one without
+  the other.
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
   an `exact_match` against a named primary source. No `llm_inferred` claims are
@@ -502,18 +539,30 @@ Current owners, by owner type and tracked clinic count:
 
 | Parent firm                    | Owner type      | Clinics tracked |
 |--------------------------------|-----------------|-----------------|
-| KKR                            | private equity  | 258             |
+| KKR                            | private equity  | 246             |
 | Charlesbank                    | private equity  | 212             |
+| Gryphon Investors              | private equity  | 152             |
+| Tenex Capital Management       | private equity  | 150             |
 | Arsenal Capital Partners       | private equity  | 142             |
 | Nautic Partners                | private equity  | 135             |
 | Ontario Teachers' Pension Plan | pension fund    | 90              |
 | General Atlantic               | private equity  | 81              |
-| Tenex Capital Management       | private equity  | 20              |
+| GTCR                           | private equity  | 79              |
+| Zenyth Partners                | private equity  | 64              |
+| NexPhase Capital               | private equity  | 41              |
+| Petra Capital Partners         | private equity  | 37              |
+| Elysium Management             | family office   | 29              |
+| Pharos Capital Group           | private equity  | 20              |
+| Goldman Sachs Alternatives     | private equity  | 20              |
 | Thomas H. Lee Partners         | private equity  | 18              |
-| Gryphon Investors              | private equity  | 9               |
-| GTCR                           | private equity  | 2               |
+| Trilogy Search Partners        | other           | 18              |
+| FFL Partners                   | private equity  | 1               |
 | Moran Capital Partners         | family office   | 0 (in-home)     |
 | Cane Investment Partners       | other           | 0 (in-home)     |
+
+FFL Partners' single clinic is not an error. See the limitation in section 9 on
+Autism Learning Partners: the company is one of the largest ABA providers in the
+country, and the public record establishes exactly one physical location for it.
 
 Moran Capital Partners (Butterfly Effects) and Cane Investment Partners (Key
 Autism Services) own providers that deliver therapy in the client's home and
