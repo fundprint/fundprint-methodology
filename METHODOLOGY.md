@@ -1,6 +1,6 @@
 # Fundprint Methodology
 
-**Methodology version:** `2026.07-no-threshold-v1`
+**Methodology version:** `2026.07-directory-v1`
 **Applies to dataset version:** `2026.07-beta` and later, until superseded.
 **Maintained at:** https://github.com/fundprint/fundprint-methodology
 **Public dashboard:** https://whofundsmytherapist.com
@@ -115,6 +115,39 @@ omits. A tempting rule, "many NPIs at one address means head office," was tested
 against the data and rejected as false, precisely because Action Behavior Centers
 registers three to four NPIs at every one of its 35 Colorado centers. Applying
 that rule would have deleted dozens of real clinics.
+
+**One address, spelled two ways, is one address.** The provider registry shouts
+abbreviations ("18301 N 79TH AVE, BUILDING A STE 101") and an owner's own directory
+writes them out ("18301 N 79th Avenue, Building A, Suite 101"). Stripping
+punctuation is not enough to see that these are the same suite, and until this
+release they were two clinics. Forty-four real sites were counted twice, once per
+source, across Hopebridge, BlueSprig, Florida Autism Center, Proud Moments, ACES
+and others. The site key now canonicalizes USPS street suffixes, directionals and
+unit markers, so `AVE`/`Avenue`, `STE 101`/`Suite 101`/`#101` all key alike.
+
+This is a canonicalization, not a fuzzy match, and it must never become one. Every
+pair folded together is an abbreviation and its expansion. Anything looser, such as
+dropping the unit, would merge two genuinely different clinics in one office park,
+which is the exact failure the site key exists to prevent.
+
+**Where an owner's own directory and the registry disagree about whether a centre
+exists, the directory wins.** A registration is filed once and nobody ever revokes
+it. A directory is what the company tells parents today. Action Behavior Centers
+forced this rule: its directory lists 414 centres, and the registry gave us 206
+rows, of which 105 were addresses ABC does not list anywhere. Nine were in Ohio,
+three in Virginia and one in Georgia, states it does not operate in. One was an
+apartment in Palm Beach Gardens. One was its own corporate headquarters at 6300
+Bee Caves Road, filed as a "practice location" on the very NPI that carries its
+109 real centres as secondary locations. Thirty-four were in Colorado, where the
+registry gave us 67 against ABC's 42: centres that closed and were never
+deregistered, exactly as section 9 describes.
+
+The rule applies only where an owner publishes a *complete* directory, and it
+quarantines rather than deletes: the registration is real, and what is false is
+the inference that a registration is a centre. Where the two sources agree, the
+registry row is superseded by the directory row rather than counted alongside it.
+A directory that covers only one region must never be used this way, because it
+would quarantine real clinics elsewhere.
 
 **A multi-service provider is in scope only when ABA is a core line, not an
 incidental one.** Some companies deliver ABA alongside speech therapy,
@@ -360,8 +393,8 @@ directory mixes several tracked brands and each center's name carries its brand,
 the deterministic name matcher links it; where every center belongs to one known
 owner but the pages are generically named, they are attributed to that owner
 directly. A center that matches no tracked owner is left unlinked. In this
-release, 652 of the 1,559 clinics come from owner directories and rosters, and
-the remaining 907 from NPPES.
+release, 927 of the 1,721 clinics come from owner directories and rosters, and
+the remaining 794 from NPPES.
 
 For an ownership link, the source is a captured primary source: an acquisition
 announcement or a reputable trade-press report that explicitly states the
@@ -450,25 +483,25 @@ front of a journalist, an academic, or a Senate staffer. The chain-run share cou
 not survive the second question from any of the three.
 
 **What the market looks like, without a threshold.** The registry holds 17,567 ABA
-provider organizations operating 21,172 distinct locations. Rather than cut that
+provider organizations operating 21,083 distinct locations. Rather than cut that
 population at a number of our choosing, the release publishes the whole
 operator-size distribution:
 
 | Locations per operator | Operators | Locations |
 |---|---|---|
-| 1 | 15,133 | 13,967 |
-| 2-4 | 2,148 | 4,872 |
-| 5-9 | 195 | 1,153 |
-| 10-24 | 77 | 1,045 |
-| 25+ | 14 | 781 |
+| 1 | 15,141 | 13,939 |
+| 2-4 | 2,145 | 4,867 |
+| 5-9 | 191 | 1,137 |
+| 10-24 | 76 | 1,033 |
+| 25+ | 14 | 774 |
 
 (Locations are a union, not a sum: two operators can share one address.) A reader
 who wants a chain share can compute one from this table, and in doing so must
 state their own threshold out loud. That is the point.
 
-**The share, which needs no threshold.** Of the 21,172 ABA locations in the
-country, Fundprint can name and source the owner of **915 (4.3%)**, of which
-**754 (3.6%)** are held by private equity. These are the only national shares
+**The share, which needs no threshold.** Of the 21,083 ABA locations in the
+country, Fundprint can name and source the owner of **907 (4.3%)**, of which
+**746 (3.5%)** are held by private equity. These are the only national shares
 published, because they are the only ones that require no choice.
 
 **Where private equity actually is.** A national share of a profession this
@@ -476,7 +509,7 @@ fragmented says little about market power, because care is bought locally: no
 family chooses between a clinic in Denver and one in Tampa. So the release also
 publishes private equity's share of the ABA locations **within each state**, which
 requires no threshold either. The most concentrated are Minnesota (24 of 139
-locations, 17.3%), Colorado (99 of 701, 14.1%), New Mexico (13 of 106, 12.3%),
+locations, 17.3%), Colorado (92 of 688, 13.4%), New Mexico (13 of 106, 12.3%),
 Arizona (60 of 529, 11.3%) and Pennsylvania (46 of 431, 10.7%). States with fewer
 than 25 ABA locations are not ranked, because a percentage of a handful of clinics
 is noise; they are still counted in every national figure.
@@ -534,7 +567,7 @@ boundaries are known.
   rather than hidden. The proportion has fallen (it was 19% a release ago) because
   the bulk registry's practice-location file surfaces many recently re-certified
   secondary sites, not because any stale record became fresh. Clinics sourced from
-  an owner's own location directory (652 of 1,559) do not have this problem: a
+  an owner's own location directory (927 of 1,721) do not have this problem: a
   directory lists the centers an owner says are open today.
 
   Ghosts become provable in one situation: when a chain under a *different*
@@ -575,7 +608,7 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 1,559
+- **Clinics tracked:** 1,721
 - **Current owners with tracked clinics:** 19, plus one former owner and two
   in-home owners (which operate no centers), all shown with a clinic count of
   zero and an explicit label
@@ -592,13 +625,13 @@ context.
   could be stale. Seven clinics whose registration was provably dead (the address
   is now registered to a chain under a different parent firm, with a two-to-seven
   year staleness gap) were quarantined out of this release. See section 9.
-- **Market share:** of the 21,172 ABA locations the registry lists, Fundprint can
-  name the owner of **915 (4.3%)**, of which **754 (3.6%)** are private-equity
+- **Market share:** of the 21,083 ABA locations the registry lists, Fundprint can
+  name the owner of **907 (4.3%)**, of which **746 (3.5%)** are private-equity
   held. There is **no chain-run share**: it was withdrawn this release because its
   five-site threshold was arbitrary and its denominator was inflated by the very
   buying it purported to measure. See section 8b.
 - **Where it is concentrated:** private equity holds 17.3% of Minnesota's ABA
-  locations (24 of 139), 14.1% of Colorado's (99 of 701), 12.3% of New Mexico's,
+  locations (24 of 139), 13.4% of Colorado's (92 of 688), 12.3% of New Mexico's,
   11.3% of Arizona's and 10.7% of Pennsylvania's. Care is bought locally, so the
   state figure means more than the national one.
 - **Method breakdown:** every published clinic-to-owner link in this release is

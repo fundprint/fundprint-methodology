@@ -8,24 +8,24 @@ applied behavior analysis (ABA) and autism therapy clinics.
 - **This repo defines:** what counts as a clinic, an owner, and a PE-backed
   relation; how claims are scored; the confidence floors and validation gates
   that decide what gets published.
-- **Current methodology version:** `2026.07-no-threshold-v1`
+- **Current methodology version:** `2026.07-directory-v1`
 
 If you want to understand how a number on the dashboard was produced, or whether
 you can trust it, this is the repository that answers that.
 
 ## What the dataset currently says
 
-As of `2026.07-no-threshold-v1`: **private equity owns 1,398 of the 1,559 autism
+As of `2026.07-directory-v1`: **private equity owns 1,560 of the 1,721 autism
 therapy clinics Fundprint traces, across 43 states.** The remainder are held by a
 pension fund, a family office and two search funds, which are labelled as such and
 never folded into the private-equity figure.
 
 Measured against the federal provider registry, which lists 17,567 ABA providers
-running 21,172 locations: Fundprint can name the owner of 915 of those locations
-(4.3%), of which 754 (3.6%) are private-equity held. That national figure is small
+running 21,083 locations: Fundprint can name the owner of 907 of those locations
+(4.3%), of which 746 (3.5%) are private-equity held. That national figure is small
 because the profession is overwhelmingly independent, with 15,133 providers running
 a single location. Concentration is local, and there it is much higher: private
-equity holds 17.3% of Minnesota's ABA locations and 14.1% of Colorado's.
+equity holds 17.3% of Minnesota's ABA locations and 13.4% of Colorado's.
 
 **There is no "chain" share.** An earlier release headlined private equity's share
 of clinics run by operators with five or more locations. It was withdrawn, and the
@@ -65,7 +65,7 @@ first, before any data is validated against them.
 If you reference Fundprint's method or dataset, please cite the methodology
 version you relied on. See [CITATION.cff](./CITATION.cff), or use:
 
-> Doke, A. (2026). *Fundprint Methodology*, version 2026.07-no-threshold-v1.
+> Doke, A. (2026). *Fundprint Methodology*, version 2026.07-directory-v1.
 > https://github.com/fundprint/fundprint-methodology
 
 For a specific dataset release, also name its `dataset_version` (for example,

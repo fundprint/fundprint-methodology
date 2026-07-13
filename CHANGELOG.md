@@ -7,6 +7,62 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## 2026.07-directory-v1
+
+Governs dataset release `2026.07-beta` and later. Two changes to what counts as a
+clinic, and they pull in opposite directions: one merges rows that were the same
+site, the other replaces a whole owner's registry footprint with its own directory.
+Published clinics move from 1,559 to **1,721**.
+
+### One address, spelled two ways, was two clinics
+
+The site key stripped punctuation but did not canonicalize abbreviations, so the
+registry's `18301 N 79TH AVE, BUILDING A STE 101` and the owner's own
+`18301 N 79th Avenue, Building A, Suite 101` were two different clinics. **44 real
+sites were being counted twice**, once from each source, across Hopebridge, Blue
+Sprig, Florida Autism Center, Proud Moments, ACES, Trumpet, Key Autism, BACA and
+Action Behavior Centers. They are now one row each; the losers are superseded, not
+deleted.
+
+The key now folds USPS street suffixes, directionals and unit markers (`AVE`/
+`Avenue`, `STE 101`/`Suite 101`/`#101`). It remains a canonicalization and not a
+fuzzy match: every pair folded together is an abbreviation and its expansion, and
+two different suites in one building stay two clinics, which is the whole reason
+the unit is in the key.
+
+This also shrank the national denominator, from 21,172 ABA locations to **21,083**:
+the registry was double-counting addresses against itself for the same reason.
+
+### Action Behavior Centers: 212 registry rows became 413 sourced ones
+
+ABC publishes 414 centres. The registry gave us 212, and they were wrong in **both
+directions at once**:
+
+- **It missed 212 Texas centres.** ABC's directory lists 227 in Texas; NPPES gave
+  us 15. A chain does not separately register every centre, and the registry cannot
+  see what was never filed.
+- **It invented about 50.** Nine clinics in Ohio, three in Virginia, one in
+  Georgia, none of which are states ABC operates in. An *apartment* in Palm Beach
+  Gardens. ABC's own corporate headquarters at 6300 Bee Caves Road, filed as a
+  "practice location" on the same NPI that carries its 109 real centres as
+  secondary locations. And 34 in Colorado, where ABC lists 42 and the registry gave
+  us 67: centres that closed and were never deregistered.
+
+So this release adds an ABC directory source and applies a new rule: **where an
+owner's own complete directory and the registry disagree about whether a centre
+exists, the directory wins.** A registration is filed once and never revoked; a
+directory is what the company tells parents today. The 105 contradicted registry
+rows are quarantined, not deleted, and every real centre survives because the
+directory row carries it.
+
+ABC's per-state counts now match its own published directory exactly.
+
+### Also
+
+- HTML entities were reaching the database unescaped from JSON-LD addresses
+  ("Suite 100 &amp; 400"). Nineteen clinic addresses are corrected, and the parser
+  now unescapes the address, not just the name.
+
 ## 2026.07-no-threshold-v1
 
 Governs dataset release `2026.07-beta` and later, until superseded. No clinic,
