@@ -71,6 +71,47 @@ this methodology exists to prevent.
 
 A rule that is stated but not implemented is not a rule.
 
+### One new owner, and five chains ruled out
+
+Ranking the registry's remaining untracked chains by size left 69 with ten or more
+locations. Working the largest of them produced one addition and, more usefully,
+five firm exclusions that no longer need re-researching.
+
+**Added: Anacapa Partners (Woven Care), 24 clinics.** Woven Care, formerly the
+Shandy Clinic, registers every Colorado center as "Buck Jack LLC", which is why
+it had never been matched to a brand. Anacapa's own portfolio page lists Shandy
+Clinic as a current operating company, acquired through the search vehicle Buck
+Jack Capital. Recorded as `other` rather than private equity, because a search
+fund is neither a buyout fund, a pension, nor a family office. It is the first
+owner admitted under the new multi-service rule in section 2: Woven Care also
+provides speech, occupational and physical therapy, but it holds 22 identifiers
+whose primary taxonomy is behavior analysis and runs ABA at 22 of its 24 sites.
+
+Chain-run share moves from 27.4% to **28.1%**. Private equity's own share is
+unchanged at 23.2%, because Anacapa is not a private-equity firm, and this is the
+point of labelling owner types honestly rather than folding them all into "PE".
+
+**Ruled out, with reasons, so they stay ruled out:**
+
+- **Center for Autism and Related Disorders (CARD)** still has around twenty live
+  registrations, which invited the question of who owns them now. Nobody
+  institutional does. When CARD went bankrupt in 2023, the bankruptcy court split
+  it: Pantogran, a vehicle led by founder Doreen Granpeesheh, took ten state
+  markets for $37.4m, and the rest went to portfolio companies of Audax Group for
+  $11.1m. CARD today is founder-owned. Blackstone remains in this dataset as a
+  former owner with a clinic count of zero, which is the correct treatment.
+- **DNA Comprehensive Therapy Services** (62 sites) is Elite DNA Behavioral Health,
+  a general behavioral-health provider. One of its 65 identifiers has behavior
+  analysis as its primary taxonomy. Out of scope under the multi-service rule.
+- **Associates in Pediatric Therapy** (32 identifiers) is a speech and occupational
+  therapy provider; two of its sites carry an ABA taxonomy. Out of scope.
+- **Behavior Analysis Support Services** (22 Florida sites) is a genuine ABA chain,
+  founder-led since 2003, with no institutional owner in any public source.
+- **Woven Care's** own acquirer chain was checked against **Proud Moments**, which
+  the bankruptcy reporting names as an Audax portfolio company. That is history,
+  not an error: Audax held Proud Moments from 2019 and sold it to Nautic Partners
+  in February 2025. Fundprint's attribution of Proud Moments to Nautic is correct.
+
 ### Owner discovery: 11 new owners, and one correction to a widely repeated claim
 
 Ranking every ABA organization in the national registry by size and researching

@@ -116,6 +116,28 @@ against the data and rejected as false, precisely because Action Behavior Center
 registers three to four NPIs at every one of its 35 Colorado centers. Applying
 that rule would have deleted dozens of real clinics.
 
+**A multi-service provider is in scope only when ABA is a core line, not an
+incidental one.** Some companies deliver ABA alongside speech therapy,
+occupational therapy, psychiatry or physical therapy. Counting all of a general
+behavioral-health company's locations as autism clinics would badly overstate the
+dataset, so the default is to exclude them: Geode Health (a KKR-backed outpatient
+mental-health provider) and Invo Healthcare are both excluded on this rule, and
+neither carries a behavior-analysis taxonomy at a single location.
+
+The test is what the provider registry says the centers actually are. Woven Care,
+a Colorado pediatric therapy provider, holds 22 National Provider Identifiers
+whose *primary* taxonomy is behavior analysis and carries a behavior-analysis
+taxonomy at 22 of its 24 sites: it runs ABA at essentially every center, and it is
+included. Elite DNA Behavioral Health, which registers as DNA Comprehensive
+Therapy Services, has exactly **one** primary-ABA identifier out of 65 and is
+excluded: it offers ABA here and there alongside psychiatry and talk therapy. The
+distinction is not the company's self-description but its registrations.
+
+The test cuts one way only. It can exclude a multi-service company; it can never
+*include* a chain that would otherwise be out of scope, and a genuine ABA chain
+that registers under no ABA taxonomy at all (Behavioral Innovations and ACES both
+do this) is unaffected by it.
+
 **Private equity (PE).** A firm that acquires companies primarily using pooled
 investment capital with the intent of a later sale or recapitalization. This is
 Fundprint's primary frame.
@@ -403,13 +425,13 @@ organizations operating 21,170 distinct locations. 18,249 of those locations (86
 belong to independents and very small practices. There are only 286 ABA chains in
 the country with five or more locations, running 2,921 clinics between them.
 
-**The two shares.** Of those chain-run clinics, 799 (**27.4%**) are held by a
-private-equity firm, pension fund or family office Fundprint can name and source.
-Private equity on its own holds 23.2% of them; the remainder is a pension fund and
-a family office, which is why a headline that says "private equity" must be built
-on the 23.2% and not on the 27.4%. Measured against every ABA location in the
-country, including the independents, the same holdings are 4.2% (3.6% for private
-equity alone).
+**The two shares.** Of those chain-run clinics, 822 (**28.1%**) are held by a
+financial owner Fundprint can name and source. Private equity on its own holds
+23.2% of them; the remainder is a pension fund, a family office and two search
+funds, which is why a headline that says "private equity" must be built on the
+23.2% and not on the 28.1%. Measured against every ABA location in the country,
+including the independents, the same holdings are 4.3% (3.6% for private equity
+alone).
 
 Both numbers are true and both are published. The second describes a fragmented
 profession. The first describes what has happened to the part of it that
@@ -510,26 +532,26 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 1,535
-- **Current owners with tracked clinics:** 18, plus one former owner and two
+- **Clinics tracked:** 1,559
+- **Current owners with tracked clinics:** 19, plus one former owner and two
   in-home owners (which operate no centers), all shown with a clinic count of
   zero and an explicit label
 - **States covered:** 43
-- **Clinic-existence sources:** 883 clinics come from the NPPES provider registry
+- **Clinic-existence sources:** 907 clinics come from the NPPES provider registry
   and 652 from owners' own public location directories and rosters (see section
   8). Clinics from both sources are de-duplicated on the same key, street address
   plus ZIP within a parent firm, so a center listed in both sources is counted
   once, several NPIs at one address are counted once, and two of one firm's brands
   at one address are counted once.
-- **Registry freshness:** 88 of the 883 registry-sourced clinics (10%) rest on a
+- **Registry freshness:** 88 of the 907 registry-sourced clinics (10%) rest on a
   registration not updated in six or more years. The registry never marks a
   closed clinic closed, so this is the honest measure of how much of the dataset
   could be stale. Seven clinics whose registration was provably dead (the address
   is now registered to a chain under a different parent firm, with a two-to-seven
   year staleness gap) were quarantined out of this release. See section 9.
-- **Market share:** 799 of the country's 2,921 chain-run ABA clinics (**27.4%**),
-  and 4.2% of all 21,170 ABA sites. See section 8b, and do not quote one without
-  the other.
+- **Market share:** 822 of the country's 2,921 chain-run ABA clinics (**28.1%**),
+  and 4.3% of all 21,170 ABA sites. Private equity alone holds 23.2% of chain-run
+  clinics. See section 8b, and do not quote one of these without the others.
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
   an `exact_match` against a named primary source. No `llm_inferred` claims are
@@ -554,6 +576,7 @@ Current owners, by owner type and tracked clinic count:
 | Elysium Management             | family office   | 29              |
 | Pharos Capital Group           | private equity  | 20              |
 | Goldman Sachs Alternatives     | private equity  | 20              |
+| Anacapa Partners               | other           | 24              |
 | Thomas H. Lee Partners         | private equity  | 18              |
 | Trilogy Search Partners        | other           | 18              |
 | FFL Partners                   | private equity  | 1               |
