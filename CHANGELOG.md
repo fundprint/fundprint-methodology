@@ -7,6 +7,104 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## 2026.07-directory-v2
+
+Governs dataset release `2026.07-beta` and later. The previous release established
+that an owner's own complete directory beats the provider registry, and applied it
+to one owner. This release applies it to every owner that publishes one, and fixes
+the market share, which was still being computed from the registry and so still
+counted the clinics the rule had just removed.
+
+Published clinics move from 1,721 to **1,705**, private-equity clinics to
+**1,564**, and states covered to **44**. The published private-equity share of all
+ABA locations moves from 3.5% to **3.0%**.
+
+### Three more owners now read from their own directories
+
+Autism Learning Partners, Acorn Health and Hopebridge published complete center
+lists that Fundprint was not reading. Reading them changed all three, and in both
+directions at once, exactly as it did for Action Behavior Centers:
+
+| Owner | Was | Now | Why |
+|---|---|---|---|
+| Autism Learning Partners | 1 | 45 | 44 centers the registry never saw |
+| Acorn Health | 90 | 70 | directory lists 70; the rest are stale, duplicated or other companies |
+| Hopebridge | 145 | 101 | directory lists 101; ditto |
+
+**Autism Learning Partners corrects an error of our own.** ALP was previously
+recorded as a chain that publishes service-area pages with no street address, and
+was left at one clinic deliberately. That was true of its state and county index
+pages. It was not true of the 59 center pages *beneath* them, each of which
+publishes a street address. The lesson is general and is now written into the
+method: "this directory has no addresses" must be checked at the leaf page, not at
+the index that links to it. Its six genuinely address-less city pages are still
+excluded, because a service area is not a clinic.
+
+**Acorn Health and Hopebridge were inflated by three separate faults**, each of
+which the directory rule removes without needing to be special-cased:
+
+- *Registrations for other companies.* The name matcher collapses "Hope Bridge" to
+  `hopebridge`, which is a prefix of `HOPE BRIDGE COUNSELING LLC`, `HOPE BRIDGE
+  LIVING LLC` and `HOPE BRIDGE CARE LLC`; likewise `ACORN HEALTHCARE SERVICES
+  INCORPORATED` for Acorn. These are unrelated businesses and were being published
+  as private-equity-owned clinics.
+- *Closed centers.* The registry showed Hopebridge in Colorado (12), Arkansas (8),
+  Texas, Massachusetts, Maryland, Minnesota and five other states. Hopebridge's own
+  directory operates in none of them. The registry reports existence-ever.
+- *Head offices.* Acorn's Coral Gables headquarters was filed as a practice
+  location and published twice, as was Hopebridge's home office.
+
+Quarantining a registry row is safe wherever the directory is complete, because a
+real center survives via its directory row. That bar is checked, not assumed:
+Hopebridge's sitemap lists 114 center pages, which reconcile exactly as 103 centers
+plus 11 regional landing pages, and its index carries all 103.
+
+### The market share was computed from the registry, so it ignored all of this
+
+`compute_market_share.py` built its numerator by matching owner names against the
+NPPES archive directly, and never consulted the published dataset. Every correction
+above was therefore invisible to it. Arkansas was published as 7.6% private equity
+on the strength of eight Hopebridge centers Hopebridge does not operate, and
+`HOPE BRIDGE COUNSELING LLC` was counted toward private equity's share of the
+market.
+
+The numerator is now **the published dataset**, intersected with the registry
+universe. One correction now moves the map, the owner tables and the share
+together, which is the only way the three can agree.
+
+Two details make that intersection honest:
+
+- An owner and the registry often spell one building differently (`551 36th St SE
+  Unit 2` against `551 36th St. SE`). Requiring an exact site-key match would have
+  dropped 94 real sites, 82 of them private-equity, and understated the share. The
+  visibility test is therefore made at building level. **This does not relax the
+  site key**, which still keeps the unit, because two suites in one office park are
+  two clinics. It resolves to the registry's key, never ours, so the numerator
+  stays a strict subset of the denominator, and a building the registry splits into
+  several suites is skipped rather than guessed at.
+- **The correction is applied to the numerator and cannot be applied to the
+  denominator.** Fundprint removes closed centers from its own count because it can
+  read its owners' directories; it cannot read the directories of the other 17,000
+  operators, whose closed centers therefore remain in the 21,083. The published
+  private-equity share is consequently a floor, not a point estimate. This is the
+  conservative direction, and it is disclosed rather than corrected, because
+  correcting it would mean guessing.
+
+### Two parse faults that were putting wrong addresses in the data
+
+Both were caught before publication and both are now refused rather than guessed:
+
+- An address with no comma before the city (`7041 Transit Rd East Amherst New York
+  14051`) cannot be split by rule: the last number is the house number, so peeling
+  trailing words takes the street name into the city and leaves the street as
+  `7041`. Where the source states the city separately (Acorn's post titles,
+  Hopebridge's card headings, ALP's URLs) the split is now a subtraction rather than
+  a guess; where it does not, the row is dropped.
+- A directory entry is not always an address. Acorn lists Alpena, Michigan with the
+  text "In-home services available now" where the street belongs, which parsed
+  cleanly and staged a clinic whose street was that sentence. A street must now
+  carry a house number.
+
 ## 2026.07-directory-v1
 
 Governs dataset release `2026.07-beta` and later. Two changes to what counts as a

@@ -142,12 +142,30 @@ Bee Caves Road, filed as a "practice location" on the very NPI that carries its
 registry gave us 67 against ABC's 42: centres that closed and were never
 deregistered, exactly as section 9 describes.
 
+The rule now runs against every owner that publishes a complete directory, and it
+has found the same three faults each time. **Acorn Health** falls from 90 rows to
+the 70 it lists, **Hopebridge** from 145 to the 101 it lists. Both were inflated by
+closed centres (the registry places Hopebridge in Colorado, Arkansas, Texas and
+seven other states its directory does not operate in), by head offices filed as
+practice locations (Acorn's Coral Gables headquarters, published twice), and by
+registrations belonging to *other companies* whose names merely begin the same way:
+`HOPE BRIDGE COUNSELING LLC`, `HOPE BRIDGE LIVING LLC` and `ACORN HEALTHCARE
+SERVICES INCORPORATED` are unrelated businesses that a name-prefix match cannot
+tell apart from the chains. None of the three needed to be handled as a special
+case. Reading the owner's own list removes all of them at once.
+
 The rule applies only where an owner publishes a *complete* directory, and it
 quarantines rather than deletes: the registration is real, and what is false is
 the inference that a registration is a centre. Where the two sources agree, the
 registry row is superseded by the directory row rather than counted alongside it.
 A directory that covers only one region must never be used this way, because it
-would quarantine real clinics elsewhere.
+would quarantine real clinics elsewhere. Completeness is checked rather than
+assumed: Hopebridge's sitemap lists 114 centre pages, which reconcile exactly as
+the 103 centres its index carries plus 11 regional landing pages.
+
+Declining to apply the rule is not the neutral option. Leaving the registry rows in
+place asserts that a chain still runs a centre its own website does not list, which
+is the claim the evidence contradicts.
 
 **A multi-service provider is in scope only when ABA is a core line, not an
 incidental one.** Some companies deliver ABA alongside speech therapy,
@@ -393,8 +411,15 @@ directory mixes several tracked brands and each center's name carries its brand,
 the deterministic name matcher links it; where every center belongs to one known
 owner but the pages are generically named, they are attributed to that owner
 directly. A center that matches no tracked owner is left unlinked. In this
-release, 927 of the 1,721 clinics come from owner directories and rosters, and
-the remaining 794 from NPPES.
+release, 1,045 of the 1,705 clinics are attested by an owner directory or roster,
+and the remaining 660 rest on NPPES alone.
+
+A directory has to be read at the leaf. Autism Learning Partners publishes state
+and county index pages carrying no street address, and for a release it was
+recorded as having one clinic on that basis. The 59 pages *beneath* those indexes
+are individual centers, each publishing its address. "This directory has no
+addresses" is a claim about the page that was actually opened, and the page to open
+is the last one.
 
 For an ownership link, the source is a captured primary source: an acquisition
 announcement or a reputable trade-press report that explicitly states the
@@ -500,17 +525,27 @@ who wants a chain share can compute one from this table, and in doing so must
 state their own threshold out loud. That is the point.
 
 **The share, which needs no threshold.** Of the 21,083 ABA locations in the
-country, Fundprint can name and source the owner of **907 (4.3%)**, of which
-**746 (3.5%)** are held by private equity. These are the only national shares
+country, Fundprint can name and source the owner of **753 (3.6%)**, of which
+**628 (3.0%)** are held by private equity. These are the only national shares
 published, because they are the only ones that require no choice.
+
+The numerator is the published dataset, intersected with that same registry
+universe: not a second, unreviewed name match against the registry, which is what
+it used to be and which quietly re-imported every clinic the corrections in section
+9 had removed. Because the numerator is corrected and the denominator cannot be
+(Fundprint reads its own owners' directories, not those of the other 17,000
+operators), the published share is a **floor**. Closed centers have been taken out
+of the top of the fraction and remain in the bottom. That is the conservative
+direction, and it is disclosed rather than adjusted, because adjusting it would
+mean guessing at the rest of the market's staleness.
 
 **Where private equity actually is.** A national share of a profession this
 fragmented says little about market power, because care is bought locally: no
 family chooses between a clinic in Denver and one in Tampa. So the release also
 publishes private equity's share of the ABA locations **within each state**, which
-requires no threshold either. The most concentrated are Minnesota (24 of 139
-locations, 17.3%), Colorado (92 of 688, 13.4%), New Mexico (13 of 106, 12.3%),
-Arizona (60 of 529, 11.3%) and Pennsylvania (46 of 431, 10.7%). States with fewer
+requires no threshold either. The most concentrated are Minnesota (23 of 139
+locations, 16.5%), New Mexico (13 of 106, 12.3%), Arizona (51 of 529, 9.6%),
+Pennsylvania (38 of 431, 8.8%) and Colorado (55 of 688, 8.0%). States with fewer
 than 25 ABA locations are not ranked, because a percentage of a handful of clinics
 is noise; they are still counted in every national figure.
 
@@ -608,32 +643,37 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 1,721
+- **Clinics tracked:** 1,705
 - **Current owners with tracked clinics:** 19, plus one former owner and two
   in-home owners (which operate no centers), all shown with a clinic count of
   zero and an explicit label
-- **States covered:** 43
-- **Clinic-existence sources:** 907 clinics come from the NPPES provider registry
-  and 652 from owners' own public location directories and rosters (see section
-  8). Clinics from both sources are de-duplicated on the same key, street address
-  plus ZIP within a parent firm, so a center listed in both sources is counted
-  once, several NPIs at one address are counted once, and two of one firm's brands
-  at one address are counted once.
-- **Registry freshness:** 88 of the 907 registry-sourced clinics (10%) rest on a
-  registration not updated in six or more years. The registry never marks a
-  closed clinic closed, so this is the honest measure of how much of the dataset
-  could be stale. Seven clinics whose registration was provably dead (the address
-  is now registered to a chain under a different parent firm, with a two-to-seven
-  year staleness gap) were quarantined out of this release. See section 9.
+- **States covered:** 44
+- **Clinic-existence sources:** 1,045 of the 1,705 clinics are attested by an
+  owner's own public location directory or roster; the remaining 660 rest on the
+  NPPES provider registry alone (see section 8). Clinics from both sources are
+  de-duplicated on the same key, street address plus ZIP within a parent firm, so
+  a center listed in both sources is counted once, several NPIs at one address are
+  counted once, and two of one firm's brands at one address are counted once.
+- **Registry freshness:** of the 355 registry-sourced clinics whose registration
+  can be looked up by NPI, 62 (17%) rest on a record not updated in six or more
+  years. The registry never marks a closed clinic closed, so this is the honest
+  measure of how much of the registry-only remainder could be stale. Where an owner
+  publishes a complete directory, this problem is not measured but removed: the
+  directory decides what the owner operates, and registrations it does not list are
+  quarantined. See section 9.
 - **Market share:** of the 21,083 ABA locations the registry lists, Fundprint can
-  name the owner of **907 (4.3%)**, of which **746 (3.5%)** are private-equity
-  held. There is **no chain-run share**: it was withdrawn this release because its
-  five-site threshold was arbitrary and its denominator was inflated by the very
-  buying it purported to measure. See section 8b.
-- **Where it is concentrated:** private equity holds 17.3% of Minnesota's ABA
-  locations (24 of 139), 13.4% of Colorado's (92 of 688), 12.3% of New Mexico's,
-  11.3% of Arizona's and 10.7% of Pennsylvania's. Care is bought locally, so the
-  state figure means more than the national one.
+  name the owner of **753 (3.6%)**, of which **628 (3.0%)** are private-equity
+  held. This is a floor, not a point estimate: closed centers are removed from the
+  numerator, because owners' directories reveal them, and cannot be removed from
+  the denominator, because the other 17,000 operators' directories are not read.
+  There is **no chain-run share**: it was withdrawn because its five-site threshold
+  was arbitrary and its denominator was inflated by the very buying it purported to
+  measure. See section 8b.
+- **Where it is concentrated:** private equity holds 16.5% of Minnesota's ABA
+  locations (23 of 139), 12.3% of New Mexico's (13 of 106), 9.6% of Arizona's
+  (51 of 529), 8.8% of Pennsylvania's (38 of 431) and 8.0% of Colorado's (55 of
+  688). Care is bought locally, so the state figure means more than the national
+  one.
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
   an `exact_match` against a named primary source. No `llm_inferred` claims are
