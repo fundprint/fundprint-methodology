@@ -7,6 +7,64 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## 2026.07-no-threshold-v1
+
+Governs dataset release `2026.07-beta` and later, until superseded. No clinic,
+owner or ownership claim changed in this release. What changed is that a
+published number was **withdrawn**, which is a change to a countable relation and
+so requires a version bump under section 12.
+
+### The chain-run share is withdrawn
+
+Fundprint headlined a **share of chain-run clinics**: 28.1% of clinics run by ABA
+operators with five or more locations were held by a financial owner, and 23.2%
+by private equity specifically. That number is gone. It is not restated at a
+different threshold and it is not replaced by another ratio of the same kind.
+
+It was withdrawn for three reasons, and the second is the one that made it
+indefensible:
+
+1. **The five-site threshold was arbitrary.** Nothing in the data chose it, and no
+   sensitivity analysis defended it. A share whose value depends on an unargued cut
+   is an editorial choice wearing the costume of a measurement.
+2. **The denominator was endogenous to the thing being measured.** An operator is a
+   "chain" because it has many locations, and many of them have many locations
+   because private equity rolled them up. Private equity's own buying therefore
+   inflated the numerator and the denominator together. A firm that bought forty
+   four-site operators and merged them into a single forty-site chain would barely
+   move its "share of chain-run clinics" while its real market power exploded,
+   because it had manufactured its own denominator. The measure was partly blind to
+   the thing it existed to measure.
+3. **No one else uses the measure,** so it could not be compared with or checked
+   against any other estimate.
+
+Fundprint publishes a claim only if it can be defended in front of a journalist, an
+academic, or a Senate staffer. This one could not survive the second question from
+any of the three, and the fact that it was the most flattering number in the
+dataset is precisely why it had to go.
+
+### What replaces it: facts, not another ratio
+
+- **The whole operator-size distribution** is published (15,133 operators run one
+  location; 2,148 run 2-4; 195 run 5-9; 77 run 10-24; 14 run 25 or more). A reader
+  who wants a chain share can compute one, and must state their own threshold out
+  loud to do it.
+- **The national share, which needs no threshold:** of 21,172 ABA locations,
+  Fundprint names the owner of 915 (4.3%), of which 754 (3.6%) are private-equity
+  held.
+- **Per-state shares,** because a national share of a profession this fragmented
+  says little about market power. Care is bought locally. Private equity holds
+  17.3% of Minnesota's ABA locations, 14.1% of Colorado's, 12.3% of New Mexico's,
+  11.3% of Arizona's and 10.7% of Pennsylvania's. States with fewer than 25 ABA
+  locations are not ranked, because a percentage of a handful of clinics is noise.
+
+### Consequences for anyone quoting Fundprint
+
+Any citation of "28.1% of chain-run clinics" or "23.2% of chain-run clinics"
+should be considered withdrawn and should not be repeated. The headline figure is
+now a count (private equity owns 1,398 of the 1,559 clinics traced, across 43
+states) and the only national shares are 4.3% and 3.6% of all ABA locations.
+
 ## 2026.07-sites-v1
 
 Governs dataset release `2026.07-beta` and later, until superseded. The

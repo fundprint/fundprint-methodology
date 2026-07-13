@@ -1,6 +1,6 @@
 # Fundprint Methodology
 
-**Methodology version:** `2026.07-sites-v1`
+**Methodology version:** `2026.07-no-threshold-v1`
 **Applies to dataset version:** `2026.07-beta` and later, until superseded.
 **Maintained at:** https://github.com/fundprint/fundprint-methodology
 **Public dashboard:** https://whofundsmytherapist.com
@@ -423,23 +423,63 @@ Fundprint reads from an owner's own location directory are excluded from **both*
 sides, because the registry cannot see them. The published clinic count is larger
 than this numerator and the two are not interchangeable.
 
-**What the market looks like.** The registry holds 17,567 ABA provider
-organizations operating 21,172 distinct locations. 18,249 of those locations (86%)
-belong to independents and very small practices. There are only 286 ABA chains in
-the country with five or more locations, running 2,923 clinics between them.
+### The chain-run share, and why it was withdrawn
 
-**The two shares.** Of those chain-run clinics, 822 (**28.1%**) are held by a
-financial owner Fundprint can name and source. Private equity on its own holds
-23.2% of them; the remainder is a pension fund, a family office and two search
-funds, which is why a headline that says "private equity" must be built on the
-23.2% and not on the 28.1%. Measured against every ABA location in the country,
-including the independents, the same holdings are 4.3% (3.6% for private equity
-alone).
+Until this release Fundprint headlined a **share of chain-run clinics**, where a
+chain was any ABA operator with five or more locations. That number is withdrawn.
+It is not corrected, not restated, and not replaced by another ratio of the same
+kind. Three things were wrong with it, and the second is disqualifying.
 
-Both numbers are true and both are published. The second describes a fragmented
-profession. The first describes what has happened to the part of it that
-consolidated, and it is the one that answers the question the dataset exists to
-ask. Quoting either without the other would mislead.
+1. **The threshold was arbitrary.** Five, not three, not ten. Nothing in the data
+   chose it, and no sensitivity analysis defended it. A share whose value depends
+   on an unargued cut is an editorial choice wearing the costume of a measurement.
+2. **The denominator was endogenous to the thing being measured.** An operator is
+   a "chain" *because* it has many locations, and a great many of them have many
+   locations *because private equity rolled them up*. Private equity's own buying
+   therefore inflated the numerator and the denominator at the same time. Consider
+   the limit case: a firm that bought forty four-site operators and merged them
+   into one forty-site chain would barely move its "share of chain-run clinics"
+   while its real market power exploded, because it had manufactured its own
+   denominator. **The measure was partly blind to the thing it existed to measure.**
+3. **Nothing else in the literature uses it,** so the figure could not be compared
+   with, or checked against, any other estimate. A number nobody can argue with is
+   a number nobody can use.
+
+Fundprint's governing rule is that a claim ships only if it can be defended in
+front of a journalist, an academic, or a Senate staffer. The chain-run share could
+not survive the second question from any of the three.
+
+**What the market looks like, without a threshold.** The registry holds 17,567 ABA
+provider organizations operating 21,172 distinct locations. Rather than cut that
+population at a number of our choosing, the release publishes the whole
+operator-size distribution:
+
+| Locations per operator | Operators | Locations |
+|---|---|---|
+| 1 | 15,133 | 13,967 |
+| 2-4 | 2,148 | 4,872 |
+| 5-9 | 195 | 1,153 |
+| 10-24 | 77 | 1,045 |
+| 25+ | 14 | 781 |
+
+(Locations are a union, not a sum: two operators can share one address.) A reader
+who wants a chain share can compute one from this table, and in doing so must
+state their own threshold out loud. That is the point.
+
+**The share, which needs no threshold.** Of the 21,172 ABA locations in the
+country, Fundprint can name and source the owner of **915 (4.3%)**, of which
+**754 (3.6%)** are held by private equity. These are the only national shares
+published, because they are the only ones that require no choice.
+
+**Where private equity actually is.** A national share of a profession this
+fragmented says little about market power, because care is bought locally: no
+family chooses between a clinic in Denver and one in Tampa. So the release also
+publishes private equity's share of the ABA locations **within each state**, which
+requires no threshold either. The most concentrated are Minnesota (24 of 139
+locations, 17.3%), Colorado (99 of 701, 14.1%), New Mexico (13 of 106, 12.3%),
+Arizona (60 of 529, 11.3%) and Pennsylvania (46 of 431, 10.7%). States with fewer
+than 25 ABA locations are not ranked, because a percentage of a handful of clinics
+is noise; they are still counted in every national figure.
 
 ---
 
@@ -552,9 +592,15 @@ context.
   could be stale. Seven clinics whose registration was provably dead (the address
   is now registered to a chain under a different parent firm, with a two-to-seven
   year staleness gap) were quarantined out of this release. See section 9.
-- **Market share:** 822 of the country's 2,923 chain-run ABA clinics (**28.1%**),
-  and 4.3% of all 21,172 ABA sites. Private equity alone holds 23.2% of chain-run
-  clinics. See section 8b, and do not quote one of these without the others.
+- **Market share:** of the 21,172 ABA locations the registry lists, Fundprint can
+  name the owner of **915 (4.3%)**, of which **754 (3.6%)** are private-equity
+  held. There is **no chain-run share**: it was withdrawn this release because its
+  five-site threshold was arbitrary and its denominator was inflated by the very
+  buying it purported to measure. See section 8b.
+- **Where it is concentrated:** private equity holds 17.3% of Minnesota's ABA
+  locations (24 of 139), 14.1% of Colorado's (99 of 701), 12.3% of New Mexico's,
+  11.3% of Arizona's and 10.7% of Pennsylvania's. Care is bought locally, so the
+  state figure means more than the national one.
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
   an `exact_match` against a named primary source. No `llm_inferred` claims are
