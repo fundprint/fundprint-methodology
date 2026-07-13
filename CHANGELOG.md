@@ -9,6 +9,38 @@ The version format is `YYYY.MM-<label>`.
 
 ## Unreleased
 
+### Owner discovery: 11 new owners, and one correction to a widely repeated claim
+
+Ranking every ABA organization in the national registry by size and researching
+the owners of the largest untracked chains took the dataset from 1,325 to **1,558
+clinics**, and financial owners' share of chain-run ABA clinics from 24.5% to
+**28.4%**.
+
+Newly tracked: Autism Learning Partners (FFL Partners), InBloom Autism Services
+(Elysium Management, a family office), Center for Social Dynamics and Behavior
+Change Institute (Goldman Sachs Alternatives), Behavior Care Specialists (Pharos
+Capital Group), Mission Autism Clinics (Zenyth Partners), Kind Behavioral Health
+(Trilogy Search Partners), plus Behavioral Innovations' full 130-center roster,
+which the registry had reduced to four.
+
+**A correction.** Autism Learning Partners was previously left out because trade
+chatter had it sold to H.I.G. Capital and the current owner looked ambiguous. That
+chatter does not survive contact with a primary source: FFL Partners' own
+portfolio page still lists ALP among its current holdings, separately from that
+page's labelled exits, and H.I.G.'s portfolio does not list it at all. Fundprint
+follows the primary source.
+
+**What was deliberately NOT added is as important.** A minority investment is not
+ownership: the methodology requires a controlling interest, so My Favorite
+Therapists (5th Century Partners), Able Kids Services (MKH Capital) and Forta
+(Insight Partners) are excluded, because in each case the founders retain control.
+Several large chains turned out not to be institutionally owned at all, and are
+therefore correctly absent: ABA Centers of America, Golden Steps ABA, Verbal
+Beginnings, Applied ABC, Bierman, Stride, Intercare, Soar Health, Cortica. Two
+chains with confirmed private-equity owners are still unpublished because their
+only sources cannot be fetched and content-hashed, or because the ownership chain
+needed three inferential hops.
+
 ### The registry ceiling was an artifact of the API
 
 Fundprint previously sourced clinics from the NPPES *API*, which caps any query

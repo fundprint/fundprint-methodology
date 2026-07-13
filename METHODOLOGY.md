@@ -368,14 +368,14 @@ excluded from **both** sides, because the registry cannot see them. The publishe
 clinic count is larger than this numerator and the two are not interchangeable.
 
 **What the market looks like.** The registry holds 17,567 ABA provider
-organizations operating 23,209 locations. 20,145 of those locations (87%) belong
-to independents and very small practices. There are only 285 ABA chains in the
-country with five or more locations, running 3,064 clinics between them.
+organizations operating 23,213 locations. 20,143 of those locations (87%) belong
+to independents and very small practices. There are only 286 ABA chains in the
+country with five or more locations, running 3,070 clinics between them.
 
-**The two shares.** Of those chain-run clinics, 751 (**24.5%**) are held by a
+**The two shares.** Of those chain-run clinics, 872 (**28.4%**) are held by a
 private-equity firm, pension fund or family office Fundprint can name and source.
 Measured against every ABA location in the country, including the independents,
-the same holdings are 3.5% (3.1% for private equity alone).
+the same holdings are 3.9% (3.3% for private equity alone).
 
 Both numbers are true and both are published. The second describes a fragmented
 profession. The first describes what has happened to the part of it that
@@ -448,6 +448,18 @@ boundaries are known.
   touched in December 2025), and each was quarantined out of publication. That
   detector only fires when a competitor Fundprint also tracks happens to move in,
   so seven is a floor on the phenomenon, not a measure of it.
+- **A tracked owner's clinic count can be far below its real footprint, and the
+  dataset will not guess.** Some chains deliver much of their care in homes and
+  schools, register a single organization NPI, and publish "service area" pages
+  rather than centers: a page per city, carrying a city name and no street
+  address. Autism Learning Partners, one of the largest ABA providers in the
+  country and a tracked FFL Partners holding, publishes 199 such pages and
+  appears here with **one** clinic. That number is not a mistake and it is not
+  the company's size. It is what the public record establishes about its physical
+  locations. Counting service areas as clinics would inflate the dataset with
+  places that are not clinics, so Fundprint publishes the ownership (which is
+  sourced) and leaves the count where the evidence leaves it. This is the sharpest
+  illustration of the rule stated in Section 1: coverage, not census.
 - **Ownership is a moving target.** Deals close and unwind continually. The
   dataset reflects what public sources documented as of its snapshot date. A
   divestiture the week after a snapshot will not be reflected until the next
@@ -465,13 +477,13 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 1,325
+- **Clinics tracked:** 1,558
 - **Current owners with tracked clinics:** 10, plus one former owner and two
   in-home owners (which operate no centers), all shown with a clinic count of
   zero and an explicit label
-- **States covered:** 41
-- **Clinic-existence sources:** 844 clinics come from the NPPES provider registry
-  and 481 from owners' own public location directories and rosters (see section 8). Clinics
+- **States covered:** 43
+- **Clinic-existence sources:** 947 clinics come from the NPPES provider registry
+  and 611 from owners' own public location directories and rosters (see section 8). Clinics
   from both sources are de-duplicated on the same key, owner plus street address
   plus ZIP, so a center listed in both sources is counted once and several NPIs
   at one address are counted once.
