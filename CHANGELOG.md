@@ -105,6 +105,36 @@ Both were caught before publication and both are now refused rather than guessed
   cleanly and staged a clinic whose street was that sentence. A street must now
   carry a house number.
 
+### A third parse fault: a whole address filed as the street
+
+Found while hand-verifying the published sample, and corrected in place. A third of
+Behavioral Innovations' centre pages publish a schema.org `PostalAddress` with the
+entire address inside `streetAddress` and no locality fields at all:
+
+    "streetAddress": "1450 League Line Road, Suite 100, Conroe, Texas 77304"
+
+Fundprint stored that verbatim, so 33 published clinics carried the city, state and
+ZIP inside the street with the city, state and ZIP columns empty. The clinics were
+real and their total was right, but their key was wrong, with three consequences:
+
+- The site key is built from the street, so these centres could not match the same
+  building arriving from the registry or from a later directory pull. They were one
+  re-acquisition away from being counted twice.
+- An empty state drops a clinic out of the per-state counts. The state table summed
+  to 1,672 of 1,705 clinics: Texas was understated by 21 centres, North Carolina and
+  Oklahoma by 5 each, Maryland by 1.
+- An empty ZIP drops a clinic out of the market denominator's site key.
+
+The address is now split, and a row that will not split is refused rather than
+stored with a mangled street. The 33 originals are superseded by correctly keyed
+rows, not deleted.
+
+**No published total changes.** Clinics remain 1,705, private-equity clinics 1,564,
+states 44, and every national and per-state share is unchanged: these centres were
+always counted, and only their state attribution was missing. The per-state clinic
+counts change: Texas 355 to **376**, North Carolina 85 to **90**, Oklahoma 18 to
+**23**, Maryland 77 to **78**.
+
 ## 2026.07-directory-v1
 
 Governs dataset release `2026.07-beta` and later. Two changes to what counts as a
