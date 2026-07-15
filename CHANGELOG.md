@@ -135,6 +135,24 @@ always counted, and only their state attribution was missing. The per-state clin
 counts change: Texas 355 to **376**, North Carolina 85 to **90**, Oklahoma 18 to
 **23**, Maryland 77 to **78**.
 
+### Kind Behavioral Health re-attributed to its lead owner
+
+Found while hand-verifying the sample. Carolina Center for Autism Services (trading
+as Kind Behavioral Health) was published as owned by Trilogy Search Partners. It is
+in fact a search-fund deal held by a syndicate: Highland Creek, Pacific Lake, Trilogy
+and WSC & Company all invested. Trilogy was named only because its portfolio page was
+the first source curated, which recorded one minority co-investor and understated the
+lead. The methodology requires a controlling interest.
+
+The owner is now **WSC & Company**, which describes itself as acquiring and operating
+its holdings, carries Kind as an operating company on its own portfolio page, and is
+the firm third-party databases name as the owner. The Trilogy claim is quarantined,
+not deleted: Trilogy really is a co-investor.
+
+No published total changes. The 18 clinics keep their owner and their `other`
+classification, and were never in the private-equity figure. Only the owning firm's
+name changes, from Trilogy Search Partners to WSC & Company.
+
 ## 2026.07-directory-v1
 
 Governs dataset release `2026.07-beta` and later. Two changes to what counts as a

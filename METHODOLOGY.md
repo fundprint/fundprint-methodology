@@ -732,7 +732,7 @@ Current owners, by owner type and tracked clinic count:
 | Goldman Sachs Alternatives     | private equity  | 20              |
 | Anacapa Partners               | other           | 24              |
 | Thomas H. Lee Partners         | private equity  | 18              |
-| Trilogy Search Partners        | other           | 18              |
+| WSC & Company                  | other           | 18              |
 | FFL Partners                   | private equity  | 1               |
 | Moran Capital Partners         | family office   | 0 (in-home)     |
 | Cane Investment Partners       | other           | 0 (in-home)     |
