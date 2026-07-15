@@ -153,6 +153,38 @@ No published total changes. The 18 clinics keep their owner and their `other`
 classification, and were never in the private-equity figure. Only the owning firm's
 name changes, from Trilogy Search Partners to WSC & Company.
 
+### Helping Hands Family and Woven Care read from their own directories
+
+The directory-beats-registry rule now covers two more owners, both over-captured by
+name collisions on a generic prefix.
+
+**Helping Hands Family** (Zenyth Partners) was wrong in both directions. Matching the
+prefix pulled in 54 registry rows that both missed real centres and captured a dozen
+unrelated businesses: `HELPING HANDS FAMILY CHIROPRACTIC`, `... HOMECARE LLC`, a
+`... CENTER` in the US Virgin Islands, a Delaware registered-agent shell, and more.
+Its store locator lists its real centres, all in PA, NJ, NY, MD, CT and VA. Reading
+the roster added the missing centres and quarantined the collisions, leaving 53 that
+match its own list.
+
+**Woven Care** (formerly The Shandy Clinic; Anacapa Partners) registers every
+Colorado centre under its holding company's legal name, `BUCK JACK LLC`. Its own
+location page lists 12 centres against the registry's 24; the extras were closed
+sites, a not-yet-open Utah location, two rows whose street field held the literal
+name of a school, and unit-level duplicate registrations. Cut to the 12 it lists.
+
+**Trade names.** Owners the registry files under a holding or state-entity name now
+display under the brand families know: Buck Jack as **Woven Care**, Vocational
+Development Group as **InBloom Autism Services**, Carolina Center for Autism Services
+as **Kind Behavioral Health**. The legal name is kept for registry matching and audit
+only.
+
+Net effect of this release's corrections: published clinics move from 1,705 to
+**1,692**, private-equity clinics to **1,563**, states covered to **42** (the US
+Virgin Islands and Delaware fell away with the collisions that were their only rows).
+The national private-equity share of ABA locations moves to **2.9%** (607 of 21,083),
+and the tracked share to **3.4%** (720). Minnesota's private-equity share moves to
+15.8% and Pennsylvania's to 7.7% as the collisions leave the per-state counts.
+
 ## 2026.07-directory-v1
 
 Governs dataset release `2026.07-beta` and later. Two changes to what counts as a

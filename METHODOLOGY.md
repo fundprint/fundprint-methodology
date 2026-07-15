@@ -154,6 +154,22 @@ SERVICES INCORPORATED` are unrelated businesses that a name-prefix match cannot
 tell apart from the chains. None of the three needed to be handled as a special
 case. Reading the owner's own list removes all of them at once.
 
+**Helping Hands Family** was wrong in *both* directions at once, and it is the
+sharpest example of why reading the owner's list beats the registry. Its store
+locator lists its real centres, all in Pennsylvania, New Jersey, New York, Maryland,
+Connecticut and Virginia; the registry gave us 54 rows that missed many of those and
+added a dozen unrelated businesses sharing the prefix, from `HELPING HANDS FAMILY
+CHIROPRACTIC` and `HELPING HANDS FAMILY HOMECARE LLC` to a `HELPING HANDS FAMILY
+CENTER` in the US Virgin Islands and a Delaware shell at a registered-agent address.
+Reading the roster added the missing centres and quarantined the collisions, leaving
+53 that match its own list. **Woven Care** (formerly The Shandy Clinic) registers
+every Colorado centre under the legal name of its search-fund holding company, `BUCK
+JACK LLC`; its own location page lists 12 centres against the registry's 24, the
+extras being closed sites, a not-yet-open Utah location, two rows whose street field
+was the literal name of a school, and unit-level duplicate registrations. The
+dashboard shows each of these owners under the brand families know, not the holding
+or state-entity name it registers under.
+
 The rule applies only where an owner publishes a *complete* directory, and it
 quarantines rather than deletes: the registration is real, and what is false is
 the inference that a registration is a centre. Where the two sources agree, the
@@ -411,8 +427,8 @@ directory mixes several tracked brands and each center's name carries its brand,
 the deterministic name matcher links it; where every center belongs to one known
 owner but the pages are generically named, they are attributed to that owner
 directly. A center that matches no tracked owner is left unlinked. In this
-release, 1,045 of the 1,705 clinics are attested by an owner directory or roster,
-and the remaining 660 rest on NPPES alone.
+release, 1,089 of the 1,692 clinics are attested by an owner directory or roster,
+and the remaining 603 rest on NPPES alone.
 
 A directory has to be read at the leaf. Autism Learning Partners publishes state
 and county index pages carrying no street address, and for a release it was
@@ -525,8 +541,8 @@ who wants a chain share can compute one from this table, and in doing so must
 state their own threshold out loud. That is the point.
 
 **The share, which needs no threshold.** Of the 21,083 ABA locations in the
-country, Fundprint can name and source the owner of **753 (3.6%)**, of which
-**628 (3.0%)** are held by private equity. These are the only national shares
+country, Fundprint can name and source the owner of **720 (3.4%)**, of which
+**607 (2.9%)** are held by private equity. These are the only national shares
 published, because they are the only ones that require no choice.
 
 The numerator is the published dataset, intersected with that same registry
@@ -543,9 +559,9 @@ mean guessing at the rest of the market's staleness.
 fragmented says little about market power, because care is bought locally: no
 family chooses between a clinic in Denver and one in Tampa. So the release also
 publishes private equity's share of the ABA locations **within each state**, which
-requires no threshold either. The most concentrated are Minnesota (23 of 139
-locations, 16.5%), New Mexico (13 of 106, 12.3%), Arizona (51 of 529, 9.6%),
-Pennsylvania (38 of 431, 8.8%) and Colorado (55 of 688, 8.0%). States with fewer
+requires no threshold either. The most concentrated are Minnesota (22 of 139
+locations, 15.8%), New Mexico (13 of 106, 12.3%), Arizona (51 of 529, 9.6%),
+Colorado (55 of 688, 8.0%) and Utah (17 of 215, 7.9%). States with fewer
 than 25 ABA locations are not ranked, because a percentage of a handful of clinics
 is noise; they are still counted in every national figure.
 
@@ -616,9 +632,9 @@ boundaries are known.
   and it is published rather than hidden.
 
   The exposure is now much smaller than it was, and for a better reason than
-  before. **1,045 of the 1,705 clinics are attested by an owner's own current
+  before. **1,089 of the 1,692 clinics are attested by an owner's own current
   directory**, and those cannot be ghosts by construction: a directory lists the
-  centers an owner says are open today. Only the 660 registry-only clinics carry
+  centers an owner says are open today. Only the 603 registry-only clinics carry
   the risk at all. Better still, where an owner publishes a complete directory the
   problem is no longer merely *disclosed* but *removed*: the directory decides what
   the owner operates, and every registration it does not list is quarantined. That
@@ -675,13 +691,13 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 1,705
+- **Clinics tracked:** 1,692
 - **Current owners with tracked clinics:** 19, plus one former owner and two
   in-home owners (which operate no centers), all shown with a clinic count of
   zero and an explicit label
-- **States covered:** 44
-- **Clinic-existence sources:** 1,045 of the 1,705 clinics are attested by an
-  owner's own public location directory or roster; the remaining 660 rest on the
+- **States covered:** 42
+- **Clinic-existence sources:** 1,089 of the 1,692 clinics are attested by an
+  owner's own public location directory or roster; the remaining 603 rest on the
   NPPES provider registry alone (see section 8). Clinics from both sources are
   de-duplicated on the same key, street address plus ZIP within a parent firm, so
   a center listed in both sources is counted once, several NPIs at one address are
@@ -694,17 +710,17 @@ context.
   directory decides what the owner operates, and registrations it does not list are
   quarantined. See section 9.
 - **Market share:** of the 21,083 ABA locations the registry lists, Fundprint can
-  name the owner of **753 (3.6%)**, of which **628 (3.0%)** are private-equity
+  name the owner of **720 (3.4%)**, of which **607 (2.9%)** are private-equity
   held. This is a floor, not a point estimate: closed centers are removed from the
   numerator, because owners' directories reveal them, and cannot be removed from
   the denominator, because the other 17,000 operators' directories are not read.
   There is **no chain-run share**: it was withdrawn because its five-site threshold
   was arbitrary and its denominator was inflated by the very buying it purported to
   measure. See section 8b.
-- **Where it is concentrated:** private equity holds 16.5% of Minnesota's ABA
-  locations (23 of 139), 12.3% of New Mexico's (13 of 106), 9.6% of Arizona's
-  (51 of 529), 8.8% of Pennsylvania's (38 of 431) and 8.0% of Colorado's (55 of
-  688). Care is bought locally, so the state figure means more than the national
+- **Where it is concentrated:** private equity holds 15.8% of Minnesota's ABA
+  locations (22 of 139), 12.3% of New Mexico's (13 of 106), 9.6% of Arizona's
+  (51 of 529), 8.0% of Colorado's (55 of 688) and 7.9% of Utah's (17 of
+  215). Care is bought locally, so the state figure means more than the national
   one.
 - **Method breakdown:** every published clinic-to-owner link in this release is
   a high-confidence name match (`fuzzy_high`), and every owner-to-parent link is
@@ -724,13 +740,13 @@ Current owners, by owner type and tracked clinic count:
 | Ontario Teachers' Pension Plan | pension fund    | 90              |
 | General Atlantic               | private equity  | 81              |
 | GTCR                           | private equity  | 79              |
-| Zenyth Partners                | private equity  | 64              |
+| Zenyth Partners                | private equity  | 63              |
 | NexPhase Capital               | private equity  | 41              |
 | Petra Capital Partners         | private equity  | 37              |
 | Elysium Management             | family office   | 29              |
 | Pharos Capital Group           | private equity  | 20              |
 | Goldman Sachs Alternatives     | private equity  | 20              |
-| Anacapa Partners               | other           | 24              |
+| Anacapa Partners               | other           | 12              |
 | Thomas H. Lee Partners         | private equity  | 18              |
 | WSC & Company                  | other           | 18              |
 | FFL Partners                   | private equity  | 1               |

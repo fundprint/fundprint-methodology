@@ -10,7 +10,7 @@ abstract: >-
   gets published.
 type: dataset
 version: "2026.07-directory-v2"
-date-released: "2026-07-13"
+date-released: "2026-07-15"
 url: "https://whofundsmytherapist.com"
 repository-code: "https://github.com/fundprint/fundprint-methodology"
 license: CC-BY-4.0
