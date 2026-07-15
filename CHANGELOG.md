@@ -15,9 +15,10 @@ to one owner. This release applies it to every owner that publishes one, and fix
 the market share, which was still being computed from the registry and so still
 counted the clinics the rule had just removed.
 
-Published clinics move from 1,721 to **1,705**, private-equity clinics to
-**1,564**, and states covered to **44**. The published private-equity share of all
-ABA locations moves from 3.5% to **3.0%**.
+Across this release's corrections, published clinics move from 1,721 to **1,692**,
+private-equity clinics to **1,563**, and states covered to **42**. The published
+private-equity share of all ABA locations moves from 3.5% to **2.9%**. The individual
+corrections and their intermediate figures are recorded in the sections below.
 
 ### Three more owners now read from their own directories
 
