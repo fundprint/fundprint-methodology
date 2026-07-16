@@ -7,6 +7,34 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## 2026.07-directory-v3
+
+Released 2026-07-16. Applies the directory-beats-registry rule to **Centria**
+(Thomas H. Lee Partners), the most dramatic case of it so far. Centria is an
+in-home provider, so a name-prefix match on "CENTRIA" against the registry returned
+18 rows that were mostly apartments and bare residential streets in Michigan, where
+its therapy is delivered, plus its corporate headquarters. None of that is a centre.
+Centria's own location directory lists 64 real centres across ten states (Arizona,
+Michigan, Georgia, North Carolina, Indiana, Oregon, Texas, New Mexico, Virginia and
+Maryland), published as a WordPress custom post type under two brands, Life Skills
+Autism Academy and Centria Autism. Reading it quarantined the 16 in-home
+registrations and added the centres the registry never saw, taking Centria from 18
+to 64.
+
+Across this release, published clinics move from 1,692 to **1,738**, private-equity
+clinics from 1,563 to **1,609**, and states covered stay at **42**. Because Centria's
+real centres are directory-sourced and therefore invisible to the registry, the
+registry-basis market numerator falls as the in-home rows leave it: the owner Fundprint
+can name for a registry location moves from 720 to **705**, of which private equity holds
+**592** rather than 607, and the published private-equity share of all ABA locations
+moves from 2.9% to **2.8%**. The headline count rose while the registry-visible floor
+fell, which is the expected behaviour: a directory-only clinic is excluded from both
+sides of the share.
+
+This release also syncs the owner-count table in section 10 of the methodology, which
+had not been updated after the earlier directory expansions (Action Behavior Centers to
+412, FFL/Autism Learning Partners to 45).
+
 ## 2026.07-directory-v2
 
 Governs dataset release `2026.07-beta` and later. The previous release established

@@ -166,9 +166,16 @@ Reading the roster added the missing centres and quarantined the collisions, lea
 every Colorado centre under the legal name of its search-fund holding company, `BUCK
 JACK LLC`; its own location page lists 12 centres against the registry's 24, the
 extras being closed sites, a not-yet-open Utah location, two rows whose street field
-was the literal name of a school, and unit-level duplicate registrations. The
-dashboard shows each of these owners under the brand families know, not the holding
-or state-entity name it registers under.
+was the literal name of a school, and unit-level duplicate registrations. **Centria**
+is the most dramatic case of all, because its registry footprint was not stale
+centres but *in-home noise*: a name-prefix match on "CENTRIA" returned 18 rows that
+were mostly apartments and bare residential streets in Michigan, where an in-home
+provider's therapy is delivered, plus its corporate headquarters. Its own location
+directory lists 64 real centres across ten states, published as a WordPress custom
+post type; reading it quarantined the 16 in-home registrations and added the centres
+the registry never saw, taking Centria from 18 to 64. The dashboard shows each of
+these owners under the brand families know, not the holding or state-entity name it
+registers under.
 
 The rule applies only where an owner publishes a *complete* directory, and it
 quarantines rather than deletes: the registration is real, and what is false is
@@ -427,8 +434,8 @@ directory mixes several tracked brands and each center's name carries its brand,
 the deterministic name matcher links it; where every center belongs to one known
 owner but the pages are generically named, they are attributed to that owner
 directly. A center that matches no tracked owner is left unlinked. In this
-release, 1,089 of the 1,692 clinics are attested by an owner directory or roster,
-and the remaining 603 rest on NPPES alone.
+release, 1,151 of the 1,738 clinics are attested by an owner directory or roster,
+and the remaining 587 rest on NPPES alone.
 
 A directory has to be read at the leaf. Autism Learning Partners publishes state
 and county index pages carrying no street address, and for a release it was
@@ -541,8 +548,8 @@ who wants a chain share can compute one from this table, and in doing so must
 state their own threshold out loud. That is the point.
 
 **The share, which needs no threshold.** Of the 21,083 ABA locations in the
-country, Fundprint can name and source the owner of **720 (3.4%)**, of which
-**607 (2.9%)** are held by private equity. These are the only national shares
+country, Fundprint can name and source the owner of **705 (3.3%)**, of which
+**592 (2.8%)** are held by private equity. These are the only national shares
 published, because they are the only ones that require no choice.
 
 The numerator is the published dataset, intersected with that same registry
@@ -560,7 +567,7 @@ fragmented says little about market power, because care is bought locally: no
 family chooses between a clinic in Denver and one in Tampa. So the release also
 publishes private equity's share of the ABA locations **within each state**, which
 requires no threshold either. The most concentrated are Minnesota (22 of 139
-locations, 15.8%), New Mexico (13 of 106, 12.3%), Arizona (51 of 529, 9.6%),
+locations, 15.8%), New Mexico (14 of 106, 13.2%), Arizona (50 of 529, 9.5%),
 Colorado (55 of 688, 8.0%) and Utah (17 of 215, 7.9%). States with fewer
 than 25 ABA locations are not ranked, because a percentage of a handful of clinics
 is noise; they are still counted in every national figure.
@@ -625,22 +632,22 @@ boundaries are known.
   lives on, are certainly present.
 
   The only signal the registry offers is how long a record has gone untouched.
-  Fundprint records that date for every registry-sourced clinic. **Of the 355
-  registry-sourced clinics whose registration can be looked up by NPI, 62 (17%)
+  Fundprint records that date for every registry-sourced clinic. **Of the 587
+  registry-sourced clinics whose registration can be looked up by NPI, 45 (8%)
   rest on a record that has not been updated or re-certified in six or more
   years.** That is not a count of ghosts, but it is the pool they are drawn from,
   and it is published rather than hidden.
 
   The exposure is now much smaller than it was, and for a better reason than
-  before. **1,089 of the 1,692 clinics are attested by an owner's own current
+  before. **1,151 of the 1,738 clinics are attested by an owner's own current
   directory**, and those cannot be ghosts by construction: a directory lists the
-  centers an owner says are open today. Only the 603 registry-only clinics carry
+  centers an owner says are open today. Only the 587 registry-only clinics carry
   the risk at all. Better still, where an owner publishes a complete directory the
   problem is no longer merely *disclosed* but *removed*: the directory decides what
   the owner operates, and every registration it does not list is quarantined. That
   is how 34 closed Action Behavior Centers registrations in Colorado, and
   Hopebridge's entire registered presence in Colorado and Arkansas, left this
-  release. The residual ghost pool is therefore roughly 110 clinics, not a third of
+  release. The residual ghost pool is therefore roughly 45 clinics, not a third of
   the dataset.
 
   Ghosts become provable in one situation: when a chain under a *different*
@@ -691,26 +698,26 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 1,692
+- **Clinics tracked:** 1,738
 - **Current owners with tracked clinics:** 19, plus one former owner and two
   in-home owners (which operate no centers), all shown with a clinic count of
   zero and an explicit label
 - **States covered:** 42
-- **Clinic-existence sources:** 1,089 of the 1,692 clinics are attested by an
-  owner's own public location directory or roster; the remaining 603 rest on the
+- **Clinic-existence sources:** 1,151 of the 1,738 clinics are attested by an
+  owner's own public location directory or roster; the remaining 587 rest on the
   NPPES provider registry alone (see section 8). Clinics from both sources are
   de-duplicated on the same key, street address plus ZIP within a parent firm, so
   a center listed in both sources is counted once, several NPIs at one address are
   counted once, and two of one firm's brands at one address are counted once.
-- **Registry freshness:** of the 355 registry-sourced clinics whose registration
-  can be looked up by NPI, 62 (17%) rest on a record not updated in six or more
+- **Registry freshness:** of the 587 registry-sourced clinics whose registration
+  can be looked up by NPI, 45 (8%) rest on a record not updated in six or more
   years. The registry never marks a closed clinic closed, so this is the honest
   measure of how much of the registry-only remainder could be stale. Where an owner
   publishes a complete directory, this problem is not measured but removed: the
   directory decides what the owner operates, and registrations it does not list are
   quarantined. See section 9.
 - **Market share:** of the 21,083 ABA locations the registry lists, Fundprint can
-  name the owner of **720 (3.4%)**, of which **607 (2.9%)** are private-equity
+  name the owner of **705 (3.3%)**, of which **592 (2.8%)** are private-equity
   held. This is a floor, not a point estimate: closed centers are removed from the
   numerator, because owners' directories reveal them, and cannot be removed from
   the denominator, because the other 17,000 operators' directories are not read.
@@ -718,8 +725,8 @@ context.
   was arbitrary and its denominator was inflated by the very buying it purported to
   measure. See section 8b.
 - **Where it is concentrated:** private equity holds 15.8% of Minnesota's ABA
-  locations (22 of 139), 12.3% of New Mexico's (13 of 106), 9.6% of Arizona's
-  (51 of 529), 8.0% of Colorado's (55 of 688) and 7.9% of Utah's (17 of
+  locations (22 of 139), 13.2% of New Mexico's (14 of 106), 9.5% of Arizona's
+  (50 of 529), 8.0% of Colorado's (55 of 688) and 7.9% of Utah's (17 of
   215). Care is bought locally, so the state figure means more than the national
   one.
 - **Method breakdown:** every published clinic-to-owner link in this release is
@@ -731,31 +738,27 @@ Current owners, by owner type and tracked clinic count:
 
 | Parent firm                    | Owner type      | Clinics tracked |
 |--------------------------------|-----------------|-----------------|
-| KKR                            | private equity  | 246             |
-| Charlesbank                    | private equity  | 212             |
-| Gryphon Investors              | private equity  | 152             |
+| Charlesbank                    | private equity  | 412             |
+| KKR                            | private equity  | 223             |
+| Gryphon Investors              | private equity  | 151             |
 | Tenex Capital Management       | private equity  | 150             |
-| Arsenal Capital Partners       | private equity  | 142             |
-| Nautic Partners                | private equity  | 135             |
-| Ontario Teachers' Pension Plan | pension fund    | 90              |
-| General Atlantic               | private equity  | 81              |
+| Nautic Partners                | private equity  | 128             |
+| Arsenal Capital Partners       | private equity  | 101             |
 | GTCR                           | private equity  | 79              |
+| General Atlantic               | private equity  | 75              |
+| Ontario Teachers' Pension Plan | pension fund    | 70              |
+| Thomas H. Lee Partners         | private equity  | 64              |
 | Zenyth Partners                | private equity  | 63              |
+| FFL Partners                   | private equity  | 45              |
 | NexPhase Capital               | private equity  | 41              |
 | Petra Capital Partners         | private equity  | 37              |
 | Elysium Management             | family office   | 29              |
-| Pharos Capital Group           | private equity  | 20              |
 | Goldman Sachs Alternatives     | private equity  | 20              |
-| Anacapa Partners               | other           | 12              |
-| Thomas H. Lee Partners         | private equity  | 18              |
+| Pharos Capital Group           | private equity  | 20              |
 | WSC & Company                  | other           | 18              |
-| FFL Partners                   | private equity  | 1               |
+| Anacapa Partners               | other           | 12              |
 | Moran Capital Partners         | family office   | 0 (in-home)     |
 | Cane Investment Partners       | other           | 0 (in-home)     |
-
-FFL Partners' single clinic is not an error. See the limitation in section 9 on
-Autism Learning Partners: the company is one of the largest ABA providers in the
-country, and the public record establishes exactly one physical location for it.
 
 Moran Capital Partners (Butterfly Effects) and Cane Investment Partners (Key
 Autism Services) own providers that deliver therapy in the client's home and
