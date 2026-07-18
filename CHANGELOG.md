@@ -7,6 +7,45 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## 2026.07-confidence-v1
+
+Released 2026-07-18. Two changes ship together: a wave of directory expansion, and
+a new way of stating confidence.
+
+**Five owners are read from their own directories for the first time.** ABS Kids
+(Petra Capital) publishes 74 ABA therapy centres where the registry gave 37, the
+starkest single undercount in the dataset since Action Behavior Centers; its six
+stand-alone diagnostic clinics are held out as out-of-scope. Behavior Frontiers
+(NexPhase) lists its operating centres alongside "coming soon" sites, which are
+excluded because a leased address is not an operating clinic, and stands at 54.
+InBloom Autism Services (Elysium) is 28, Kind Behavioral Health (WSC) 18, and
+Behavior Care Specialists, now rebranded Catalyst Behavior Solutions (Pharos), 7.
+For those three the directory corroborates rather than quarantines: they are
+rebrands or partial parses where a wholesale quarantine would risk removing a real
+centre, so older registry rows are kept at their honest, lower confidence instead.
+
+**Confidence is now four questions, not one.** The old single "name match" label is
+replaced by four derived grades per clinic, described in the new methodology section
+8c: whether the clinic is **open**, **at its address**, a **centre or in-home care**,
+and **who owns it**. Every grade is reproducible from the published dataset. Across
+the release, **1,564 of the 1,797 clinics are owner-verified centres** (their site
+appears in the owner's own directory); of the 233 that rest on the registry alone,
+143 are current, 67 aging, and 23 six or more years cold. A backfill credits a
+clinic as owner-verified when the owner's directory lists its exact site even if the
+registry row was the one that survived de-duplication, so a centre attested by both
+sources is graded at the strength both sources give it.
+
+Across this release, published clinics move from 1,738 to **1,797**, private-equity
+clinics from 1,609 to **1,663**, and states covered stay at **42**. The
+directory-sourced share rises from 1,151 to **1,564** (partly new centres, partly
+the corroboration backfill), leaving **233** registry-only. The registry-basis
+market numerator falls slightly as quarantined ghosts leave it: the owner Fundprint
+can name for a registry location moves from 705 to **685**, of which private equity
+holds **583** rather than 592, and the published private-equity share of all ABA
+locations holds at **2.8%** while the tracked share moves from 3.3% to **3.2%**. The
+headline count rose while the registry-visible floor fell, the expected behaviour: a
+directory-only clinic is excluded from both sides of the share.
+
 ## 2026.07-directory-v3
 
 Released 2026-07-16. Applies the directory-beats-registry rule to **Centria**

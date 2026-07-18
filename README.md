@@ -15,14 +15,17 @@ you can trust it, this is the repository that answers that.
 
 ## What the dataset currently says
 
-As of `2026.07-directory-v3`: **private equity owns 1,609 of the 1,738 autism
+As of `2026.07-confidence-v1`: **private equity owns 1,663 of the 1,797 autism
 therapy clinics Fundprint traces, across 42 states.** The remainder are held by a
 pension fund, a family office and two search funds, which are labelled as such and
-never folded into the private-equity figure.
+never folded into the private-equity figure. Each clinic is graded on four separate
+questions, not one: whether it is open, at its address, a centre or in-home care,
+and who owns it. 1,564 are owner-verified centres, listed by the owner's own
+directory today; the rest rest on the provider registry alone.
 
 Measured against the federal provider registry, which lists 17,567 ABA providers
-running 21,083 locations: Fundprint can name the owner of 705 of those locations
-(3.3%), of which 592 (2.8%) are private-equity held. That national figure is small
+running 21,083 locations: Fundprint can name the owner of 685 of those locations
+(3.2%), of which 583 (2.8%) are private-equity held. That national figure is small
 because the profession is overwhelmingly independent, with 15,141 providers running
 a single location. Concentration is local, and there it is much higher: private
 equity holds 15.8% of Minnesota's ABA locations and 13.2% of New Mexico's.
