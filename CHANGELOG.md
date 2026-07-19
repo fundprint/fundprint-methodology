@@ -7,6 +7,43 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## 2026.07-bluesprig-v1
+
+Released 2026-07-19. The BlueSprig family is read from its own directory, and a
+duplication that a previous directory acquire had left behind is corrected. The net
+effect is a smaller, truer count, not a larger one.
+
+**One KKR platform, five brands, one directory.** BlueSprig Pediatrics (KKR)
+publishes all of its brands through a single location list: BlueSprig, Florida
+Autism Center, Trumpet Behavioral Health, and Trumpet's sub-brands Therapeutic
+Pathways and The Behavior Center. Reading it corroborates 177 already-published
+clinics against the owner's own current directory (raising them to owner-verified),
+adds Therapeutic Pathways as a new owner (six California centres, attributed to KKR
+through Trumpet) and one new Trumpet centre. The Behavior Center adds no clinics:
+its centres were already published under BlueSprig.
+
+**A merged chain was being counted twice, and now is not.** A parent that folds two
+brands into one suite leaves both registrations behind, and a directory acquire that
+staged an owner's own centre list over the registry rows for the same buildings,
+without collapsing them, wrote a second clinic for every suite the two sources spelt
+differently. Two corrections restore the "one physical site is one clinic" rule:
+the existing cross-brand collapse removes 27 rows across three firms (KKR, Tenex
+through Monarch Behavioral Therapy, Zenyth through Mission Autism Clinics), and a new
+directory-authorised building collapse removes 22 suite-variant rows in the KKR
+family. The new collapse is capped by the owner's own directory: a building the
+directory lists as one centre collapses to one, but a building it lists as two (the
+family genuinely runs two suites at 5601 Arnold Rd, Dublin) is left as two, so it can
+never merge two real suites.
+
+Across this release, published clinics move from 1,797 to **1,755** and
+private-equity clinics from 1,663 to **1,621**, the first release where the headline
+count falls: the seven genuinely new centres are outweighed by 49 de-duplicated rows.
+States covered stay at **42**. Owner-verified clinics rise to **1,573 of 1,755**, and
+the registry-only remainder falls to **182**. The national shares are unchanged at
+**3.2%** tracked and **2.8%** private equity of all ABA locations, because the market
+numerator already counts distinct buildings and so never saw the duplicates; only the
+headline count and the per-owner and per-state counts carried them.
+
 ## 2026.07-confidence-v1
 
 Released 2026-07-18. Two changes ship together: a wave of directory expansion, and
