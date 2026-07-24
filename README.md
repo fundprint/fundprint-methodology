@@ -15,7 +15,7 @@ you can trust it, this is the repository that answers that.
 
 ## What the dataset currently says
 
-As of `2026.07-bluesprig-v1`: **private equity owns 1,621 of the 1,755 autism
+As of `2026.07-coverage-v1`: **private equity owns 1,621 of the 1,755 autism
 therapy clinics Fundprint traces, across 42 states.** The remainder are held by a
 pension fund, a family office and two search funds, which are labelled as such and
 never folded into the private-equity figure. Each clinic is graded on four separate
@@ -35,6 +35,17 @@ because it reads its owners' directories and can see that they closed; it cannot
 read the directories of the other 17,000 operators, so their closed centres stay in
 the denominator. The bias runs against us, and it is disclosed rather than adjusted
 away.
+
+**And the count itself is a floor, for a second reason: we do not cover every
+company.** Fundprint publishes **21 of 32** known private-equity-backed ABA
+platforms. The denominator there is deliberately not ours; it is the appendix of
+the Private Equity Stakeholder Project's April 2026 report, content-hashed like any
+other source, because a list we drew ourselves would be one we could close by
+declining to look further. Of the 11 platforms not covered, 8 are simply not
+started and 3 are blocked on a documented obstacle, and between them they hold
+**504 facilities** by PESP's own count. Every one is named, with the reason, in
+[section 8d](./METHODOLOGY.md). The list runs both ways: PESP omits four platforms
+published here, including Caravel Autism Health and its 79 clinics.
 
 **There is no "chain" share.** An earlier release headlined private equity's share
 of clinics run by operators with five or more locations. It was withdrawn, and the

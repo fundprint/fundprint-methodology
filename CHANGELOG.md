@@ -7,6 +7,53 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## 2026.07-coverage-v1
+
+Released 2026-07-24. Coverage becomes a published fraction with a denominator we
+did not draw. No clinic, owner or share figure changes in this release; what
+changes is that the dataset now states how much of its own subject it is missing.
+
+**"N of M known platforms", where M comes from somebody else.** New section 8d
+defines coverage in **platforms**, the operating company a sponsor buys, rather
+than in deals (one platform absorbs many: LEARN Behavioral is eleven brands from at
+least six transactions) or in clinics (that is the thing being measured). The
+denominator's spine is the appendix of the Private Equity Stakeholder Project's
+April 2026 report, *Private equity's autism therapy boom is straining Medicaid*,
+which enumerates 34 PE-backed ABA providers with their investors and facility
+counts. It is fetched and content-hashed like any other source. Adopting an outside
+list is deliberate: a denominator we assembled ourselves would be one we could
+quietly close by declining to look for the next platform.
+
+**The result is 21 of 32 in-scope platforms**, with every one of the other 11 named
+on a new public coverage page: 8 not started, 3 blocked on a specific documented
+obstacle. Two further groups sit outside the denominator with their reasons stated
+rather than being dropped, because a denominator that shrinks whenever a platform
+is inconvenient is not a denominator: platforms that are not primarily ABA clinic
+operators (school and staffing businesses such as The Stepping Stones Group,
+ChanceLight, New Story and Sevita), and platforms excluded by existing rules
+(Alora Behavioral Health is in-home and so operates no clinics; Cortica has fifteen
+minority investors and no controlling owner).
+
+**The list is wrong in both directions, and both halves are published.** PESP omits
+four platforms published here, including Caravel Autism Health and its 79 clinics,
+absent from a table of the largest PE-backed ABA providers. And it names eight
+in-scope platforms not published here, holding **504 facilities** between them by
+PESP's own count, led by The TreeTop ABA (114) and the post-bankruptcy Center for
+Autism and Related Disorders (105).
+
+**That second figure is the substantive finding, and it cuts against us.** The
+published clinic count was already labelled a floor with respect to closed centres
+in the denominator of the market share. It is now a floor for a second and
+independent reason: roughly five hundred facilities sit at private-equity-backed
+platforms this dataset does not yet include. Fundprint finds substantially more
+clinics than a deal-based census does, *and* is itself incomplete. Both are true,
+and publishing the second is the only way the first can be trusted.
+
+`scripts/build_platform_denominator.py` rebuilds the file and fails rather than
+publishing if a platform marked covered names an owner entity the database does not
+hold. It caught three such disagreements on first run, all of them the documented
+legal-name-versus-brand-name split.
+
 ## 2026.07-bluesprig-v1
 
 Released 2026-07-19. The BlueSprig family is read from its own directory, and a

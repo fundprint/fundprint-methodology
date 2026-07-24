@@ -592,6 +592,99 @@ is noise; they are still counted in every national figure.
 
 ---
 
+## 8d. Coverage: how many platforms, out of how many
+
+Section 8b answers "how many clinics, out of how many clinics". This section
+answers a different and harder question: **how many of the companies we should be
+tracking are we tracking at all?** A clinic count with no denominator invites the
+question "out of how many?" and has no answer, and "we cover 19 owners" is not an
+answer, because it does not say 19 out of what.
+
+### The unit is the platform
+
+Coverage is counted in **platforms**: the operating company a financial sponsor
+buys, as distinct from the deals that built it and the clinics it runs.
+
+- Not the **deal**, because one platform absorbs many. LEARN Behavioral is eleven
+  brands assembled from at least six transactions; counting deals would record us
+  as covering LEARN six times and Caravel once.
+- Not the **clinic**, because that is the quantity being measured. "We publish
+  1,621 of an unknown total" is not a coverage statement.
+
+### The denominator is deliberately not ours
+
+The spine of the list is the appendix of the Private Equity Stakeholder Project's
+April 2026 report, *Private equity's autism therapy boom is straining Medicaid*,
+titled "Private equity-backed ABA providers". It enumerates 34 platforms with
+their investors, facility counts and sub-brands.
+
+Adopting an outside list is the point. **A denominator we assembled ourselves
+would be one we could quietly close by declining to look for the next platform.**
+PESP's list was drawn by a different organisation, for a different purpose, from
+commercial deal databases (PitchBook and LevinPro) we do not have. It is fetched
+and content-hashed like any other source, so the denominator is auditable rather
+than asserted, and PESP's own facility counts are stored unedited so a reader can
+diff them against ours platform by platform.
+
+We do not treat the list as complete. PESP itself says its table "is likely an
+undercount of providers, locations, and staff", and section 9 records this as a
+live limitation.
+
+### Scope, and why two statuses sit outside the denominator
+
+Every platform carries one of five statuses:
+
+| Status | Meaning | In denominator |
+|---|---|---|
+| `covered` | Published here, with a clinic count traced to a hashed source | Yes |
+| `not_started` | In scope and publishable. Not done yet | Yes |
+| `blocked` | In scope, with a specific documented obstacle | Yes |
+| `mixed_scope` | Not primarily an ABA clinic operator | No |
+| `out_of_scope` | Fails a methodology rule outright | No |
+
+`mixed_scope` covers staffing agencies, school operators and diversified rehab
+groups that own ABA brands among many others: The Stepping Stones Group is a
+school-therapy staffing business spanning thirty-plus brands, ChanceLight and New
+Story run special-education schools, Sevita is a 40,000-employee home and
+community health provider. Only their named ABA brands could ever be in scope, so
+counting the whole platform against us would misstate what we are missing.
+`out_of_scope` is the existing rules applied consistently: an in-home provider
+operates no clinics (Alora Behavioral Health, the same rule under which Key Autism
+and Butterfly Effects are published with a footprint of zero), and a minority
+investment is not ownership (Cortica, with fifteen venture and strategic minority
+investors and no controlling owner).
+
+**Both excluded groups are published with their reasons rather than dropped.** A
+denominator that shrinks whenever a platform is inconvenient is not a denominator.
+
+### The result, and the fact that it runs both ways
+
+**Fundprint covers 21 of 32 known in-scope platforms**: 8 not started, 3 blocked.
+
+The list is wrong in both directions, and both halves are published:
+
+- **PESP omits four platforms we publish.** Caravel Autism Health and its 79
+  clinics are absent from a table of the largest PE-backed ABA providers, as are
+  Catalyst Behavior Solutions (24), Woven Care (12) and Butterfly Effects.
+- **PESP names eight in-scope platforms we have not started**, holding **504
+  facilities** between them by PESP's own count. The largest are The TreeTop ABA
+  (114), the Center for Autism and Related Disorders under its post-bankruptcy
+  owners (105), Cultivate Behavioral Health and Education (65), VersiCare Group
+  (58) and Lighthouse Autism Center (50).
+
+**That second figure changes how the headline count must be read.** Section 8b
+already labels the market share a floor. The coverage denominator shows the clinic
+count is a floor for a second, independent reason: roughly five hundred facilities
+sit at private-equity-backed platforms this dataset does not yet include. Fundprint
+finds more clinics than a deal-based census does *and* is itself incomplete, and
+those two statements are not in tension.
+
+Coverage is rebuilt by `scripts/build_platform_denominator.py`, which fails rather
+than publishes if a platform marked `covered` names an owner the database does not
+have.
+
+---
+
 ## 8c. Confidence: four questions, not one
 
 A clinic in this dataset used to carry a single confidence label, a name-match
@@ -781,6 +874,12 @@ context.
   publishes a complete directory, this problem is not measured but removed: the
   directory decides what the owner operates, and registrations it does not list are
   quarantined. See section 9.
+- **Platform coverage:** **21 of 32** known private-equity-backed ABA platforms
+  (see section 8d), measured against the appendix of PESP's April 2026 report
+  rather than a list of our own drawing. Of the 11 not covered, 8 are simply not
+  started and 3 are blocked on a documented obstacle. Those 11 hold **504
+  facilities** by PESP's count, which is the honest size of what is still missing
+  and the reason the clinic count below is a floor at the platform level as well.
 - **Market share:** of the 21,088 ABA locations the registry lists, Fundprint can
   name the owner of **682 (3.2%)**, of which **580 (2.8%)** are private-equity
   held. This is a floor, not a point estimate: closed centers are removed from the
