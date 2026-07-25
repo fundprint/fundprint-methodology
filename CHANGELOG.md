@@ -7,6 +7,49 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## 2026.07-statefile-v1
+
+Released 2026-07-25. Adds the state files: a government audit of a state's Medicaid
+ABA spending, published beside the ownership footprint traced in that state. New
+section 8f. No clinic, owner, state or share figure changes.
+
+**The section is mostly a rule.** No audit in the series attributes a dollar to
+private equity. Each audits a state Medicaid program and names no company and no
+ownership type. Putting a dollar figure next to an ownership count and letting a
+reader infer a causal line would be the fastest available way to lose the audience
+this methodology names in its first sentence, so the disclaimer sits above the
+numbers on every page, a machine-readable `attributes_to_ownership` flag is False
+on every record, the build fails if it is ever True, and a test asserts it.
+
+**Maine is published as a control case.** It carries the third-largest of the four
+findings, $45.6M, and Fundprint traces zero private-equity-owned clinics there.
+Anyone reading a large audit finding as evidence about ownership has to account for
+Maine first. The build fails if a published audit is missing from the output, so
+the state that cuts against the pattern cannot be dropped by a filter.
+
+**What the pairing does support needs no causal claim:** this is a large,
+fast-growing Medicaid spend under weak oversight, and the auditors cannot see who
+owns the providers. Wisconsin is the clearest case anywhere in the dataset. Of the
+48 private-equity-owned centres traced there, the federal provider registry can see
+**2**. That is the section 8e finding in its practical form, and it is the argument
+for ownership transparency that PESP's report already recommends.
+
+**Four audits published, one blocked.** $197.9M confirmed improper, $206.8M
+additionally flagged as potentially improper, $83.5M recommended for federal refund,
+across Colorado, Indiana, Maine and Wisconsin, each content-hashed. Confirmed and
+potential figures are carried separately and never summed.
+
+**Massachusetts is blocked and blocked means no figures.** Its Inspector General
+found up to $17.3M in overpayments, but mass.gov returns HTTP 403 to every request
+including curl and including its own robots.txt, so the report cannot be
+content-hashed. The state is listed with its reason and excluded from every total,
+under the same rule that keeps the ABA Connect ownership claim unpublished.
+
+**A correction made during this release.** Drafts described Maine as the
+second-largest finding. It is the third of four. Caught by a test written to check
+the claim rather than to restate it, and fixed in all three places it appeared
+before anything shipped.
+
 ## 2026.07-reconciliation-v2
 
 Released 2026-07-25. Adds a **second** published estimate to section 8e, and the

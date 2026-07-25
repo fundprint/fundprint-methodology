@@ -1,6 +1,6 @@
 # Fundprint Methodology
 
-**Methodology version:** `2026.07-reconciliation-v2`
+**Methodology version:** `2026.07-statefile-v1`
 **Applies to dataset version:** `2026.07-beta` and later, until superseded.
 **Maintained at:** https://github.com/fundprint/fundprint-methodology
 **Public dashboard:** https://whofundsmytherapist.com
@@ -855,6 +855,89 @@ the published dataset rather than typed into it.
 
 ---
 
+## 8f. State files, and the causal claim they do not make
+
+Care is bought locally and so is oversight, so the per-state view is where this
+dataset is most useful and most dangerous. Section 8b already publishes per-state
+shares. This section covers the state *files*: a government audit of a state's
+Medicaid ABA spending, published beside the ownership footprint traced in that
+same state.
+
+### The rule that governs the whole section
+
+**No audit in this series attributes a single dollar to private equity.** Each
+audits a state Medicaid program. They find missing session notes, uncredentialed
+technicians, supervision ratios out of compliance, and billing for recreation,
+meals, naps and holidays, across every provider billing that state. They name no
+company and no ownership type.
+
+Placing a dollar figure next to an ownership count and letting a reader infer a
+causal line would be the fastest available way to lose the audience this
+methodology names in its first paragraph. Every state file therefore carries the
+disclaimer above the numbers, and the pipeline enforces it: a machine-readable
+`attributes_to_ownership` flag is False on every record, the build fails if it is
+ever True, and a test asserts it.
+
+### Maine, and why a control case is published
+
+| State | Audit finding | PE clinics tracked |
+|---|---:|---:|
+| Colorado | $77.8M | 67 |
+| Indiana | $56.0M | 41 |
+| **Maine** | **$45.6M** | **0** |
+| Wisconsin | $18.5M | 48 |
+
+**Maine has the third-largest finding of the four and no private-equity presence
+at all.** It is published for exactly that reason. Anyone inclined to read a large
+audit finding as evidence about ownership has to account for Maine first. A
+version of this section that quietly dropped the state cutting against the pattern
+would be advocacy rather than evidence, so the build fails if a published audit is
+missing from the output.
+
+### What the pairing does support
+
+Something narrower, fully documented, and requiring no causal claim: **this is a
+large, fast-growing Medicaid spend under weak oversight, and the people auditing
+it cannot see who owns the providers.**
+
+Wisconsin is the clearest case in the dataset. Fundprint traces **48**
+private-equity-owned centers there, of which the federal provider registry can see
+**2**. An auditor or regulator working from federal data alone would not know the
+other 46 exist. That is the practical form of the finding in section 8e, and it is
+the argument for ownership transparency that PESP's own report recommends, made
+without asserting anything the audits do not.
+
+The audits also document the growth that drew the buyers: Colorado's Medicaid ABA
+spending went from $60.1M in 2019 to $163.5M in 2023, Maine's from $52.2M to
+$80.6M over the same years, Wisconsin's from $39.9M in 2018 to $53.7M in 2022.
+
+### Confirmed and potential figures never merge
+
+Where a report publishes both a confirmed improper figure and a larger
+potentially-improper one, both are carried and they are never summed. Quoting only
+the larger would be advocacy; quoting only the smaller would be false modesty.
+Across the four published audits: **$197.9M confirmed improper, $206.8M
+additionally flagged as potentially improper, $83.5M recommended for federal
+refund.**
+
+### Massachusetts is blocked, and blocked means no figures
+
+Massachusetts has a real finding: its own Inspector General estimated MassHealth
+overpaid up to $17.3M for ABA, of which $16,761,445 failed the 10-to-1 supervision
+ratio. It is **not published as a figure**, because mass.gov returns HTTP 403 to
+every request, including from curl and including its own robots.txt, so the report
+cannot be fetched or content-hashed. The 2025 annual report filed with the state
+legislature is fetchable and does not carry the ABA findings.
+
+This is the same rule that keeps the ABA Connect ownership claim unpublished
+(section 9): plausible is not the bar, snapshottable is. The state appears with its
+reason and without its numbers, and its figures are excluded from every total.
+
+Built by `scripts/build_state_files.py`, which content-hashes each audit it
+publishes.
+
+---
+
 ## 8c. Confidence: four questions, not one
 
 A clinic in this dataset used to carry a single confidence label, a name-match
@@ -1072,6 +1155,13 @@ context.
   sources differ from each other by more than either differs from us, and Fundprint
   sits between them. The estimates sort by what they count, not by how carefully.
   See section 8e.
+- **State files:** government audits of Medicaid ABA spending in four states found
+  **$197.9M** in improper payments, with **$206.8M** more flagged as potentially
+  improper and **$83.5M** recommended for federal refund. **No audit attributes any
+  of it to private equity**, and Maine is published as the control case: the
+  third-largest finding of the four with zero private-equity clinics traced there.
+  Massachusetts is blocked, with figures withheld, because its source cannot be
+  content-hashed. See section 8f.
 - **Where it is concentrated:** private equity holds 15.8% of Minnesota's ABA
   locations (22 of 139), 13.2% of New Mexico's (14 of 106), 9.5% of Arizona's
   (50 of 529), 7.8% of Colorado's (54 of 688) and 7.7% of Pennsylvania's (33 of

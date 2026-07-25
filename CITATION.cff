@@ -9,7 +9,7 @@ abstract: >-
   methods and floors, and the provenance and audit requirements that decide what
   gets published.
 type: dataset
-version: "2026.07-reconciliation-v2"
+version: "2026.07-statefile-v1"
 date-released: "2026-07-25"
 url: "https://whofundsmytherapist.com"
 repository-code: "https://github.com/fundprint/fundprint-methodology"

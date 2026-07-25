@@ -8,14 +8,14 @@ applied behavior analysis (ABA) and autism therapy clinics.
 - **This repo defines:** what counts as a clinic, an owner, and a PE-backed
   relation; how claims are scored; the confidence floors and validation gates
   that decide what gets published.
-- **Current methodology version:** `2026.07-reconciliation-v2`
+- **Current methodology version:** `2026.07-statefile-v1`
 
 If you want to understand how a number on the dashboard was produced, or whether
 you can trust it, this is the repository that answers that.
 
 ## What the dataset currently says
 
-As of `2026.07-reconciliation-v2`: **private equity owns 1,621 of the 1,755 autism
+As of `2026.07-statefile-v1`: **private equity owns 1,621 of the 1,755 autism
 therapy clinics Fundprint traces, across 42 states.** The remainder are held by a
 pension fund, a family office and two search funds, which are labelled as such and
 never folded into the private-equity figure. Each clinic is graded on four separate
@@ -73,6 +73,18 @@ their partial independence named, are [section 8e](./METHODOLOGY.md). This is a
 contribution rather than a rebuttal: the peer-reviewed letter states both of these
 gaps itself.
 
+**The state files pair the ownership footprint with what government auditors
+found, and refuse the causal claim.** Federal and state audits of Medicaid ABA
+spending in Colorado, Indiana, Maine and Wisconsin found $197.9 million in improper
+payments, with a further $206.8 million flagged as potentially improper. **None of
+those audits attributes a dollar to private equity**; they audit state programs and
+name no company. Maine is published as the control case: the third-largest finding
+of the four, and zero private-equity-owned clinics traced there. What the pairing
+does support is narrower and needs no causal claim, and Wisconsin shows it best: of
+the 48 private-equity-owned centres traced in that state, the federal provider
+registry can see 2, so the people auditing the spending cannot see who owns the
+providers. See [section 8f](./METHODOLOGY.md).
+
 **There is no "chain" share.** An earlier release headlined private equity's share
 of clinics run by operators with five or more locations. It was withdrawn, and the
 reasoning is in the [changelog](./CHANGELOG.md): the cutoff was arbitrary, and the
@@ -111,7 +123,7 @@ first, before any data is validated against them.
 If you reference Fundprint's method or dataset, please cite the methodology
 version you relied on. See [CITATION.cff](./CITATION.cff), or use:
 
-> Doke, A. (2026). *Fundprint Methodology*, version 2026.07-reconciliation-v2.
+> Doke, A. (2026). *Fundprint Methodology*, version 2026.07-statefile-v1.
 > https://github.com/fundprint/fundprint-methodology
 
 For a specific dataset release, also name its `dataset_version` (for example,
