@@ -7,6 +7,53 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## 2026.07-reconciliation-v1
+
+Released 2026-07-25. The dataset now states its disagreement with the published
+peer-reviewed estimate, decomposed rather than asserted. No clinic, owner, state or
+share figure changes in this release. What changes is that a reader can tell a
+better method from a looser one without taking our word for it.
+
+**The disagreement.** *JAMA Pediatrics*, January 2026, "Private Equity in Autism
+Services" (Arnold et al.): **574** PE-owned ASD service delivery sites in 42 states
+as of 31 December 2024, from 147 PitchBook-identified acquisitions. Fundprint:
+**1,621** PE-owned clinics in 42 states. New section 8e takes the 2.8x apart.
+
+**It is framed as a contribution because it is one.** The letter states its own two
+limitations: it cannot show PE's share of all sites, and it is likely undercounting.
+Section 8b is an attempt at the first and 8e at the second. There is nothing to
+reconcile without their estimate.
+
+**Most of the gap is not a methodological disagreement.** Restricted to clinics the
+federal registry can see, using the same building-level visibility test that
+produces the 2.8% national share, Fundprint holds **580** PE sites against their
+**574**. Two censuses sharing no data source, no unit definition and no time period
+land six sites apart nationally. That convergence bounds how much of the difference
+can be method noise, and it makes the remainder interpretable instead of a standoff:
+the other **1,041** clinics come from a source neither method uses, the operator's
+own published list of its centers.
+
+**The actual finding is that the registry's blind spot is not a constant.** Were it
+uniform, any deal-based or registry-based count could be fixed with a multiplier.
+Across the 26 brands with ten or more published centers the ratio of published to
+registry-visible runs from **1.0x** (Behavior Care Specialists, 24 against 23) to
+**unbounded** (Wisconsin Early Autism Project, 18 centers, none visible), by way of
+Centria at 21.3x and Action Behavior Centers at 3.2x. Visibility cannot be predicted
+from an operator's size, owner or state, so there is no correction factor and the
+only way to close the gap is to read each directory. `compute_market_share.py` now
+emits `numerator.by_owner`, computed in the same pass as the national share so the
+per-operator rows and the 2.8% can never drift apart.
+
+**What it does not settle, stated on the page rather than in a footnote.** Nineteen
+months separate the two counts and some part of the ratio is real growth, not
+method; separating them needs the letter's site list, which is not published. The
+two are not counts of identical objects. And our own count remains a floor for the
+section 8d reason, with roughly 500 facilities at platforms not yet covered.
+
+The paper's open-access copy is fetched and content-hashed like any other source, so
+the version being reconciled against is fixed. A new public page renders the whole
+comparison from the snapshot; no figure on it is typed in.
+
 ## 2026.07-coverage-v1
 
 Released 2026-07-24. Coverage becomes a published fraction with a denominator we

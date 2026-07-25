@@ -685,6 +685,113 @@ have.
 
 ---
 
+## 8e. Reconciliation against the published estimate
+
+A count that disagrees with a peer-reviewed estimate and cannot say where is not
+evidence, it is a second opinion. This section states the disagreement, decomposes
+it, and publishes the per-operator evidence that separates a better method from a
+looser one.
+
+### The two counts
+
+In January 2026 *JAMA Pediatrics* published **"Private Equity in Autism Services"**
+(Arnold DR, Reddy M, Cantor J, McBain RK, Yu H, Whaley CM, Singh Y). It identified
+**574** PE-owned ASD service delivery sites across **42 states**, from **147**
+acquisitions, as of **31 December 2024**, by searching PitchBook for healthcare
+acquisitions matching autism keywords over 2015 to 2024 and verifying them by hand
+in mid-2025.
+
+Fundprint publishes **1,621** PE-owned clinics across **42 states**, currently.
+
+**This is a contribution, not a rebuttal**, and the framing is not a courtesy. The
+letter names its own two limitations: that it cannot show PE's percentage of all
+ASD service delivery sites, and that it is likely undercounting acquisitions.
+Fundprint's national share (section 8b) is an attempt at the first and this section
+is an attempt at the second. There is no reconciliation to publish without their
+estimate to reconcile against.
+
+### What the two agree on, which matters before what they do not
+
+Both find private equity operating in **exactly 42 states**, from data with no
+overlap. The disagreement is depth, not footprint.
+
+In the five states the letter reports individually, Fundprint is higher in every
+one, and by very different factors: CA 148 against 97 (1.53x), TX 379 against 81
+(4.68x), CO 67 against 38 (1.76x), IL 52 against 36 (1.44x), FL 80 against 36
+(2.22x). A single scaling error does not look like this. **Fundprint's column is
+filtered to private equity alone**, because the published state map counts every
+institutional financial owner and reads higher; comparing that column against a
+figure labelled "PE" would manufacture a disagreement out of our own broader scope.
+
+### Where the difference actually comes from
+
+Restrict Fundprint to clinics the federal registry can see, using the same
+building-level visibility test that produces the 2.8% national share, and the count
+is **580** PE sites. The published estimate is **574**.
+
+Two censuses that share no data source, no unit definition and no time period land
+**six sites apart nationally**. They are not the same 574 sites, and the overlap
+cannot be checked because the letter's site list is not published. What the
+convergence does establish is a bound on how much of the difference can be method
+noise: both approaches, run against records companies file with somebody else,
+reach roughly the same number.
+
+**The remaining 1,041 clinics come from a source neither method uses: the
+operator's own published list of its centers.** A chain that runs 400 centers
+publishes 400 on its website, because it wants families to find them. It does not
+separately register 400 with the federal registry, and the transaction that created
+it recorded whatever it owned on the day it closed.
+
+### The finding: the blind spot is not a constant
+
+This matters more than the headline ratio. If the registry undercounted every
+operator by the same factor, any registry-based or deal-based count could be
+corrected with a multiplier. It does not.
+
+Across the 26 brands with ten or more published centers, the ratio of what the
+operator publishes to what the registry can see runs from **1.0x to unbounded**:
+
+| Brand | Published | Registry sees | Ratio |
+|---|---:|---:|---:|
+| Wisconsin Early Autism Project | 18 | 0 | invisible |
+| Centria | 64 | 3 | 21.3x |
+| Total Spectrum Autism Services | 25 | 2 | 12.5x |
+| Autism Spectrum Therapies | 35 | 4 | 8.8x |
+| Caravel Autism Health | 79 | 10 | 7.9x |
+| Behavioral Innovations | 134 | 19 | 7.1x |
+| Action Behavior Centers | 412 | 129 | 3.2x |
+| Florida Autism Center | 77 | 71 | 1.1x |
+| Behavior Care Specialists | 24 | 23 | 1.0x |
+
+The full table is published on the dashboard and in the snapshot. Visibility cannot
+be predicted from an operator's size, its owner, or its state. **So there is no
+adjustment factor, and the only way to close the gap is to read each operator's
+directory one at a time.**
+
+### What the reconciliation does not settle
+
+- **Elapsed time sits inside the ratio and cannot be removed.** The estimate
+  describes 31 December 2024; this dataset is current. Real centers opened between,
+  and some part of the 2.8x is growth rather than method. Separating them requires
+  the letter's site list, which is not published. Disclosed, not adjusted.
+- **The two are not counts of identical objects.** They count ASD service delivery
+  sites attached to identified acquisitions; we count operating ABA therapy centers
+  keyed on owner, normalized street and ZIP, excluding head offices, diagnostic-only
+  sites and in-home service areas.
+- **Our count is a floor too**, for the reason in section 8d: eleven in-scope
+  platforms holding roughly 500 facilities are not yet covered.
+- **Neither count can see a closed clinic the registry never marked closed**
+  (section 9). Fundprint removes centers its owners' directories no longer list,
+  which is why several of its per-operator counts run *below* other published
+  figures.
+
+The comparison is built by `scripts/build_reconciliation.py`, which content-hashes
+the open-access copy of the paper like any other source, so the version being
+reconciled against is fixed and identifiable. Every figure above is generated from
+the published dataset rather than typed into it.
+
+---
+
 ## 8c. Confidence: four questions, not one
 
 A clinic in this dataset used to carry a single confidence label, a name-match
@@ -888,6 +995,14 @@ context.
   There is **no chain-run share**: it was withdrawn because its five-site threshold
   was arbitrary and its denominator was inflated by the very buying it purported to
   measure. See section 8b.
+- **Against the published estimate:** the peer-reviewed count for the same country
+  is 574 PE-owned sites as of 31 December 2024 (*JAMA Pediatrics*, January 2026).
+  Fundprint publishes **1,621**, or **2.8x**, and both find private equity in
+  exactly 42 states. Restricted to what the federal registry can see, the two are
+  **580 against 574**, six sites apart. The whole of the difference is centers that
+  appear only in an operator's own directory, and the registry's blind spot per
+  operator runs from 1.0x to unbounded, so no multiplier can correct for it. See
+  section 8e.
 - **Where it is concentrated:** private equity holds 15.8% of Minnesota's ABA
   locations (22 of 139), 13.2% of New Mexico's (14 of 106), 9.5% of Arizona's
   (50 of 529), 7.8% of Colorado's (54 of 688) and 7.7% of Pennsylvania's (33 of

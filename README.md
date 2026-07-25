@@ -8,14 +8,14 @@ applied behavior analysis (ABA) and autism therapy clinics.
 - **This repo defines:** what counts as a clinic, an owner, and a PE-backed
   relation; how claims are scored; the confidence floors and validation gates
   that decide what gets published.
-- **Current methodology version:** `2026.07-directory-v2`
+- **Current methodology version:** `2026.07-reconciliation-v1`
 
 If you want to understand how a number on the dashboard was produced, or whether
 you can trust it, this is the repository that answers that.
 
 ## What the dataset currently says
 
-As of `2026.07-coverage-v1`: **private equity owns 1,621 of the 1,755 autism
+As of `2026.07-reconciliation-v1`: **private equity owns 1,621 of the 1,755 autism
 therapy clinics Fundprint traces, across 42 states.** The remainder are held by a
 pension fund, a family office and two search funds, which are labelled as such and
 never folded into the private-equity figure. Each clinic is graded on four separate
@@ -46,6 +46,20 @@ started and 3 are blocked on a documented obstacle, and between them they hold
 **504 facilities** by PESP's own count. Every one is named, with the reason, in
 [section 8d](./METHODOLOGY.md). The list runs both ways: PESP omits four platforms
 published here, including Caravel Autism Health and its 79 clinics.
+
+**Against the published estimate, the difference is 2.8x, and it is decomposed
+rather than asserted.** The peer-reviewed count for the same country is 574
+PE-owned sites as of 31 December 2024 (*JAMA Pediatrics*, January 2026, from
+PitchBook acquisition records). Fundprint publishes 1,621. Both find private equity
+in exactly 42 states, so the disagreement is depth, not footprint. Restricted to
+what the federal registry can see, the two counts are **580 against 574**: two
+censuses sharing no data source land six sites apart. The whole of the remainder is
+centers that appear only in an operator's own published directory. And the
+registry's blind spot is not a constant, running from 1.0x to unbounded operator by
+operator, which is why no multiplier can correct a deal-based or registry-based
+count. That comparison, with its own limitations named, is
+[section 8e](./METHODOLOGY.md). It is a contribution rather than a rebuttal: the
+letter states both of these gaps itself.
 
 **There is no "chain" share.** An earlier release headlined private equity's share
 of clinics run by operators with five or more locations. It was withdrawn, and the
@@ -85,7 +99,7 @@ first, before any data is validated against them.
 If you reference Fundprint's method or dataset, please cite the methodology
 version you relied on. See [CITATION.cff](./CITATION.cff), or use:
 
-> Doke, A. (2026). *Fundprint Methodology*, version 2026.07-directory-v2.
+> Doke, A. (2026). *Fundprint Methodology*, version 2026.07-reconciliation-v1.
 > https://github.com/fundprint/fundprint-methodology
 
 For a specific dataset release, also name its `dataset_version` (for example,
