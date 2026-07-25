@@ -1,6 +1,6 @@
 # Fundprint Methodology
 
-**Methodology version:** `2026.07-reconciliation-v1`
+**Methodology version:** `2026.07-reconciliation-v2`
 **Applies to dataset version:** `2026.07-beta` and later, until superseded.
 **Maintained at:** https://github.com/fundprint/fundprint-methodology
 **Public dashboard:** https://whofundsmytherapist.com
@@ -742,6 +742,48 @@ publishes 400 on its website, because it wants families to find them. It does no
 separately register 400 with the federal registry, and the transaction that created
 it recorded whatever it owned on the day it closed.
 
+### A second estimate, counted in a different unit
+
+One comparison against one estimate is the weakest form of this argument: it cannot
+be distinguished from a pipeline that simply inflates. The second comparison is
+against the **PESP appendix already adopted as the coverage denominator** in section
+8d, which counts **platforms** rather than deals and publishes a facility count for
+each, so unlike an aggregate it can be diffed line by line.
+
+Across the 16 platforms both cover and both measure, **PESP counts 1,521 facilities
+and Fundprint publishes 1,640**, a ratio of **1.08x**. The differences run in both
+directions: Fundprint is higher on 10 platforms, **lower on 4**, and exact on 2
+(Acorn Health 70 and 70, Centria Healthcare 64 and 64, reached from opposite
+directions). A dataset whose every revision ran upward would deserve no trust at
+all; the direction split is the evidence that this one does not.
+
+Independence here is **partial, and describing it otherwise would not survive
+review**. The platform *list* is shared, because we adopted PESP's appendix as our
+denominator. The *counts* are not: ours are built from operator directories and the
+federal registry without reference to PESP's numbers, and PESP's come from PitchBook
+and LevinPro. The two are also not like-for-like, since PESP counts facilities open
+*or opening soon*. Key Autism Services is excluded from the totals, not hidden: we
+publish zero centers for it under the in-home rule in section 2, which is a scope
+disagreement rather than a counting one, and folding it in would let a definition
+masquerade as measurement error.
+
+### The estimates sort by unit, not by rigor
+
+| Method | Counts | Sees the operator | Result |
+|---|---|---|---:|
+| *JAMA Pediatrics* | sites attached to deals | on the day it was bought | 574 |
+| Fundprint, registry only | federal registrations | on the day it registered | 580 |
+| PESP | platform facilities | now | 1,521 |
+| Fundprint, all sources | operator directories | now | 1,640 |
+
+The bottom two rows cover 16 platforms rather than the whole country, so these are
+not four points on one national series. What the grouping shows is the mechanism.
+**A census built on deals or on registrations sees a company frozen at a moment; a
+census built on platforms or directories sees it today.** A chain bought with 40
+centers that now runs 400 is counted at 40 by the first kind and at 400 by the
+second. The 2.8x is a property of the unit, not of anyone's diligence, and the two
+estimates that count in the present agree with each other to within 8%.
+
 ### The finding: the blind spot is not a constant
 
 This matters more than the headline ratio. If the registry undercounted every
@@ -1001,8 +1043,11 @@ context.
   exactly 42 states. Restricted to what the federal registry can see, the two are
   **580 against 574**, six sites apart. The whole of the difference is centers that
   appear only in an operator's own directory, and the registry's blind spot per
-  operator runs from 1.0x to unbounded, so no multiplier can correct for it. See
-  section 8e.
+  operator runs from 1.0x to unbounded, so no multiplier can correct for it. A
+  second published estimate, PESP's, counts platforms rather than deals and lands
+  at **1,521 against our 1,640** over the 16 platforms both cover, with our figure
+  *lower* on four of them. So the estimates sort by what they count, not by how
+  carefully. See section 8e.
 - **Where it is concentrated:** private equity holds 15.8% of Minnesota's ABA
   locations (22 of 139), 13.2% of New Mexico's (14 of 106), 9.5% of Arizona's
   (50 of 529), 7.8% of Colorado's (54 of 688) and 7.7% of Pennsylvania's (33 of

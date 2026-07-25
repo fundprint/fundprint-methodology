@@ -7,6 +7,39 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## 2026.07-reconciliation-v2
+
+Released 2026-07-25. Adds a **second** published estimate to section 8e, and the
+comparison it makes changes the conclusion from "we find more" to something a
+reviewer can act on. No clinic, owner, state or share figure changes.
+
+**Why a second estimate was necessary.** One ratio against one estimate is the
+weakest possible form of this argument: it is indistinguishable from a pipeline
+that inflates. The second comparison is against the PESP appendix already adopted
+as the coverage denominator in section 8d, which counts **platforms** rather than
+deals and publishes a facility count for each, so it can be diffed line by line
+where the JAMA aggregate cannot.
+
+**The result: 1,521 against 1,640 over the 16 platforms both cover, a ratio of
+1.08x.** The differences run in both directions, which is the part that matters:
+higher on 10 platforms, **lower on 4**, exact on 2 (Acorn Health 70 and 70, Centria
+Healthcare 64 and 64, reached from opposite directions).
+
+**So the estimates sort by unit, not by rigor.** Deal-based counting (574) and
+registry-based counting (580) both see a company frozen at the moment it was bought
+or registered. Platform-based counting (1,521) and directory-based counting (1,640)
+both see it today. A chain bought with 40 centers that now runs 400 is counted at 40
+by the first kind and 400 by the second. The 2.8x is a property of the unit, not of
+anyone's diligence, and the two methods that count in the present agree to within 8%.
+
+**Independence is partial and the section says so.** The platform list is shared,
+because we adopted PESP's appendix as our denominator; the counts are not, since
+ours come from directories and the registry and PESP's from PitchBook and LevinPro.
+The two are not like-for-like either, PESP counting facilities open *or opening
+soon*. Key Autism Services is excluded from the totals with its reason: we publish
+zero centers for it under the in-home rule, a scope disagreement rather than a
+counting one, and folding it in would let a definition masquerade as error.
+
 ## 2026.07-reconciliation-v1
 
 Released 2026-07-25. The dataset now states its disagreement with the published

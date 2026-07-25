@@ -8,14 +8,14 @@ applied behavior analysis (ABA) and autism therapy clinics.
 - **This repo defines:** what counts as a clinic, an owner, and a PE-backed
   relation; how claims are scored; the confidence floors and validation gates
   that decide what gets published.
-- **Current methodology version:** `2026.07-reconciliation-v1`
+- **Current methodology version:** `2026.07-reconciliation-v2`
 
 If you want to understand how a number on the dashboard was produced, or whether
 you can trust it, this is the repository that answers that.
 
 ## What the dataset currently says
 
-As of `2026.07-reconciliation-v1`: **private equity owns 1,621 of the 1,755 autism
+As of `2026.07-reconciliation-v2`: **private equity owns 1,621 of the 1,755 autism
 therapy clinics Fundprint traces, across 42 states.** The remainder are held by a
 pension fund, a family office and two search funds, which are labelled as such and
 never folded into the private-equity figure. Each clinic is graded on four separate
@@ -57,9 +57,18 @@ censuses sharing no data source land six sites apart. The whole of the remainder
 centers that appear only in an operator's own published directory. And the
 registry's blind spot is not a constant, running from 1.0x to unbounded operator by
 operator, which is why no multiplier can correct a deal-based or registry-based
-count. That comparison, with its own limitations named, is
-[section 8e](./METHODOLOGY.md). It is a contribution rather than a rebuttal: the
-letter states both of these gaps itself.
+count.
+
+A **second** published estimate settles what that means. The Private Equity
+Stakeholder Project counts platforms rather than deals, and over the 16 platforms
+both cover it reports 1,521 facilities against Fundprint's 1,640, a ratio of 1.08x,
+with Fundprint *lower* on four of them and exact on two. So the estimates sort by
+what they count, not by how carefully: a census built on deals or registrations sees
+a company frozen at the moment it was bought or registered, and one built on
+platforms or directories sees it today. Both comparisons, with their limitations and
+their partial independence named, are [section 8e](./METHODOLOGY.md). This is a
+contribution rather than a rebuttal: the peer-reviewed letter states both of these
+gaps itself.
 
 **There is no "chain" share.** An earlier release headlined private equity's share
 of clinics run by operators with five or more locations. It was withdrawn, and the
@@ -99,7 +108,7 @@ first, before any data is validated against them.
 If you reference Fundprint's method or dataset, please cite the methodology
 version you relied on. See [CITATION.cff](./CITATION.cff), or use:
 
-> Doke, A. (2026). *Fundprint Methodology*, version 2026.07-reconciliation-v1.
+> Doke, A. (2026). *Fundprint Methodology*, version 2026.07-reconciliation-v2.
 > https://github.com/fundprint/fundprint-methodology
 
 For a specific dataset release, also name its `dataset_version` (for example,
