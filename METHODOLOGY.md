@@ -767,6 +767,27 @@ publish zero centers for it under the in-home rule in section 2, which is a scop
 disagreement rather than a counting one, and folding it in would let a definition
 masquerade as measurement error.
 
+**That 1.08x is a precision check, not a national total, and conflating the two
+reverses the finding.** It answers a narrow question, whether the two sources land
+in the same place when counting the same 16 companies. They do. It says nothing
+about the national gap, which remains 2.8x. Summed across all 32 in-scope platforms,
+PESP's own facility counts come to **2,047**:
+
+| Source | Count | vs the published estimate |
+|---|---:|---:|
+| *JAMA Pediatrics*, January 2026 | 574 | n/a |
+| **Fundprint** | **1,621** | **2.8x** |
+| PESP appendix, summed | 2,047 | 3.6x |
+
+**The two outside sources disagree with each other by more than we disagree with
+either, and Fundprint sits between them, nearer PESP.** Ours is the lower of the two
+current-state counts, for a reason already published in section 8d: PESP lists eight
+in-scope platforms we have not read. Reading them would move this dataset toward
+PESP, not away. The three are not strictly like-for-like, since PESP counts
+facilities open *or opening soon* and its appendix, like our scope, carries a few
+owners that are not private equity, but the ordering is not close enough for either
+caveat to disturb it.
+
 ### The estimates sort by unit, not by rigor
 
 | Method | Counts | Sees the operator | Result |
@@ -1046,8 +1067,11 @@ context.
   operator runs from 1.0x to unbounded, so no multiplier can correct for it. A
   second published estimate, PESP's, counts platforms rather than deals and lands
   at **1,521 against our 1,640** over the 16 platforms both cover, with our figure
-  *lower* on four of them. So the estimates sort by what they count, not by how
-  carefully. See section 8e.
+  *lower* on four of them, which is a precision check rather than a national total.
+  Summed across all 32 in-scope platforms PESP implies **2,047**, so the two outside
+  sources differ from each other by more than either differs from us, and Fundprint
+  sits between them. The estimates sort by what they count, not by how carefully.
+  See section 8e.
 - **Where it is concentrated:** private equity holds 15.8% of Minnesota's ABA
   locations (22 of 139), 13.2% of New Mexico's (14 of 106), 9.5% of Arizona's
   (50 of 529), 7.8% of Colorado's (54 of 688) and 7.7% of Pennsylvania's (33 of

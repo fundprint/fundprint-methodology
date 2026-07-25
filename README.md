@@ -62,7 +62,10 @@ count.
 A **second** published estimate settles what that means. The Private Equity
 Stakeholder Project counts platforms rather than deals, and over the 16 platforms
 both cover it reports 1,521 facilities against Fundprint's 1,640, a ratio of 1.08x,
-with Fundprint *lower* on four of them and exact on two. So the estimates sort by
+with Fundprint *lower* on four of them and exact on two. That is a precision check,
+not a national total: summed across all 32 in-scope platforms PESP implies 2,047,
+against the peer-reviewed 574. The two outside sources differ from each other by more
+than either differs from Fundprint, which sits between them. So the estimates sort by
 what they count, not by how carefully: a census built on deals or registrations sees
 a company frozen at the moment it was bought or registered, and one built on
 platforms or directories sees it today. Both comparisons, with their limitations and

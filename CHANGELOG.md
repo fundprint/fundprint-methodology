@@ -32,6 +32,15 @@ both see it today. A chain bought with 40 centers that now runs 400 is counted a
 by the first kind and 400 by the second. The 2.8x is a property of the unit, not of
 anyone's diligence, and the two methods that count in the present agree to within 8%.
 
+**The platform ratio is a precision check and the section now says so explicitly**,
+because 1.08x sitting beside 2.8x reads as a deflation of the headline otherwise. It
+answers whether two sources counting the same 16 companies land in the same place.
+Summed across all 32 in-scope platforms, PESP implies **2,047** against the
+peer-reviewed **574**. The two outside sources therefore differ from each other by
+more than either differs from Fundprint's **1,621**, which sits between them and
+nearer PESP. Ours is the lower of the two current-state counts because PESP lists
+eight platforms we have not read; reading them moves this dataset toward PESP.
+
 **Independence is partial and the section says so.** The platform list is shared,
 because we adopted PESP's appendix as our denominator; the counts are not, since
 ours come from directories and the registry and PESP's from PitchBook and LevinPro.
