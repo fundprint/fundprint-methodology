@@ -7,7 +7,28 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
-## Data release 2026-10-13 (methodology unchanged, `2026.07-statefile-v1`)
+## 2026.10-verification-v1
+
+Released 2026-10-13. Adds section 8g: a measured verification rate. No clinic,
+owner, state or share figure changes.
+
+A seeded, stratified random sample of the dataset (sample `3bf05f0a`, drawn
+2026-07-19) was checked by hand against independent sources. **66 of 67
+private-equity clinics were correct on all four questions (open, at the address
+given, under the brand given, owned by the firm given): 98.5%, 95% CI 92.0% to
+99.7%.** A clinic the reviewer could not confirm counts as a failure. The PE
+stratum is the headline because the non-PE stratum was deliberately oversampled;
+the pooled rate (83 of 84, 98.8%) is published beside it and labelled. No sampled
+clinic was a ghost (0 of 84), and no unattributed registry site had a financial
+owner we had missed (0 of 15, upper bound 20.4%).
+
+Two reviewer verdicts were changed on the operator's own directory, which lists a
+second centre in the same city; both changes carry their reason in the committed
+review file, and the pre-adjudication rates (95.5% PE, 96.4% pooled) are stated in
+section 8g. The review was done by the author alone, so no inter-rater figure
+exists; the seed and the labels are public so it can be replicated.
+
+## Data release 2026-10-13 (under `2026.07-statefile-v1`)
 
 A data correction, not a methodology change. Clinics 1,755 to 1,757; private-equity
 clinics unchanged at 1,621; states unchanged at 42.

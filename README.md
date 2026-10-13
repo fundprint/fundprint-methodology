@@ -8,20 +8,22 @@ applied behavior analysis (ABA) and autism therapy clinics.
 - **This repo defines:** what counts as a clinic, an owner, and a PE-backed
   relation; how claims are scored; the confidence floors and validation gates
   that decide what gets published.
-- **Current methodology version:** `2026.07-statefile-v1`
+- **Current methodology version:** `2026.10-verification-v1`
 
 If you want to understand how a number on the dashboard was produced, or whether
 you can trust it, this is the repository that answers that.
 
 ## What the dataset currently says
 
-As of `2026.07-statefile-v1`: **private equity owns 1,621 of the 1,757 autism
+As of `2026.10-verification-v1`: **private equity owns 1,621 of the 1,757 autism
 therapy clinics Fundprint traces, across 42 states.** The remainder are held by a
 pension fund, a family office and two search funds, which are labelled as such and
 never folded into the private-equity figure. Each clinic is graded on four separate
 questions, not one: whether it is open, at its address, a centre or in-home care,
 and who owns it. 1,575 are owner-verified centres, listed by the owner's own
-directory today; the rest rest on the provider registry alone.
+directory today; the rest rest on the provider registry alone. A hand check of a
+seeded random sample found 66 of 67 private-equity clinics correct on site, address,
+brand and owner (98.5%, 95% confidence interval 92.0% to 99.7%).
 
 Measured against the federal provider registry, which lists 17,569 ABA providers
 running 21,088 locations: Fundprint can name the owner of 686 of those locations
@@ -123,7 +125,7 @@ first, before any data is validated against them.
 If you reference Fundprint's method or dataset, please cite the methodology
 version you relied on. See [CITATION.cff](./CITATION.cff), or use:
 
-> Doke, A. (2026). *Fundprint Methodology*, version 2026.07-statefile-v1.
+> Doke, A. (2026). *Fundprint Methodology*, version 2026.10-verification-v1.
 > https://github.com/fundprint/fundprint-methodology
 
 For a specific dataset release, also name its `dataset_version` (for example,

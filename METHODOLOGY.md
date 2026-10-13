@@ -1,6 +1,6 @@
 # Fundprint Methodology
 
-**Methodology version:** `2026.07-statefile-v1`
+**Methodology version:** `2026.10-verification-v1`
 **Applies to dataset version:** `2026.07-beta` and later, until superseded.
 **Maintained at:** https://github.com/fundprint/fundprint-methodology
 **Public dashboard:** https://whofundsmytherapist.com
@@ -938,6 +938,107 @@ publishes.
 
 ---
 
+## 8g. Hand verification: how often a published clinic is right
+
+Every section above describes how a claim is made. This one measures how often
+the result is true. A seeded, stratified random sample of the dataset was checked
+by hand against sources independent of the one that produced each row: the
+operator's website, map listings, and state licensing and business records.
+
+### What "correct" means
+
+A published clinic counts as correct only if all four hold: the centre is
+**open**, it is open **at the address we give**, under the **brand** we give, and
+owned by the **parent firm** we give. A clinic the reviewer could not confirm
+("cannot tell") is counted as a failure, not as a pass and not as a discard.
+Dropping unverifiable rows would raise the rate by throwing away the hardest
+cases, which are the ones most likely to be wrong. This is stricter than the
+section 7 gate, which sets "unclear" rows aside; the sample passes under both.
+
+### The design
+
+The sample (`3bf05f0a`, seed `913063207`, drawn 2026-07-19) has three strata,
+because a sample drawn only from published rows can measure precision but can
+never find a clinic the dataset missed:
+
+- `pe`: clinics attributed to a private-equity firm (110 drawn).
+- `non_pe`: clinics attributed to a pension fund, family office or search fund
+  (20 drawn). Deliberately oversampled relative to its 8% share of the dataset,
+  because it tests the owner-type label the headline depends on.
+- `unclaimed`: ABA sites in the federal registry that Fundprint attributes to
+  nobody (20 drawn). The only stratum that can detect a false negative.
+
+Within `pe` and `non_pe` the draw is split by source in proportion, because a
+registry row and a directory row fail differently: a registry row can be a ghost,
+a directory row cannot (the owner says it is open) but its address is parsed from
+HTML and can be wrong. The rows were shuffled before review. Review stopped at
+99 of the 150; because of the shuffle, the reviewed rows are themselves a random
+subset of the draw. Anyone can redraw the identical sample from the seed.
+
+### The result
+
+**66 of 67 private-equity clinics were correct on all four questions: 98.5%, 95%
+confidence interval 92.0% to 99.7%.** This is the headline, because private-equity
+ownership is the claim the project makes, and the PE stratum needs no reweighting.
+Pooled across every published stratum the figure is 83 of 84 (98.8%, 93.6% to
+99.8%), but that pooled rate leans on the oversampled non-PE stratum and is not
+the headline.
+
+| Stratum            | Correct | n  | Rate   | 95% CI          |
+|--------------------|---------|----|--------|-----------------|
+| PE, directory      | 48      | 48 | 100.0% | 92.6% to 100.0% |
+| PE, registry       | 18      | 19 | 94.7%  | 75.4% to 99.1%  |
+| Non-PE, directory  | 6       | 6  | 100.0% | 61.0% to 100.0% |
+| Non-PE, registry   | 11      | 11 | 100.0% | 74.1% to 100.0% |
+
+Intervals are Wilson score intervals, which stay inside 0 to 100% and remain
+honest at small n and rates near 100%, where the textbook interval does not.
+
+- **Ghosts:** 0 of 84 sampled published clinics were closed or were not ABA
+  clinics (upper bound 4.4%).
+- **The one failure** is a registry-only row, as the design predicts: a 2023
+  registration under a BlueSprig name at an address BlueSprig's own directory
+  does not list. The reviewer could not confirm a centre there.
+- **Recall:** 0 of 15 unattributed registry sites had a financial owner we had
+  missed. That is evidence of coverage, not proof of it: at n = 15 the upper
+  bound is still 20.4%, and section 8d names the platforms not yet read.
+
+### Two adjudications, both published
+
+The reviewer marked two clinics as being at the wrong address. In both cases the
+operator's own directory lists *two* centres in that city, and the reviewer had
+found the other one: Helping Hands Family lists both 4727 Friendship Ave,
+Pittsburgh and 1000 Integrity Dr (Penn Hills); Centria lists both 6948 E Hampton
+Rd and 455 E 6th St in Mesa, under its two brands. Both verdicts were changed to
+correct, and each changed row carries its reason in the committed review file.
+Before adjudication the rates were 64 of 67 PE (95.5%) and 81 of 84 pooled
+(96.4%). Both versions are stated so a reader can choose.
+
+### What the review caught
+
+A row the reviewer marked correct in substance exposed a parser error: an InBloom
+centre whose street had been split into the city field. The same error affected
+eight of InBloom's 30 centres and had also caused five correctly addressed
+registry rows to be retired. It was fixed and the correction published (see the
+CHANGELOG for 2026-10-13). This is the case for the exercise: the error was
+invisible to every automated check, because each garbled row was internally
+consistent.
+
+### Limits of this measurement
+
+- **One reviewer, the author.** There is no second, independent labeller and so
+  no inter-rater agreement figure. An outside replication from the published
+  seed and review file is invited.
+- **The sample predates the current release.** It was drawn against the
+  2026-07-19 dataset. Rows changed since then (the InBloom correction) are not
+  re-sampled; the rate describes the dataset as it stood at the draw.
+- **Small strata.** The registry strata have wide intervals by construction.
+
+The review file (`fundprint-data/data/verification/reviewed_3bf05f0a.csv`), the
+drawn sample with its seed, and the scoring script are public.
+
+---
+
 ## 8c. Confidence: four questions, not one
 
 A clinic in this dataset used to carry a single confidence label, a name-match
@@ -1105,6 +1206,9 @@ dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
 - **Clinics tracked:** 1,757
+- **Hand-verified accuracy:** 66 of 67 sampled private-equity clinics correct on
+  site, address, brand and owner (98.5%, 95% CI 92.0% to 99.7%); 0 of 84 sampled
+  published clinics were ghosts (see section 8g)
 - **Current owners with tracked clinics:** 19, plus one former owner and two
   in-home owners (which operate no centers), all shown with a clinic count of
   zero and an explicit label
