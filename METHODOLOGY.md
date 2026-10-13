@@ -452,7 +452,7 @@ directory mixes several tracked brands and each center's name carries its brand,
 the deterministic name matcher links it; where every center belongs to one known
 owner but the pages are generically named, they are attributed to that owner
 directly. A center that matches no tracked owner is left unlinked. In this
-release, 1,573 of the 1,755 clinics are attested by an owner directory or roster,
+release, 1,575 of the 1,757 clinics are attested by an owner directory or roster,
 and the remaining 182 rest on NPPES alone.
 
 A directory has to be read at the leaf. Autism Learning Partners publishes state
@@ -566,7 +566,7 @@ who wants a chain share can compute one from this table, and in doing so must
 state their own threshold out loud. That is the point.
 
 **The share, which needs no threshold.** Of the 21,088 ABA locations in the
-country, Fundprint can name and source the owner of **682 (3.2%)**, of which
+country, Fundprint can name and source the owner of **686 (3.3%)**, of which
 **580 (2.8%)** are held by private equity. These are the only national shares
 published, because they are the only ones that require no choice.
 
@@ -751,7 +751,7 @@ against the **PESP appendix already adopted as the coverage denominator** in sec
 each, so unlike an aggregate it can be diffed line by line.
 
 Across the 16 platforms both cover and both measure, **PESP counts 1,521 facilities
-and Fundprint publishes 1,640**, a ratio of **1.08x**. The differences run in both
+and Fundprint publishes 1,642**, a ratio of **1.08x**. The differences run in both
 directions: Fundprint is higher on 10 platforms, **lower on 4**, and exact on 2
 (Acorn Health 70 and 70, Centria Healthcare 64 and 64, reached from opposite
 directions). A dataset whose every revision ran upward would deserve no trust at
@@ -795,7 +795,7 @@ caveat to disturb it.
 | *JAMA Pediatrics* | sites attached to deals | on the day it was bought | 574 |
 | Fundprint, registry only | federal registrations | on the day it registered | 580 |
 | PESP | platform facilities | now | 1,521 |
-| Fundprint, all sources | operator directories | now | 1,640 |
+| Fundprint, all sources | operator directories | now | 1,642 |
 
 The bottom two rows cover 16 platforms rather than the whole country, so these are
 not four points on one national series. What the grouping shows is the mechanism.
@@ -972,9 +972,9 @@ reproduce each one; nothing rests on a private judgment call.
   naming the company. The dashboard shows which, and the parent's type (private
   equity, pension fund, family office, or other institutional owner).
 
-A clinic's overall grade is its weakest link. In this release **1,573 of the 1,755
+A clinic's overall grade is its weakest link. In this release **1,575 of the 1,757
 clinics are owner-verified centers**; of the 182 that rest on the registry alone,
-118 are current, 42 aging, and 22 six or more years cold. That distribution is the
+117 are current, 35 aging, and 30 six or more years cold. That distribution is the
 dataset-level answer to "how do you know?", and it is one the single old label
 could never give.
 
@@ -1039,13 +1039,13 @@ boundaries are known.
 
   The only signal the registry offers is how long a record has gone untouched.
   Fundprint records that date for every registry-sourced clinic. **Of the 182
-  registry-sourced clinics whose registration can be looked up by NPI, 22 (12%)
+  registry-sourced clinics whose registration can be looked up by NPI, 30 (16%)
   rest on a record that has not been updated or re-certified in six or more
   years.** That is not a count of ghosts, but it is the pool they are drawn from,
   and it is published rather than hidden.
 
   The exposure is now much smaller than it was, and for a better reason than
-  before. **1,573 of the 1,755 clinics are attested by an owner's own current
+  before. **1,575 of the 1,757 clinics are attested by an owner's own current
   directory**, and those cannot be ghosts by construction: a directory lists the
   centers an owner says are open today. Only the 182 registry-only clinics carry
   the risk at all. Better still, where an owner publishes a complete directory the
@@ -1053,7 +1053,7 @@ boundaries are known.
   the owner operates, and every registration it does not list is quarantined. That
   is how 34 closed Action Behavior Centers registrations in Colorado, and
   Hopebridge's entire registered presence in Colorado and Arkansas, left this
-  release. The residual ghost pool is therefore roughly 22 clinics, not a third of
+  release. The residual ghost pool is therefore roughly 30 clinics, not a third of
   the dataset.
 
   Ghosts become provable in one situation: when a chain under a *different*
@@ -1104,24 +1104,24 @@ Figures below describe dataset version `2026.07-beta`. The dataset and the
 dashboard are the live source of truth; these numbers are a snapshot for
 context.
 
-- **Clinics tracked:** 1,755
+- **Clinics tracked:** 1,757
 - **Current owners with tracked clinics:** 19, plus one former owner and two
   in-home owners (which operate no centers), all shown with a clinic count of
   zero and an explicit label
 - **States covered:** 42
-- **Clinic-existence sources:** 1,573 of the 1,755 clinics are attested by an
+- **Clinic-existence sources:** 1,575 of the 1,757 clinics are attested by an
   owner's own public location directory or roster; the remaining 182 rest on the
   NPPES provider registry alone (see section 8). Clinics from both sources are
   de-duplicated on the same key, street address plus ZIP within a parent firm, so
   a center listed in both sources is counted once, several NPIs at one address are
   counted once, and two of one firm's brands at one address are counted once.
 - **Confidence:** each clinic is graded on four separate questions rather than one
-  (see section 8c). **1,573 are owner-verified centers**, listed by the owner's own
-  directory today; of the 182 that rest on the registry alone, 118 sit on a record
-  re-certified within three years, 42 on one three to six years old, and 22 on one
+  (see section 8c). **1,575 are owner-verified centers**, listed by the owner's own
+  directory today; of the 182 that rest on the registry alone, 117 sit on a record
+  re-certified within three years, 35 on one three to six years old, and 30 on one
   six or more years old and so at risk of being closed.
 - **Registry freshness:** of the 182 registry-sourced clinics whose registration
-  can be looked up by NPI, 22 (12%) rest on a record not updated in six or more
+  can be looked up by NPI, 30 (16%) rest on a record not updated in six or more
   years. The registry never marks a closed clinic closed, so this is the honest
   measure of how much of the registry-only remainder could be stale. Where an owner
   publishes a complete directory, this problem is not measured but removed: the
@@ -1134,7 +1134,7 @@ context.
   facilities** by PESP's count, which is the honest size of what is still missing
   and the reason the clinic count below is a floor at the platform level as well.
 - **Market share:** of the 21,088 ABA locations the registry lists, Fundprint can
-  name the owner of **682 (3.2%)**, of which **580 (2.8%)** are private-equity
+  name the owner of **686 (3.3%)**, of which **580 (2.8%)** are private-equity
   held. This is a floor, not a point estimate: closed centers are removed from the
   numerator, because owners' directories reveal them, and cannot be removed from
   the denominator, because the other 17,000 operators' directories are not read.
@@ -1149,7 +1149,7 @@ context.
   appear only in an operator's own directory, and the registry's blind spot per
   operator runs from 1.0x to unbounded, so no multiplier can correct for it. A
   second published estimate, PESP's, counts platforms rather than deals and lands
-  at **1,521 against our 1,640** over the 16 platforms both cover, with our figure
+  at **1,521 against our 1,642** over the 16 platforms both cover, with our figure
   *lower* on four of them, which is a precision check rather than a national total.
   Summed across all 32 in-scope platforms PESP implies **2,047**, so the two outside
   sources differ from each other by more than either differs from us, and Fundprint
@@ -1186,7 +1186,7 @@ Current owners, by owner type and tracked clinic count:
 | Zenyth Partners                | private equity  | 58              |
 | NexPhase Capital               | private equity  | 54              |
 | FFL Partners                   | private equity  | 45              |
-| Elysium Management             | family office   | 28              |
+| Elysium Management             | family office   | 30              |
 | WSC & Company                  | other           | 24              |
 | Pharos Capital Group           | private equity  | 24              |
 | Goldman Sachs Alternatives     | private equity  | 20              |

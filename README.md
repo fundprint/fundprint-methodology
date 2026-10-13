@@ -15,17 +15,17 @@ you can trust it, this is the repository that answers that.
 
 ## What the dataset currently says
 
-As of `2026.07-statefile-v1`: **private equity owns 1,621 of the 1,755 autism
+As of `2026.07-statefile-v1`: **private equity owns 1,621 of the 1,757 autism
 therapy clinics Fundprint traces, across 42 states.** The remainder are held by a
 pension fund, a family office and two search funds, which are labelled as such and
 never folded into the private-equity figure. Each clinic is graded on four separate
 questions, not one: whether it is open, at its address, a centre or in-home care,
-and who owns it. 1,573 are owner-verified centres, listed by the owner's own
+and who owns it. 1,575 are owner-verified centres, listed by the owner's own
 directory today; the rest rest on the provider registry alone.
 
 Measured against the federal provider registry, which lists 17,569 ABA providers
-running 21,088 locations: Fundprint can name the owner of 682 of those locations
-(3.2%), of which 580 (2.8%) are private-equity held. That national figure is small
+running 21,088 locations: Fundprint can name the owner of 686 of those locations
+(3.3%), of which 580 (2.8%) are private-equity held. That national figure is small
 because the profession is overwhelmingly independent, with 15,142 providers running
 a single location. Concentration is local, and there it is much higher: private
 equity holds 15.8% of Minnesota's ABA locations and 13.2% of New Mexico's.
@@ -61,7 +61,7 @@ count.
 
 A **second** published estimate settles what that means. The Private Equity
 Stakeholder Project counts platforms rather than deals, and over the 16 platforms
-both cover it reports 1,521 facilities against Fundprint's 1,640, a ratio of 1.08x,
+both cover it reports 1,521 facilities against Fundprint's 1,642, a ratio of 1.08x,
 with Fundprint *lower* on four of them and exact on two. That is a precision check,
 not a national total: summed across all 32 in-scope platforms PESP implies 2,047,
 against the peer-reviewed 574. The two outside sources differ from each other by more

@@ -7,6 +7,43 @@ interpretable.
 
 The version format is `YYYY.MM-<label>`.
 
+## Data release 2026-10-13 (methodology unchanged, `2026.07-statefile-v1`)
+
+A data correction, not a methodology change. Clinics 1,755 to 1,757; private-equity
+clinics unchanged at 1,621; states unchanged at 42.
+
+**InBloom Autism Services (Elysium Management) was misparsed, and it was wrong in both
+directions.** The parser for InBloom's locations page flattened each card to text and
+split the city off the end. Where a card has no comma between street and city, the city
+absorbed the street name: "421 Windchime Place, Colorado Springs" was filed as street
+"421". Eight of InBloom's 30 centres carried a wrong street or had their suite moved
+into the city. Those garbled addresses then caused a second error: the check that
+retires registry rows an owner's directory does not list compared the registry against
+them, and wrongly retired five correctly addressed registry rows for centres InBloom
+does list. The parser now splits on the page's own line breaks and refuses any card it
+cannot split that way. The six garbled rows are superseded by correctly addressed ones,
+the five registry rows are restored on a new claim citing the corrected directory, and
+the earlier decisions stay on the record. One centre (Orlando) that would otherwise have
+been counted twice, once with its "Building F" unit and once without, is counted once.
+InBloom now publishes 30 centres, matching its directory exactly: 28 before, plus a
+Waukesha centre the old parser could not read and an East Granby centre opened since the
+last acquire.
+
+The error was found by hand verification. In a sample of published clinics checked
+against independent sources, the reviewer flagged an InBloom address that was correct
+in substance but stored in the wrong fields.
+
+**What moved:** registry-visible tracked sites 682 to 686, so the national tracked share
+is 3.3% (was 3.2%); the private-equity share is unchanged at 580 sites (2.8%). Over the
+16 platforms both cover, PESP's 1,521 is compared against 1,642 (was 1,640), still 1.08x.
+Owner-verified clinics are 1,575 (was 1,573).
+
+**What moved without any change to the data:** registry freshness is measured against
+the release date, so three more months of age moved the 182 registry-only clinics from
+118 current, 42 aging and 22 six or more years old to 117, 35 and 30. Clinics at risk of
+being closed are now 16% of the registry-only set (was 12%). This drift is expected, and
+it is why a registry-only clinic is graded rather than assumed open.
+
 ## 2026.07-statefile-v1
 
 Released 2026-07-25. Adds the state files: a government audit of a state's Medicaid
