@@ -30,3 +30,7 @@ keywords:
   - healthcare private equity
   - public records
   - ownership transparency
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23426864"
+    description: "Archived dataset and code for release 2026.10-verification-v1"
